@@ -39,7 +39,7 @@ servidor.get('/connected', (req, res) => {
 });
 servidor.get('/', (req, res) => {
 	console.log('connected test');
-	res.end(JSON.stringify({ result:"ok" }));
+	res.end(JSON.stringify({ result:"server 7777 ok " }));
 });
 servidor.get('/info', (req, res) => {
 	console.log('info');
