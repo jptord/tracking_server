@@ -1,0 +1,50 @@
+<html>
+<title>Template VideoJs+bootstrap+jquery</title>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
+    <style>
+        .video-js{
+            width:720px;
+            height:480px;
+        }
+    </style>
+</head>
+
+<body>
+    <video
+           id="my-player"
+           class="video-js"
+           controls
+           width="640"
+           height="480"
+          >
+        <source src="02102023 DSGU E23.mp4" type="video/mp4" />
+    </video>
+</body>
+<script>
+    var player = videojs('my-player');
+
+    player.src({type: 'video/mp4', src: '02102023 DSGU E23.mp4'});
+
+    player.on('ended', function() {
+        console.log("finalizado");
+    });
+    player.on('ready', function() {
+        console.log("listo");
+    });
+    player.on('pause', function() {
+        console.log("paused");
+    });
+    player.on('play', function() {
+        console.log("playing");
+    });
+</script>
+
+</html>
