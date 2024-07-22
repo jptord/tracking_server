@@ -12,7 +12,7 @@ class KernoMonitor{
 		this.port 		= params.port;
 		this.server 	= http.createServer(params.app);
         this.io 		= new Server(this.server, { cors: {
-			origin: "*:*",
+			origin: "*",
 			//origin: "http://172.20.50.67:4200",
 			methods: ["GET", "POST"],
 		  }});				 

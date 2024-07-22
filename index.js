@@ -29,7 +29,7 @@ udpServerTrack.addReceiveEvent((msg) => {
   kafkagps.send('gps-track',msg);
 });
 
-servidor.iniciar();
+//servidor.iniciar();
 
 servidor.use(`/kernomap`, kernoMap.publicar());
 
