@@ -1,15 +1,48 @@
 var http = require('http');
 var httpProxy = require('http-proxy');
-var proxyhttp = httpProxy.createProxyServer({target:'http://localhost:7777'}).listen(5555); // See (†)
+//var proxyhttp = httpProxy.createProxyServer({target:'http://localhost:7777'}).listen(5555); // See (†)
 
 var proxy = new httpProxy.createProxyServer({
 	target: {
 	  host: 'localhost',
-	  port: 8989
+	  port: 7171
 	}
   });
+  proxy.on('error', function(err, req, res) {
+    console.log("proxy.error:", err);
+    
+    res.writeHead(500, {
+        'Content-Type': 'text/plain'
+    });
+
+    res.end('proxy Connection refused');
+  });
+  var proxyApiMaster = new httpProxy.createProxyServer({
+	target: {
+	  host: 'localhost',
+	  port: 9988
+	}
+  });
+  
+  proxyApiMaster.on('error', function(err, req, res) {
+    console.log("proxyApiMaster.error:", err);
+    
+    res.writeHead(500, {
+        'Content-Type': 'text/plain'
+    });
+
+    res.end('proxyApiMaster Connection refused');
+  });
   var proxyServer = http.createServer(function (req, res) {
-	proxy.web(req, res);
+    //console.log("proxyServer.req",req);
+    if (req.url.includes("/trackingdb")){
+            proxyApiMaster.web(req, res);
+            
+    }else    
+        proxy.web(req, res);
+    //console.log("proxyServer.req.url",req.url);
+	///proxy.web(req, res);
+    
   });
    
   proxyServer.on('upgrade', function (req, socket, head) {

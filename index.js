@@ -8,14 +8,14 @@ const { KernoMonitor } = require("./libs/servercore/kernomonitor.js")
 //const { Ldapclient }  = require("./libs/ldapclient.js");
 //let ldapclient  = new Ldapclient();
 
-let servidor = new Servidor("7777", __dirname + '/public');
+let servidor = new Servidor("8989", __dirname + '/public');
 let metajson = new Metajson('datos.json');
 let udpServerLive = new UdpServer(9944);
 let udpServerTrack = new UdpServer(9945);
 let kafkagps = new KafkaGPS({ brokers: ["172.20.50.67:9092"] });
 let kernoDevices = new KernoDevices();
 let kernoMap = new KernoMap();
-let kernoMonitor = new KernoMonitor({ port: 8989, app: servidor });
+let kernoMonitor = new KernoMonitor({ port: 7171, app: servidor });
 kernoMonitor.setDevices(kernoDevices);
 kernoMonitor.start();
 
