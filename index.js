@@ -15,7 +15,7 @@ let udpServerTrack = new UdpServer(9945);
 let kafkagps = new KafkaGPS({ brokers: ["172.20.50.67:9092"] });
 let kernoDevices = new KernoDevices();
 let kernoMap = new KernoMap();
-let kernoMonitor = new KernoMonitor({ port: 7171, app: servidor });
+let kernoMonitor = new KernoMonitor({ port: 7777, app: servidor });
 kernoMonitor.setDevices(kernoDevices);
 kernoMonitor.start();
 
@@ -29,7 +29,7 @@ udpServerTrack.addReceiveEvent((msg) => {
   kafkagps.send('gps-track',msg);
 });
 
-servidor.iniciar();
+//servidor.iniciar();
 
 servidor.use(`/kernomap`, kernoMap.publicar());
 

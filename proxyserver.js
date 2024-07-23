@@ -5,7 +5,7 @@ var httpProxy = require('http-proxy');
 var proxy = new httpProxy.createProxyServer({
 	target: {
 	  host: 'localhost',
-	  port: 7171
+	  port: 7777
 	}
   });
   proxy.on('error', function(err, req, res) {
@@ -26,6 +26,7 @@ var proxy = new httpProxy.createProxyServer({
   
   proxyApiMaster.on('error', function(err, req, res) {
     console.log("proxyApiMaster.error:", err);
+    console.log("req:", req);
     
     res.writeHead(500, {
         'Content-Type': 'text/plain'
