@@ -64,21 +64,32 @@ class KernoMonitor{
 		});		
 	}
 	updateDevice(device){
-		this.clients.forEach(client =>{
-			if (device.stateUpdated)
-				client.emit('device.state',{id:device.getId(),states:device.getStates()});
+			if (device.stateUpdated)				
+				this.clients.forEach(client =>
+					client.emit('device.state',{id:device.getId(),states:device.getStates()})
+				);
 			if (device.trackUpdated)
-				client.emit('device.tracks',{id:device.getId(),tracks:device.getTracks()});
+				this.clients.forEach(client =>
+					client.emit('device.tracks',{id:device.getId(),tracks:device.getTracks()})
+				);
 			if (device.setupUpdated)
-				client.emit('device.setup',{id:device.getId(),setup:device.getSetups()});
+				this.clients.forEach(client =>
+					client.emit('device.setup',{id:device.getId(),setup:device.getSetups()})
+				);
 			if (device.configUpdated)
-				client.emit('device.config',{id:device.getId(),config:device.getConfigs()});
+				this.clients.forEach(client =>
+					client.emit('device.config',{id:device.getId(),config:device.getConfigs()})
+				);
 			if (device.lastUpdated)
-				client.emit('device.last',{id:device.getId(),last:device.getLast()});
+				this.clients.forEach(client =>
+					client.emit('device.last',{id:device.getId(),last:device.getLast()})					
+				);
 			if (device.isPaused)
-				client.emit('device.pause',{id:device.getId(),pause_ini:device.states["PAUSE_INI"],last:device.getLastPause()});
+				this.clients.forEach(client =>
+					client.emit('device.pause',{id:device.getId(),pause_ini:device.states["PAUSE_INI"],last:device.getLastPause()})
+				);
 			//client.emit('deviceUpdate',device.get());
-		})
+		
 	}
 }
 

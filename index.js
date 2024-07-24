@@ -20,6 +20,7 @@ kernoMonitor.setDevices(kernoDevices);
 kernoMonitor.start();
 
 const SAVE_TIME = 50;
+const DEBUG_LEVEL = 4; //5,4,3,2,1,0 HIGH - LOW   
 
 udpServerLive.addReceiveEvent((msg) => {
   kafkagps.send('gps-live',msg);
@@ -137,7 +138,7 @@ servidor.get('/data', (req, res) => {
 	kernoDevices.process(req.query.msg, (d, t) => {
 		kernoMonitor.updateDevice(d);
 	});
-	console.log(req.query.msg);
+	if (DEBUG_LEVEL >= 5) console.log(req.query.msg);
 	//kafkagps.send('gps-live', req.query.msg); !importante
 	res.end();
 });

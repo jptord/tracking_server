@@ -10,12 +10,12 @@ var proxy = new httpProxy.createProxyServer({
   });
   proxy.on('error', function(err, req, res) {
     console.log("proxy.error:", err);
-    
-    res.writeHead(500, {
-        'Content-Type': 'text/plain'
-    });
+    if (err.errno == -4077) return;    
+      res.writeHead(500, {
+          'Content-Type': 'text/plain'
+      });
 
-    res.end('proxy Connection refused');
+      res.end('proxy Connection refused');
   });
   var proxyApiMaster = new httpProxy.createProxyServer({
 	target: {
