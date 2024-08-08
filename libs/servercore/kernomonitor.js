@@ -46,11 +46,11 @@ class KernoMonitor{
 			});
 			socket.on('disconnect', () => {
 				console.log('usuario desconectado');
-				this.clients.splice(socket,1);
+				this.clients.splice(this.clients.indexOf(socket),1);
 			});
 		});
 		
-		  
+
 	}
 
 	start(){
