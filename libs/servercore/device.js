@@ -23,6 +23,8 @@ class Device{
 		this.stateUpdated	= false;
 		this.setupUpdated	= false;
 		this.isPaused		= false;
+		this.route			= {};
+		this.personal		= {};
     }
 	getSetups(){ 
 		this.setupUpdated=false;

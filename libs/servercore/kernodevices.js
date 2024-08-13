@@ -1,10 +1,13 @@
 
 const { Device }   = require("./device.js")
 const { Track }   = require("./track.js")
+const { Http }   = require("./http.js")
+
 class KernoDevices{
     
 	constructor(){
         this.devices = [];
+
     }
 	/* new device */
 	subscribe( device ){
@@ -15,9 +18,8 @@ class KernoDevices{
 	unsubscribe(device){
 		var index = devices.indexOf(device);		
 		if (index > -1)
-			devices.splice(index, 1);		
+			devices.splice(index, 1);
 	}
-
 	getDevices(){
 		let result = [];
 		//return this.devices.map( d => { return {"id" : d.getId(), "config": d.config, "tracks": d.tracks}; });
@@ -37,7 +39,6 @@ class KernoDevices{
 		let device = this.devices.find( d => d.id == deviceId );
 		device.addNotification(notification);
 	}
-
 	getDevice(deviceId){
 		let device = this.devices.find( d => d.id == deviceId );
 		if (device==null) {
@@ -63,8 +64,10 @@ class KernoDevices{
 		Object.keys(req.body).forEach(k => {
 			device.setState(k, req.body[k]);
 		});	
-		if ((device.elapsed > 10000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 ))
+		if ((device.elapsed > 10000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){
+
 			device.setSetup("REQ_TRACK","1");
+		}
 		device.updateTime();
 		callback(device);
 	}
@@ -72,7 +75,7 @@ class KernoDevices{
 		let device = this.getDevice(req.params.id);
 		Object.keys(req.body).forEach(k => {
 			device.setConfig(k, req.body[k]);
-		});	
+		});
 		callback(device);
 	}
 	process(message, callback){

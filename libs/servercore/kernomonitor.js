@@ -89,7 +89,6 @@ class KernoMonitor{
 					client.emit('device.pause',{id:device.getId(),pause_ini:device.states["PAUSE_INI"],last:device.getLastPause()})
 				);
 			//client.emit('deviceUpdate',device.get());
-		
 	}
 }
 
