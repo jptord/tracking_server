@@ -65,7 +65,6 @@ class KernoDevices{
 			device.setState(k, req.body[k]);
 		});	
 		if ((device.elapsed > 10000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){
-
 			device.setSetup("REQ_TRACK","1");
 		}
 		device.updateTime();
@@ -92,7 +91,8 @@ class KernoDevices{
 			lat:data.lat,
 			lon:data.lon,
 			bat:data.b,
-			acc:data.acc
+			acc:data.acc,
+			stp:data['s'],
 		});
 		device.addTrack(track);
 		device.setLast(track);

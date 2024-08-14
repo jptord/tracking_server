@@ -4,16 +4,16 @@ var httpProxy = require('http-proxy');
 
 var proxy = new httpProxy.createProxyServer({
 	target: {
-	  host: 'localhost',
+	  host: '172.20.5.22',
 	  port: 7777
 	}
   });
   proxy.on('error', function(err, req, res) {
     console.log("proxy.error:", err);
     if (err.errno == -4077) return;    
-      res.writeHead(500, {
+      /*res.writeHead(500, {
           'Content-Type': 'text/plain'
-      });
+      });*/
 
       res.end('proxy Connection refused');
   });

@@ -49,8 +49,6 @@ class KernoMonitor{
 				this.clients.splice(this.clients.indexOf(socket),1);
 			});
 		});
-		
-
 	}
 
 	start(){
@@ -83,10 +81,14 @@ class KernoMonitor{
 			if (device.lastUpdated)
 				this.clients.forEach(client =>
 					client.emit('device.last',{id:device.getId(),last:device.getLast()})					
-				);
+				);						
 			if (device.isPaused)
 				this.clients.forEach(client =>
 					client.emit('device.pause',{id:device.getId(),pause_ini:device.states["PAUSE_INI"],last:device.getLastPause()})
+				);
+			if (device.isDeleted)
+				this.clients.forEach(client =>
+					client.emit('device.removed',{id:device.getId()})
 				);
 			//client.emit('deviceUpdate',device.get());
 	}

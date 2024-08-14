@@ -22,9 +22,9 @@ class Device{
 		this.lastUpdated	= false;
 		this.stateUpdated	= false;
 		this.setupUpdated	= false;
-		this.isPaused		= false;
 		this.route			= {};
-		this.personal		= {};
+		this.personal		= {};		
+		this.isDeleted		= false;
     }
 	getSetups(){ 
 		this.setupUpdated=false;
@@ -37,6 +37,9 @@ class Device{
 	getConfigs(){ 
 		this.configUpdated=false;
 		return this.config;
+	}
+	deleteDevice(){
+		this.isDeleted = true;		
 	}
 	get(){		
 		return {"id" : this.getId(), "config": this.config, "elapsed":this.elapsed, "setup": this.setup, "states": this.states, "tracks": [],last: this.last };
@@ -82,15 +85,17 @@ class Device{
 					me.tracks = [];
 					let lines = rowString.toString().split('\n');
 					lines.forEach( line => {
-						let [t,lat,lon,b,acc] = line.split('\t');
+						let [t,lat,lon,b,int,acc,stp] = line.split('\t');
 						me.addTrack(new Track({
 							t:t,
 							lat:lat,
 							lon:lon,
 							bat:b,
-							acc:acc
+							acc:acc,
+							stp:stp,
 						}));
 					});
+					
 					me.trackUpdated = true;
 				})
 			});
@@ -115,6 +120,9 @@ class Device{
 	setLast(track){		
 		this.last = track;
 		this.lastUpdated = true;
+	}
+	clearTrack(){
+		this.tracks = [];
 	}
 	setConfig(key, value){
 		if (value == undefined) return;

@@ -95,7 +95,7 @@ servidor.post('/device/:id/update/state', (req, res) => {
 });
 
 servidor.post('/device/:id/update/state/silence', (req, res) => {
-	console.log("/device/:id/update/state/silence",req.params.id);
+	//console.log("/device/:id/update/state/silence",req.params.id);
 	kernoDevices.processStates( req,res, (device) => {
 		kernoMonitor.updateDevice(device);
 		res.end(JSON.stringify(device.getAllSetup()));
@@ -133,6 +133,30 @@ servidor.get('/device/:id/update', (req, res) => {
 	else
 		res.end();
 });
+
+servidor.get('/device/:id/reset', (req, res) => {
+	let device = kernoDevices.getDevice(req.params.id);
+	device.clearTrack();
+	kernoMonitor.updateDevice(device);
+	if (device != null){
+		res.setHeader('Content-Type', 'application/json');
+		res.end(`{"result":"ok"}`);
+	}else
+		res.end();
+});
+
+servidor.get('/device/:id/clear', (req, res) => {
+	let device = kernoDevices.getDevice(req.params.id);
+	device.deleteDevice();
+	if (device != undefined) kernoMonitor.updateDevice(device);
+	
+	if (device != null){
+		res.setHeader('Content-Type', 'application/json');
+		res.end(`{"result":"ok"}`);
+	}else
+		res.end();
+});
+
 
 servidor.get('/data', (req, res) => {
 	kernoDevices.process(req.query.msg, (d, t) => {
