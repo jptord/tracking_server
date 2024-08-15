@@ -123,6 +123,7 @@ class Device{
 	}
 	clearTrack(){
 		this.tracks = [];
+		this.trackUpdated = true;
 	}
 	setConfig(key, value){
 		if (value == undefined) return;

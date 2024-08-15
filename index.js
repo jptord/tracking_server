@@ -74,6 +74,15 @@ servidor.get('/devices/clear', (req, res) => {
 	res.end(`{"result":"${result}"}`);
 });
 
+servidor.get('/device/:id', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+	let device = kernoDevices.getDevice(req.params.id);
+	if (device != null)
+		res.end(JSON.stringify(device.get()));
+	else
+		res.end();
+});
+
 servidor.post('/device/:id/startapp', (req, res) => {
 	console.log("/device/:id/startapp");
 	let device = kernoDevices.getDevice(req.params.id);
@@ -109,7 +118,6 @@ servidor.post('/device/:id/update/config', (req, res) => {
 		res.end(`{"result":"ok"}`);
 	});
 });
-	
 
 servidor.post('/device/:id/setup/state', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -148,8 +156,7 @@ servidor.get('/device/:id/reset', (req, res) => {
 servidor.get('/device/:id/clear', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
 	device.deleteDevice();
-	if (device != undefined) kernoMonitor.updateDevice(device);
-	
+	if (device != undefined) kernoMonitor.updateDevice(device);	
 	if (device != null){
 		res.setHeader('Content-Type', 'application/json');
 		res.end(`{"result":"ok"}`);

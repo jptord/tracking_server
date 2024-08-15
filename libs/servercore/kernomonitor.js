@@ -86,10 +86,12 @@ class KernoMonitor{
 				this.clients.forEach(client =>
 					client.emit('device.pause',{id:device.getId(),pause_ini:device.states["PAUSE_INI"],last:device.getLastPause()})
 				);
-			if (device.isDeleted)
+			if (device.isDeleted){
 				this.clients.forEach(client =>
-					client.emit('device.removed',{id:device.getId()})
+					client.emit('device.removed',{id:device.getId()})					
 				);
+				this.kernoDevices.removeDevice(device);
+			}
 			//client.emit('deviceUpdate',device.get());
 	}
 }

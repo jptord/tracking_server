@@ -53,6 +53,9 @@ class KernoDevices{
 		}
 		return device;
 	}
+	removeDevice(device){
+		this.devices.splice(this.devices.indexOf(device),1);
+	}
 	communication(){
 		/*this.devices.forEach((device,index) => {
 			device.communication(request,reponse);
@@ -64,8 +67,14 @@ class KernoDevices{
 		Object.keys(req.body).forEach(k => {
 			device.setState(k, req.body[k]);
 		});	
-		if ((device.elapsed > 10000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){
+		if ( device.getState("ID_SESSION") == "0" || device.getState("ID_SESSION") == "1"|| device.getState("ID_SESSION") == "" ){
+			device.setSetup("REQ_UPDATE","1");
+			console.log("Required session for " + device.id);
+		}
+		if ((device.elapsed > 10000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){						
 			device.setSetup("REQ_TRACK","1");
+			device.setSetup('REQ_UPDATE','1');	
+			console.log("Required Track for " + device.id);
 		}
 		device.updateTime();
 		callback(device);
@@ -96,7 +105,7 @@ class KernoDevices{
 		});
 		device.addTrack(track);
 		device.setLast(track);
-		device.updateTime();
+		//device.updateTime();
 		callback(device,track);		
 	}
 }
