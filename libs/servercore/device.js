@@ -12,6 +12,7 @@ class Device{
 		this.lasttime		= Date.now();
 		this.notifications 	= [];
 		this.tracks 		= [];
+		this.lasttracks     = [];
 		this.last			= {};
 		this.states 		= {};
 		this.setup 			= {};

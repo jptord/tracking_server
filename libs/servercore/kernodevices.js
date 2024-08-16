@@ -26,7 +26,10 @@ class KernoDevices{
 		return this.devices.map( d => { return d.get() });
 	}
 	clearDevices(){
-		this.devices = [];
+		//this.devices = [];
+		this.devices.forEach(device=>{
+			deleteDevice.deleteDevice();
+		});
 		console.log("KernoDevices.clearDevices: ", "ok");
 		return "KernoDevices.clearDevices: " + "ok";
 	}
@@ -64,6 +67,7 @@ class KernoDevices{
 	
 	processStates(req,res, callback){
 		let device = this.getDevice(req.params.id);
+		device.updateTime();
 		Object.keys(req.body).forEach(k => {
 			device.setState(k, req.body[k]);
 		});	
@@ -76,7 +80,10 @@ class KernoDevices{
 			device.setSetup('REQ_UPDATE','1');	
 			console.log("Required Track for " + device.id);
 		}
-		device.updateTime();
+		if (device.elapsed > 50000 ){			
+			device.deleteDevice();
+		}
+		
 		callback(device);
 	}
 	processConfig(req,res, callback){
