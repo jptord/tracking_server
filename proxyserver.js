@@ -4,7 +4,7 @@ var httpProxy = require('http-proxy');
 
 var proxy = new httpProxy.createProxyServer({
 	target: {
-	  host: '172.20.5.22',
+	  host: 'localhost',
 	  port: 7777
 	}
   });
