@@ -26,10 +26,10 @@ class KernoDevices{
 		return this.devices.map( d => { return d.get() });
 	}
 	clearDevices(){
-		//this.devices = [];
-		this.devices.forEach(device=>{
-			deleteDevice.deleteDevice();
-		});
+		this.devices = [];
+		/*this.devices.forEach(device=>{
+		/	device.deleteDevice();
+		});*/
 		console.log("KernoDevices.clearDevices: ", "ok");
 		return "KernoDevices.clearDevices: " + "ok";
 	}
