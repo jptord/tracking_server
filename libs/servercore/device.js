@@ -46,7 +46,7 @@ class Device{
 		return {"id" : this.getId(), "config": this.config, "elapsed":this.elapsed, "setup": this.setup, "states": this.states, "tracks": [],last: this.last };
 	}
 	getAllSetup(){
-		let setup = { ... this.setup }; 
+		let setup = JSON.parse(JSON.stringify(this.setup)); 
 		this.setup = {};
 		this.setupUpdated = false;
 		return setup;
@@ -76,8 +76,8 @@ class Device{
 			fs.writeFile(`tracks/track-${this.id}.txt`, b64, err => {});
 			
 			const decoded = Buffer.from(b64, "base64");			
-			fs.writeFile(`tracks/track-${this.id}.zip`, decoded, err => {});
-			
+            console.log("device.setTracks: ",`tracks/track-${this.id}.zip`);
+			fs.writeFile(`tracks/track-${this.id}.zip`, decoded, err => {});            
 			decompress(decoded, 'dist').then(files => {
 				let content = "";
 				files.forEach(f => {

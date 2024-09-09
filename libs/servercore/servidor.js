@@ -20,10 +20,12 @@ class Servidor extends express{
           }
 
         this.use(cors(corsOptions));
-        this.use(bodyParser.json());
+        //this.use(bodyParser.json());
+        //this.use(bodyParser.text({ limit: '25mb' }));
         this.use(express.json({limit: '25mb'}));
-        this.use(express.urlencoded({limit: '25mb'}));
-        this.use(bodyParser.urlencoded({ extended: true,parameterLimit: 100000, limit: '50mb' }));
+        this.use(express.text({limit: '25mb'}));
+        //this.use(express.urlencoded({limit: '25mb'}));
+        this.use(express.urlencoded({ extended: true,parameterLimit: 100000, limit: '50mb' }));
         this.use("/", express.static(this.publicFolder));
     }
     iniciar = function(){

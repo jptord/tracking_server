@@ -57,6 +57,7 @@ var proxy = new httpProxy.createProxyServer({
 
     res.end('proxyApiMaster Connection refused');
   });
+  var total = 0;
   var proxyServer = http.createServer(function (req, res) {
     //console.log("proxyServer.req",req);
     console.log("proxy access",req.url);
@@ -76,7 +77,16 @@ var proxy = new httpProxy.createProxyServer({
             return;
     }
 
+
+    //console.log("bytes",req.headers);
+    size = Number (req.headers['content-length']);
+    if (size>0)
+    total+=size;
+    console.log("bytes:"+size+" total:"+ total);
+    
+    //console.log("bytes",Buffer.from(req).length);
     proxy.web(req, res);
+    //console.log(req);
     //console.log("proxyServer.req.url",req.url);
 	///proxy.web(req, res);
     
@@ -86,7 +96,7 @@ var proxy = new httpProxy.createProxyServer({
 	proxy.ws(req, socket, head);
   });
   console.log("proxy started");
-  proxyServer.listen(80);	
+  proxyServer.listen(8080);	
   /*
 http.createServer(function(req, res) {
     //console.log("received");
