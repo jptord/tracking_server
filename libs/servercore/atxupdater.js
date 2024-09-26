@@ -12,9 +12,16 @@ class AtxUpdater {
       console.log("update");
       exec("cd /home/tracking-capture; git fetch; git pull;", (err, stdout1, stderr) => {
         console.log("stdout1:", stdout1);
-        
+        if (stdout1.includes("Updating")){
+            console.log("updated, and rebooting");
+            res.end("updated, and rebooting");
+            exec("reboot now;", (err, stdout1, stderr) => {
+                
+            });
+        }
         console.log("err:", err);
-        res.end("updated");
+        console.log("nothing to update");
+        res.end("nothing to update");
       });
     });
     return servidor;
