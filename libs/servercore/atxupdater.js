@@ -14,7 +14,7 @@ class AtxUpdater {
         console.log("stdout1:", stdout1);
         
         console.log("err:", err);
-        req.end("updated");
+        res.end("updated");
       });
     });
     return servidor;
