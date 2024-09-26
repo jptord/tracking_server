@@ -13,9 +13,8 @@ class AtxUpdater {
       exec("cd /home/tracking-capture; git fetch; git pull;", (err, stdout1, stderr) => {
         console.log("stdout1:", stdout1);
         
-                console.log("stdout3:", stdout3);
-                console.log("err:", err);
-                req.end("updated");
+        console.log("err:", err);
+        req.end("updated");
       });
     });
     return servidor;
