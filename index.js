@@ -164,7 +164,6 @@ servidor.get('/device/:id/clear', (req, res) => {
 		res.end();
 });
 
-
 servidor.get('/data', (req, res) => {
 	kernoDevices.process(req.query.msg, (d, t) => {
 		kernoMonitor.updateDevice(d);
