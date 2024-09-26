@@ -14,9 +14,10 @@ class AtxUpdater {
         console.log("stdout1:", stdout1);
         if (stdout1.includes("Updating")){
             console.log("updated, and rebooting");
-            res.end("updated, and rebooting ");
+            res.end("updated, and rebooting");
             try{
-            exec("reboot now", (err, stdout2, stderr) => {                
+                console.log("trying rebooing:");    
+                exec("reboot now", (err2, stdout2, stderr2) => {                
                 
                 //console.log("stdout2:",stdout2);
             });
