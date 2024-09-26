@@ -9,11 +9,16 @@ class AtxUpdater {
     let servidor = this.router;
 
     servidor.get("/update", (req, res) => {
-      console.log("sc1");
-      exec("cd /home/tracking-capture", (err, stdout, stderr) => {
-        exec("git fetch; git pull;", (err, stdout, stderr) => {
-          console.log("stdout:", stdout);
-          req.end("updated");
+      console.log("update");
+      exec("cd /home/tracking-capture", (err, stdout1, stderr) => {
+        console.log("stdout1:", stdout1);
+        exec("git fetch", (err, stdout2, stderr) => {
+            console.log("stdout2:", stdout2);
+            exec("git fetch", (err, stdout3, stderr) => {
+                console.log("stdout3:", stdout3);
+                console.log("err:", err);
+                req.end("updated");
+            });            
         });
       });
     });
