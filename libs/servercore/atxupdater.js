@@ -16,7 +16,7 @@ class AtxUpdater {
         });
       });
     });
-    return servidor();
+    return servidor;
   }
 }
 
