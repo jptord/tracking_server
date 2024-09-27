@@ -65,7 +65,7 @@ class AtxUpdater {
                  './.gitignore',
                  './.gitmodules'
              ];
-            var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,14) ;
+            var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;
             
             let params = ['-p Facil123','scp','-r','./tracks',`${scpData.user}@${scpData.host}:${scpData.base}/${isodate}`];
             let cmds = [];
