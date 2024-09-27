@@ -111,8 +111,8 @@ class AtxUpdater {
         let cmds = [];
         
         //cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_data'`);
-        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")} ${f}`));
-        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data ${f}`));        
+        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")} ./`));
+        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data ./`));        
         this.executeSerialize(cmds,0,'',(response)=>{
             callback(response);
         });
