@@ -27,6 +27,11 @@ class AtxUpdater {
         let servidor = this.router;
         servidor.get("/update", (req, res) => {
             console.log("update");
+                     
+            this.backupAll(req,res,(response)=>{ 
+                console.log("/update backup data ended: " + response);
+            });
+            
             exec(`cd /home/${this.scpData.app}; git fetch; git pull;`, (err, stdout1, stderr) => {
                 console.log("stdout:", stdout1);
                 if (stdout1.includes("Updating")){
@@ -60,12 +65,18 @@ class AtxUpdater {
         });
         return servidor;
     }
-    backupData(req,res,callback){        
+    backupData(req,res,callback){ 
         let scpData = this.scpData;
         let folderData = this.folderData;
         let filesData = this.filesData;
         let folderApp = this.folderApp;
         let filesApp = this.filesApp;
+        
+        if (req.body.scpData!=undefined) scpData = req.body.scpData;
+        if (req.body.folderData!=undefined) scpData = req.body.folderData;
+        if (req.body.filesData!=undefined) scpData = req.body.filesData;
+        if (req.body.folderApp!=undefined) scpData = req.body.folderApp;
+        if (req.body.filesApp!=undefined) scpData = req.body.filesApp;
 
         var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         let cmds = [];
@@ -83,6 +94,12 @@ class AtxUpdater {
         let filesData = this.filesData;
         let folderApp = this.folderApp;
         let filesApp = this.filesApp;
+        
+        if (req.body.scpData!=undefined) scpData = req.body.scpData;
+        if (req.body.folderData!=undefined) scpData = req.body.folderData;
+        if (req.body.filesData!=undefined) scpData = req.body.filesData;
+        if (req.body.folderApp!=undefined) scpData = req.body.folderApp;
+        if (req.body.filesApp!=undefined) scpData = req.body.filesApp;
 
         var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         let cmds = [];
@@ -99,6 +116,12 @@ class AtxUpdater {
         let filesData = this.filesData;
         let folderApp = this.folderApp;
         let filesApp = this.filesApp;
+        
+        if (req.body.scpData!=undefined) scpData = req.body.scpData;
+        if (req.body.folderData!=undefined) scpData = req.body.folderData;
+        if (req.body.filesData!=undefined) scpData = req.body.filesData;
+        if (req.body.folderApp!=undefined) scpData = req.body.folderApp;
+        if (req.body.filesApp!=undefined) scpData = req.body.filesApp;
 
         var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         let cmds = [];
