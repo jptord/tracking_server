@@ -59,6 +59,7 @@ class AtxUpdater {
             let host = req.body.host;
             if (host == undefined){ res.end("invalid host"); return ;}
             exec(`ssh-keyscan ${host} >> ~/.ssh/known_host`, (err, stdout1, stderr) => {
+                console.log("auth stdout: ", stdout1);
                 res.end("host authorized");
             });
         });
