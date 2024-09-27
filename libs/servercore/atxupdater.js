@@ -16,11 +16,7 @@ class AtxUpdater {
                 console.log("updated, and rebooting app");
                 res.end("updated, and rebooting app");
                 try{
-                    /*console.log("trying rebooing");    
-                    exec("reboot now ", (err2, stdout2, stderr2) => {     */
                     process.exit();
-                    //console.log("stdout2:",stdout2);
-                //});
                 }catch(e){
                     console.log("try rebooing err:", e);    
                 }
