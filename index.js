@@ -42,7 +42,13 @@ let atxupdater = new AtxUpdater({
          'README.md',
          '.gitignore',
          '.gitmodules'
-    ]
+    ],
+    callback : {
+        preRestore : ()=>{ console.log("preRestore") },
+        postRestore : ()=>{ console.log("postRestore") },
+        preBackup : ()=>{ console.log("preBackup") },
+        postBackup : ()=>{ console.log("postBackup") },
+    }
 });
 let kernoMonitor = new KernoMonitor({ port: 7777, app: servidor });
 kernoMonitor.setDevices(kernoDevices);

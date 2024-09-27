@@ -13,7 +13,13 @@ class AtxUpdater {
         folderData : [],
         filesData : [],
         folderApp : [],
-        filesApp : []
+        filesApp : [],
+        callbacks:{
+            preBackup:null,
+            postBackup:null,
+            preRestore:null,
+            postRestore:null,
+        }
     }) {
         this.app = options.app;
         this.scpData = options.scpData;
@@ -21,6 +27,7 @@ class AtxUpdater {
         this.filesData = options.filesData;
         this.folderApp = options.folderApp;
         this.filesApp = options.filesApp;
+        this.callbacks = options.callbacks;
 
         this.router = express.Router();
     }
@@ -98,6 +105,8 @@ class AtxUpdater {
         let filesData = this.filesData;
         let folderApp = this.folderApp;
         let filesApp = this.filesApp;
+        let callbacks = this.callbacks;
+        if (callbacks!= null) if (callbacks.preRestore!= null) callbacks.preRestore();
         
         if (req.body.scpData!=undefined) scpData = req.body.scpData;
         if (req.body.folderData!=undefined) scpData = req.body.folderData;
@@ -114,6 +123,7 @@ class AtxUpdater {
         folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")} ./`));
         filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data ./`));        
         this.executeSerialize(cmds,0,'',(response)=>{
+            if (callbacks!= null) if (callbacks.postRestore!= null) callbacks.postRestore();
             callback(response);
         });
     }
@@ -124,6 +134,8 @@ class AtxUpdater {
         let filesData = this.filesData;
         let folderApp = this.folderApp;
         let filesApp = this.filesApp;
+        let callbacks = this.callbacks;
+        if (callbacks!= null) if (callbacks.preBackup!= null) callbacks.preBackup();
         
         if (req.body.scpData!=undefined) scpData = req.body.scpData;
         if (req.body.folderData!=undefined) scpData = req.body.folderData;
@@ -138,6 +150,7 @@ class AtxUpdater {
         folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")}`));
         filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data`));        
         this.executeSerialize(cmds,0,'',(response)=>{
+            if (callbacks!= null) if (callbacks.postBackup!= null) callbacks.postBackup();
             callback(response);
         });
     }
@@ -148,6 +161,8 @@ class AtxUpdater {
         let filesData = this.filesData;
         let folderApp = this.folderApp;
         let filesApp = this.filesApp;
+        let callbacks = this.callbacks;
+        if (callbacks!= null) if (callbacks.preBackup!= null) callbacks.preBackup();
         
         if (req.body.scpData!=undefined) scpData = req.body.scpData;
         if (req.body.folderData!=undefined) scpData = req.body.folderData;
@@ -161,6 +176,7 @@ class AtxUpdater {
         folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app/${f.replaceAll("./","")}`));
         filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app`));
         this.executeSerialize(cmds,0,'',(response)=>{
+            if (callbacks!= null) if (callbacks.postBackup!= null) callbacks.postBackup();
             callback(response);
         });
     }
@@ -171,6 +187,8 @@ class AtxUpdater {
         let filesData = this.filesData;
         let folderApp = this.folderApp;
         let filesApp = this.filesApp;
+        let callbacks = this.callbacks;
+        if (callbacks!= null) if (callbacks.preBackup!= null) callbacks.preBackup();
         
         if (req.body.scpData!=undefined) scpData = req.body.scpData;
         if (req.body.folderData!=undefined) scpData = req.body.folderData;
@@ -187,6 +205,7 @@ class AtxUpdater {
         folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app/${f.replaceAll("./","")}`));
         filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app`));
         this.executeSerialize(cmds,0,'',(response)=>{
+            if (callbacks!= null) if (callbacks.postBackup!= null) callbacks.postBackup();
             callback(response);
         });
     }
