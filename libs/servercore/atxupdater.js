@@ -34,28 +34,22 @@ class AtxUpdater {
         });
         servidor.get("/backup", (req, res) => {
             //fs.copyFile( src, dest, mode, callback );
-            console.log("route backup");
-            //let cmd = "scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups";
-            let cmd = "sshpass";
-            //let cmd = "ls";
-            const sp =  cp.spawn(cmd, ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{
-            //const sp =  cp.spawn(cmd, ['-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{
-                shell: true
+            console.log("route backup");            
+            let cmd = "sshpass";        
+            let params = ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'];
+            exec(cmd+" "+params.join(" "), (err, stdout1, stderr) => {
+                console.log(`scp stdout: ${data}`);
+                res.end("backup ended");
+            });
+            /*const sp =  cp.spawn(cmd, ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{shell: true
             });
             sp.stdout.on('data', (data) => {
                 console.log(`scp stdout: ${data}`);
-                sp.stdout.write('Facil123');
             });
-            sp.stdin.on('data', (data) => {
-                console.log(`scp stdout: ${data}`);
-                sp.stdout.write('Facil123');
-            });
-            
             sp.stderr.on('data', (data) => {
                 console.error(`scp stderr: ${data}`);
-            });
+            });*/
               
-            res.end("backup");
 
             /*exec("scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups", (err, stdout, stderr) => {                
                 console.log("scp stderr:", stderr);
