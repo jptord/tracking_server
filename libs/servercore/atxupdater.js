@@ -33,7 +33,8 @@ class AtxUpdater {
         servidor.get("/backup", (req, res) => {
             //fs.copyFile( src, dest, mode, callback );
             console.log("route backup");
-            exec("scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups", (err, stdout, stderr) => {
+            exec("scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups", (err, stdout, stderr) => {                
+                console.log("scp stderr:", stderr);
                 console.log("scp stdout:", stdout);
                 res.end("backup");
             });
