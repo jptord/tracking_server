@@ -61,7 +61,23 @@ class AtxUpdater {
                 res.end("backup data ended: " + response);
             });
         });
-        servidor.get("/restore", (req, res) => {
+        servidor.post("/backup_app", (req, res) => {            
+            this.backupApp(req,res,(response)=>{ 
+                res.end("backup app ended: " + response);
+            });
+        });
+        servidor.post("/backup_all", (req, res) => {             
+            this.backupAll(req,res,(response)=>{ 
+                res.end("backup all ended: " + response);
+            });
+        });
+        servidor.post("/backup_data", (req, res) => {
+            console.log("route /backup");                        
+            this.backupData(req,res,(response)=>{ 
+                res.end("backup data ended: " + response);
+            });
+        });
+        servidor.post("/restore", (req, res) => {
             process.exit();
         });
         return servidor;
@@ -142,7 +158,7 @@ class AtxUpdater {
         exec(cmds[index], (err, stdout, stderr) => {            
             if (err)
                 console.log(`scp err: ${err}`);
-            response += 'stdout:  '+stdout +'\n';
+            response += 'stdout: '+stdout +'\n';
             response += 'stderr: '+stderr +'\n';
             console.log(`scp stdout: ${stdout}`);
             console.log(`scp stdout: ${stderr}`);
