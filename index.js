@@ -17,12 +17,14 @@ let kafkagps = new KafkaGPS({ brokers: ["172.20.50.67:9092"] });
 let kernoDevices = new KernoDevices();
 let kernoMap = new KernoMap();
 let atxupdater = new AtxUpdater({
+    app:{
+       name:'tracking-capture'
+    },
     scpData : {
         user:'root',
         pass:'Facil123',
         host:'172.20.50.59',
         base:'/mnt/disk1/desarrollo/backups',
-        app:'tracking-capture'
     },
     folderData : [
          './tracks'

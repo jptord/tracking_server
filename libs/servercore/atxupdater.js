@@ -8,12 +8,14 @@ var toDateStr = function (str){
 
 class AtxUpdater {
     constructor(options = {
-        scpData : { user:'', pass:'', host:'', base:'', app:'' },
+        app : {name:''},
+        scpData : { user:'', pass:'', host:'', base:'' },
         folderData : [],
         filesData : [],
         folderApp : [],
         filesApp : []
     }) {
+        this.app = options.app;
         this.scpData = options.scpData;
         this.folderData = options.folderData;
         this.filesData = options.filesData;
@@ -24,13 +26,14 @@ class AtxUpdater {
     }
 
     init() {
+        let me = this;
         let servidor = this.router;
         servidor.get("/update", (req, res) => {
             console.log("update ");
                      
             this.backupAll(req,res,(response)=>{ 
                 console.log("/update backup data ended: " + response);
-                exec(`cd /home/${this.scpData.app}; git fetch; git pull;`, (err, stdout1, stderr) => {
+                exec(`cd /home/${me.app.name}; git fetch; git pull;`, (err, stdout1, stderr) => {
                     console.log("/update stdout:", stdout1);
                     if (stdout1.includes("Updating")){
                         console.log("updated, and rebooting app");
@@ -83,6 +86,7 @@ class AtxUpdater {
         return servidor;
     }
     backupData(req,res,callback){ 
+        let app = this.app;
         let scpData = this.scpData;
         let folderData = this.folderData;
         let filesData = this.filesData;
@@ -98,14 +102,15 @@ class AtxUpdater {
         var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         let cmds = [];
         
-        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${scpData.app}_${isodate}_data'`);
-        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data/${f.replaceAll("./","")}`));
-        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data`));        
+        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_data'`);
+        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")}`));
+        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data`));        
         this.executeSerialize(cmds,0,'',(response)=>{
             callback(response);
         });
     }
     backupApp(req,res,callback){
+        let app = this.app;
         let scpData = this.scpData;
         let folderData = this.folderData;
         let filesData = this.filesData;
@@ -120,14 +125,15 @@ class AtxUpdater {
 
         var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         let cmds = [];
-        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${scpData.app}_${isodate}_app'`);        
-        folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app/${f.replaceAll("./","")}`));
-        filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app`));
+        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_app'`);        
+        folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app/${f.replaceAll("./","")}`));
+        filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app`));
         this.executeSerialize(cmds,0,'',(response)=>{
             callback(response);
         });
     }
     backupAll(req,res,callback){
+        let app = this.app;
         let scpData = this.scpData;
         let folderData = this.folderData;
         let filesData = this.filesData;
@@ -142,12 +148,12 @@ class AtxUpdater {
 
         var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         let cmds = [];
-        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${scpData.app}_${isodate}_data'`);
-        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${scpData.app}_${isodate}_app'`);
-        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data/${f.replaceAll("./","")}`));
-        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data`));
-        folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app/${f.replaceAll("./","")}`));
-        filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app`));
+        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_data'`);
+        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_app'`);
+        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")}`));
+        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data`));
+        folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app/${f.replaceAll("./","")}`));
+        filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app`));
         this.executeSerialize(cmds,0,'',(response)=>{
             callback(response);
         });
