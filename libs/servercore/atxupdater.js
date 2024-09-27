@@ -142,8 +142,8 @@ class AtxUpdater {
         exec(cmds[index], (err, stdout, stderr) => {            
             if (err)
                 console.log(`scp err: ${err}`);
-            response += 'stdout :'+stdout +'\n';
-            response += 'stderr :'+stderr +'\n';
+            response += 'stdout:'+stdout +'\n';
+            response += 'stderr:'+stderr +'\n';
             console.log(`scp stdout: ${stdout}`);
             console.log(`scp stdout: ${stderr}`);
             me.executeSerialize(cmds, index+1, response, callback);
