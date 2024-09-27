@@ -1,7 +1,10 @@
 const express = require("express");
 const { exec,spawn  } = require("child_process");
-const cp = require("child_process");;
-
+const cp = require("child_process");const { files } = require("jszip");
+;
+var toDateStr = function (str){
+    return str.replaceAll(":","").replaceAll("-","");
+};
 class AtxUpdater {
     constructor() {
         this.router = express.Router();
@@ -32,38 +35,67 @@ class AtxUpdater {
                 res.end("nothing to update");
             });
         });
+        servidor.get("/backup_app", (req, res) => {
+            
+        });
         servidor.get("/backup", (req, res) => {
             //fs.copyFile( src, dest, mode, callback );
             console.log("route backup");            
             let cmd = "sshpass";        
-            let params = ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups/20241001'];
-            exec(cmd+" "+params.join(" "), (err, stdout1, stderr) => {
+            let scpData = {
+                user:'root',
+                pass:'Facil123',
+                host:'172.20.50.59',
+                base:'/mnt/disk1/desarrollo/backups'
+             }
+             let folderBackup = [
+                 './tracks'
+             ];
+             let filesBackup = [];
+             let folderGit = [
+                 './public',
+                 './tracks',
+                 './libs'
+            ];
+             let filesGit = [
+                 './Dockerfile',
+                 './index.js',
+                 './proxysever.js',
+                 './README.md',
+                 './.gitignore',
+                 './.gitmodules'
+             ];
+            var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,14) ;
+            
+            let params = ['-p Facil123','scp','-r','./tracks',`${scpData.user}@${scpData.host}:${scpData.base}/${isodate}`];
+            let cmds = [];
+            folderBackup.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${isodate}`));
+            filesBackup.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${isodate}`));
+            this.executeSerialize(cmds,0,()=>{
+                res.end("backup ended");
+            });
+            /*exec(cmd+" "+params.join(" "), (err, stdout1, stderr) => {
                 if (err)
                     console.log(`scp err: ${err}`);
                 console.log(`scp stdout: ${stdout1}`);
                 console.log(`scp stdout: ${stderr}`);
                 res.end("backup ended");
-            });
-            /*const sp =  cp.spawn(cmd, ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{shell: true
-            });
-            sp.stdout.on('data', (data) => {
-                console.log(`scp stdout: ${data}`);
-            });
-            sp.stderr.on('data', (data) => {
-                console.error(`scp stderr: ${data}`);
-            });*/
-              
-
-            /*exec("scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups", (err, stdout, stderr) => {                
-                console.log("scp stderr:", stderr);
-                console.log("scp stdout:", stdout);
-                res.end("backup");
             });*/
         });
         servidor.get("/restore", (req, res) => {
             process.exit();
         });
         return servidor;
+    }
+    executeSerialize(cmds, index, callback){
+        if (index == cmds.length){ callback(); return;}
+        exec(cmds[index], (err, stdout1, stderr) => {            
+            if (err)
+                console.log(`scp err: ${err}`);
+            console.log(`scp stdout: ${stdout1}`);
+            console.log(`scp stdout: ${stderr}`);
+            executeSerialize(cmds, index+1, callback);
+        });
     }
 }
 
