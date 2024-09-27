@@ -128,7 +128,7 @@ class AtxUpdater {
         let cmds = [];
         cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${scpData.app}_${isodate}_data'`);
         cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${scpData.app}_${isodate}_app'`);
-        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass}c scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data/${f.replaceAll("./","")}`));
+        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data/${f.replaceAll("./","")}`));
         filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data`));
         folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app/${f.replaceAll("./","")}`));
         filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app`));
