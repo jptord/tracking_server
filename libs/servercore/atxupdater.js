@@ -33,7 +33,7 @@ class AtxUpdater {
             });
             
             exec(`cd /home/${this.scpData.app}; git fetch; git pull;`, (err, stdout1, stderr) => {
-                console.log("stdout:", stdout1);
+                console.log("/update stdout:", stdout1);
                 if (stdout1.includes("Updating")){
                     console.log("updated, and rebooting app");
                     res.end("updated, and rebooting app");
