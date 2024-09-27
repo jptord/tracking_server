@@ -26,7 +26,7 @@ class AtxUpdater {
     init() {
         let servidor = this.router;
         servidor.get("/update", (req, res) => {
-            console.log("update");
+            console.log("update ");
                      
             this.backupAll(req,res,(response)=>{ 
                 console.log("/update backup data ended: " + response);
