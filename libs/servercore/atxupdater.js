@@ -30,19 +30,20 @@ class AtxUpdater {
                      
             this.backupAll(req,res,(response)=>{ 
                 console.log("/update backup data ended: " + response);
+                exec(`cd /home/${this.scpData.app}; git fetch; git pull;`, (err, stdout1, stderr) => {
+                    console.log("/update stdout:", stdout1);
+                    if (stdout1.includes("Updating")){
+                        console.log("updated, and rebooting app");
+                        res.end("updated, and rebooting app");
+                        process.exit();                    
+                    }
+                    console.log("err:", err);
+                    console.log("nothing to update");
+                    res.end("nothing to update");
+                });
             });
-            
-            exec(`cd /home/${this.scpData.app}; git fetch; git pull;`, (err, stdout1, stderr) => {
-                console.log("/update stdout:", stdout1);
-                if (stdout1.includes("Updating")){
-                    console.log("updated, and rebooting app");
-                    res.end("updated, and rebooting app");
-                    process.exit();                    
-                }
-                console.log("err:", err);
-                console.log("nothing to update");
-                res.end("nothing to update");
-            });
+
+           
         });
         servidor.get("/backup_app", (req, res) => {            
             this.backupApp(req,res,(response)=>{ 
