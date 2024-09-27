@@ -55,14 +55,6 @@ class AtxUpdater {
 
            
         });
-        servidor.post("/authorize_host", (req, res) => {                        
-            let host = req.body.host;
-            if (host == undefined){ res.end("invalid host"); return ;}
-            exec(`ssh-keyscan ${host} >> ~/.ssh/known_host`, (err, stdout1, stderr) => {
-                console.log("auth stdout: ", stdout1);
-                res.end("host authorized");
-            });
-        });
         servidor.get("/backup_app", (req, res) => {            
             this.backupApp(req,res,(response)=>{ 
                 res.end("backup app ended: " + response);
@@ -128,8 +120,8 @@ class AtxUpdater {
         let cmds = [];
         
         //cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_data'`);
-        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")} ./`));
-        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data ./`));        
+        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no -r ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")} ./`));
+        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data ./`));        
         this.executeSerialize(cmds,0,'',(response)=>{
             if (callbacks!= null) if (callbacks.postRestore!= null) callbacks.postRestore();
             callback(response);
@@ -155,8 +147,8 @@ class AtxUpdater {
         let cmds = [];
         
         cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_data'`);
-        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")}`));
-        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data`));        
+        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")}`));
+        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data`));        
         this.executeSerialize(cmds,0,'',(response)=>{
             if (callbacks!= null) if (callbacks.postBackup!= null) callbacks.postBackup();
             callback(response);
@@ -181,8 +173,8 @@ class AtxUpdater {
         var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         let cmds = [];
         cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_app'`);        
-        folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app/${f.replaceAll("./","")}`));
-        filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app`));
+        folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app/${f.replaceAll("./","")}`));
+        filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app`));
         this.executeSerialize(cmds,0,'',(response)=>{
             if (callbacks!= null) if (callbacks.postBackup!= null) callbacks.postBackup();
             callback(response);
@@ -208,10 +200,10 @@ class AtxUpdater {
         let cmds = [];
         cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_data'`);
         cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_app'`);
-        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")}`));
-        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data`));
-        folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app/${f.replaceAll("./","")}`));
-        filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app`));
+        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")}`));
+        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data`));
+        folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app/${f.replaceAll("./","")}`));
+        filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -o StrictHostKeyChecking=no ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_app`));
         this.executeSerialize(cmds,0,'',(response)=>{
             if (callbacks!= null) if (callbacks.postBackup!= null) callbacks.postBackup();
             callback(response);
