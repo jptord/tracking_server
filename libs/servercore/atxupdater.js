@@ -16,7 +16,7 @@ class AtxUpdater {
                     res.end("updated, and rebooting app");
                     try{
                         //process.exit();
-                        console.log("executeing supervisord cmd");
+                        console.log("executing supervisord cmd");
                         exec("supervisord restart app",(err2,stdout2,stderr) => {
                             console.log("supervisord stdout:", stdout2);
                         });
@@ -30,7 +30,14 @@ class AtxUpdater {
                 res.end("nothing to update");
             });
         });
-        servidor.get("/restart", (req, res) => {
+        servidor.get("/backup", (req, res) => {
+            //fs.copyFile( src, dest, mode, callback );
+            console.log("route backup");
+            exec("scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups", (err, stdout, stderr) => {
+                console.log("scp stdout:", stdout);
+            });
+        });
+        servidor.get("/restore", (req, res) => {
             process.exit();
         });
         return servidor;
