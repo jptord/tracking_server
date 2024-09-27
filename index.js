@@ -16,7 +16,32 @@ let udpServerTrack = new UdpServer(9945);
 let kafkagps = new KafkaGPS({ brokers: ["172.20.50.67:9092"] });
 let kernoDevices = new KernoDevices();
 let kernoMap = new KernoMap();
-let atxupdater = new AtxUpdater();
+let atxupdater = new AtxUpdater({
+    scpData : {
+        user:'root',
+        pass:'Facil123',
+        host:'172.20.50.59',
+        base:'/mnt/disk1/desarrollo/backups',
+        app:'tracking-capture'
+    },
+    folderData : [
+         './tracks'
+    ],
+    filesData : [],
+    folderApp : [
+         './public',
+         './tracks',
+         './libs'
+    ],
+    filesApp : [
+         'Dockerfile',
+         'index.js',
+         'proxyserver.js',
+         'README.md',
+         '.gitignore',
+         '.gitmodules'
+    ]
+});
 let kernoMonitor = new KernoMonitor({ port: 7777, app: servidor });
 kernoMonitor.setDevices(kernoDevices);
 kernoMonitor.start();
