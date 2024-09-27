@@ -17,7 +17,7 @@ class AtxUpdater {
                     try{
                         //process.exit();
                         console.log("executeing supervisord cmd", stdout2);
-                        exec("supervisord stop app",(err2,stdout2,stderr) => {
+                        exec("supervisord status app",(err2,stdout2,stderr) => {
                             console.log("supervisord stdout:", stdout2);
                         });
                             
