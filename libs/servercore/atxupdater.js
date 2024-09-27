@@ -36,9 +36,10 @@ class AtxUpdater {
             //fs.copyFile( src, dest, mode, callback );
             console.log("route backup");
             //let cmd = "scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups";
-            let cmd = "scp";
+            let cmd = "sshpass";
             //let cmd = "ls";
-            const sp =  cp.spawn(cmd, ['-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{
+            const sp =  cp.spawn(cmd, ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{
+            //const sp =  cp.spawn(cmd, ['-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{
                 shell: true
             });
             sp.stdout.on('data', (data) => {
