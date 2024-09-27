@@ -38,7 +38,10 @@ class AtxUpdater {
             let cmd = "sshpass";        
             let params = ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'];
             exec(cmd+" "+params.join(" "), (err, stdout1, stderr) => {
+                if (err)
+                    console.log(`scp err: ${err}`);
                 console.log(`scp stdout: ${stdout1}`);
+                console.log(`scp stdout: ${stderr}`);
                 res.end("backup ended");
             });
             /*const sp =  cp.spawn(cmd, ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{shell: true
