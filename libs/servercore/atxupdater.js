@@ -36,7 +36,7 @@ class AtxUpdater {
             //fs.copyFile( src, dest, mode, callback );
             console.log("route backup");            
             let cmd = "sshpass";        
-            let params = ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'];
+            let params = ['-p Facil123','scp','-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups/20241001'];
             exec(cmd+" "+params.join(" "), (err, stdout1, stderr) => {
                 if (err)
                     console.log(`scp err: ${err}`);
