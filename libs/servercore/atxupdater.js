@@ -17,7 +17,7 @@ class AtxUpdater {
                     try{
                         //process.exit();
                         exec("supervisord stop restart",(err2,stdout2,stderr) => {
-                            console.log("supervisord stdout:", stdout2);
+                            console.log("supervisord stdout: ", stdout2);
                         });
                             
                     }catch(e){
