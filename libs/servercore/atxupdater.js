@@ -46,7 +46,8 @@ class AtxUpdater {
                 user:'root',
                 pass:'Facil123',
                 host:'172.20.50.59',
-                base:'/mnt/disk1/desarrollo/backups'
+                base:'/mnt/disk1/desarrollo/backups',
+                app:'tracking-capture'
              }
              let folderBackup = [
                  './tracks'
