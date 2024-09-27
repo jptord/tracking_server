@@ -43,7 +43,7 @@ let atxupdater = new AtxUpdater({
          '.gitignore',
          '.gitmodules'
     ],
-    callback : {
+    callbacks : {
         preRestore : ()=>{ console.log("preRestore") },
         postRestore : ()=>{ console.log("postRestore") },
         preBackup : ()=>{ console.log("preBackup") },
