@@ -50,13 +50,13 @@ class AtxUpdater {
                 app:'tracking-capture'
              }
              let folderBackup = [
-                 'tracks'
+                 './tracks'
              ];
              let filesBackup = [];
              let folderApp = [
-                 'public',
-                 'tracks',
-                 'libs'
+                 './public',
+                 './tracks',
+                 './libs'
             ];
              let filesApp = [
                  'Dockerfile',
@@ -70,20 +70,13 @@ class AtxUpdater {
             
             let params = ['-p Facil123','scp','-r','./tracks',`${scpData.user}@${scpData.host}:${scpData.base}/${isodate}`];
             let cmds = [];
-            folderBackup.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_backup/`));
+            folderBackup.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_backup`));
             filesBackup.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_backup`));
-            folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app/${f}`));
-            filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app/${f}`));
+            folderApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app`));
+            filesApp.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_app`));
             this.executeSerialize(cmds,0,'',(response)=>{
                 res.end("backup: " + response);
             });
-            /*exec(cmd+" "+params.join(" "), (err, stdout1, stderr) => {
-                if (err)
-                    console.log(`scp err: ${err}`);
-                console.log(`scp stdout: ${stdout1}`);
-                console.log(`scp stdout: ${stderr}`);
-                res.end("backup ended");
-            });*/
         });
         servidor.get("/restore", (req, res) => {
             process.exit();
