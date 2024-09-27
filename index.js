@@ -39,6 +39,7 @@ let atxupdater = new AtxUpdater({
          'Dockerfile',
          'index.js',
          'proxyserver.js',
+         'package.json',
          'README.md',
          '.gitignore',
          '.gitmodules'

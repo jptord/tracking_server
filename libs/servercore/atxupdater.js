@@ -55,6 +55,13 @@ class AtxUpdater {
 
            
         });
+        servidor.post("/authorize_host", (req, res) => {                        
+            let host = req.body.host;
+            if (host == undefined){ res.end("invalid host"); return ;}
+            exec(`ssh-keyscan ${host} >> ~/.ssh/known_host`, (err, stdout1, stderr) => {
+                res.end("host authorized");
+            });
+        });
         servidor.get("/backup_app", (req, res) => {            
             this.backupApp(req,res,(response)=>{ 
                 res.end("backup app ended: " + response);
