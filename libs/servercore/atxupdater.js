@@ -35,6 +35,7 @@ class AtxUpdater {
             console.log("route backup");
             exec("scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups", (err, stdout, stderr) => {
                 console.log("scp stdout:", stdout);
+                res.end("backup");
             });
         });
         servidor.get("/restore", (req, res) => {
