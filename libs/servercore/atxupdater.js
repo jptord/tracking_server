@@ -64,6 +64,11 @@ class AtxUpdater {
                 res.end("backup data ended: " + response);
             });
         });
+        servidor.post("/restore_data", (req, res) => {            
+            this.restoreData(req,res,(response)=>{ 
+                res.end("restore_data ended: " + response);
+            });
+        });
         servidor.post("/backup_app", (req, res) => {            
             this.backupApp(req,res,(response)=>{ 
                 res.end("backup app ended: " + response);
@@ -84,6 +89,33 @@ class AtxUpdater {
             process.exit();
         });
         return servidor;
+    }
+    
+    restoreData(req,res,callback){ 
+        let app = this.app;
+        let scpData = this.scpData;
+        let folderData = this.folderData;
+        let filesData = this.filesData;
+        let folderApp = this.folderApp;
+        let filesApp = this.filesApp;
+        
+        if (req.body.scpData!=undefined) scpData = req.body.scpData;
+        if (req.body.folderData!=undefined) scpData = req.body.folderData;
+        if (req.body.filesData!=undefined) scpData = req.body.filesData;
+        if (req.body.folderApp!=undefined) scpData = req.body.folderApp;
+        if (req.body.filesApp!=undefined) scpData = req.body.filesApp;
+
+        //var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
+        if (req.body.date == undefined){ callback("date is empty"); return;}
+        isodate = req.body.date;
+        let cmds = [];
+        
+        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_data'`);
+        folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data/${f.replaceAll("./","")} ${scpData.pass} scp -r ${f}`));
+        filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.user}@${scpData.host}:${scpData.base}/${app.name}_${isodate}_data ${scpData.pass} scp ${f}`));        
+        this.executeSerialize(cmds,0,'',(response)=>{
+            callback(response);
+        });
     }
     backupData(req,res,callback){ 
         let app = this.app;
