@@ -13,13 +13,14 @@ class AtxUpdater {
         exec("cd /home/tracking-capture; git fetch; git pull;", (err, stdout1, stderr) => {
             console.log("stdout1:", stdout1);
             if (stdout1.includes("Updating")){
-                console.log("updated, and rebooting");
-                res.end("updated, and rebooting");
+                console.log("updated, and rebooting app");
+                res.end("updated, and rebooting app");
                 try{
-                    console.log("trying rebooing");    
-                    exec("reboot now ", (err2, stdout2, stderr2) => {     
+                    /*console.log("trying rebooing");    
+                    exec("reboot now ", (err2, stdout2, stderr2) => {     */
+                    process.exit();
                     //console.log("stdout2:",stdout2);
-                });
+                //});
                 }catch(e){
                     console.log("try rebooing err:", e);    
                 }
