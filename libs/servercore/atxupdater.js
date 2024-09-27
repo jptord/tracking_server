@@ -193,6 +193,7 @@ class AtxUpdater {
     executeSerialize(cmds, index, response, callback){
         let me = this;
         if (index == cmds.length){ callback(response); return;}
+        console.log(`executing : ${cmds[index]}`);
         exec(cmds[index], (err, stdout, stderr) => {            
             if (err)
                 console.log(`scp err: ${err}`);
