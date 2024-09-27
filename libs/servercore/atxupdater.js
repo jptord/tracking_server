@@ -16,8 +16,8 @@ class AtxUpdater {
                     res.end("updated, and rebooting app");
                     try{
                         //process.exit();
-                        console.log("executeing supervisord cmd", stdout2);
-                        exec("supervisord status app",(err2,stdout2,stderr) => {
+                        console.log("executeing supervisord cmd");
+                        exec("supervisord stop app",(err2,stdout2,stderr) => {
                             console.log("supervisord stdout:", stdout2);
                         });
                             
