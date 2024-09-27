@@ -107,7 +107,7 @@ class AtxUpdater {
 
         //var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         if (req.body.date == undefined){ callback("date is empty"); return;}
-        isodate = req.body.date;
+        let isodate = req.body.date;
         let cmds = [];
         
         cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${app.name}_${isodate}_data'`);
