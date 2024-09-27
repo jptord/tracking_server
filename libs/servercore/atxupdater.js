@@ -1,5 +1,7 @@
 const express = require("express");
-const { exec } = require("child_process");
+const { exec,spawn  } = require("child_process");
+const cp = require("child_process");;
+
 class AtxUpdater {
     constructor() {
         this.router = express.Router();
@@ -33,11 +35,32 @@ class AtxUpdater {
         servidor.get("/backup", (req, res) => {
             //fs.copyFile( src, dest, mode, callback );
             console.log("route backup");
-            exec("scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups", (err, stdout, stderr) => {                
+            //let cmd = "scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups";
+            let cmd = "scp";
+            //let cmd = "ls";
+            const sp =  cp.spawn(cmd, ['-r','./tracks','root@172.20.50.59:/mnt/disk1/desarrollo/backups'],{
+                shell: true
+            });
+            sp.stdout.on('data', (data) => {
+                console.log(`scp stdout: ${data}`);
+                sp.stdout.write('Facil123');
+            });
+            sp.stdin.on('data', (data) => {
+                console.log(`scp stdout: ${data}`);
+                sp.stdout.write('Facil123');
+            });
+            
+            sp.stderr.on('data', (data) => {
+                console.error(`scp stderr: ${data}`);
+            });
+              
+            res.end("backup");
+
+            /*exec("scp -r /home/tracking-capture/tracks root@172.20.50.59:/mnt/disk1/desarrollo/backups", (err, stdout, stderr) => {                
                 console.log("scp stderr:", stderr);
                 console.log("scp stdout:", stdout);
                 res.end("backup");
-            });
+            });*/
         });
         servidor.get("/restore", (req, res) => {
             process.exit();
