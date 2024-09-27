@@ -70,7 +70,7 @@ class AtxUpdater {
         var isodate = new Date().toISOString().replaceAll("-","").replaceAll(":","").replaceAll(".","").substr(0,15) ;            
         let cmds = [];
         
-        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${scpData.app}_${isodate}_app'`);
+        cmds.push(`sshpass -p ${scpData.pass} ssh ${scpData.user}@${scpData.host} ' mkdir ${scpData.base}/${scpData.app}_${isodate}_data'`);
         folderData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass}c scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data/${f.replaceAll("./","")}`));
         filesData.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}_data`));        
         this.executeSerialize(cmds,0,'',(response)=>{
