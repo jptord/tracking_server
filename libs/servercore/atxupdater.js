@@ -72,8 +72,8 @@ class AtxUpdater {
             let cmds = [];
             folderBackup.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp -r ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}/${isodate}`));
             filesBackup.forEach(f=>cmds.push(`sshpass -p ${scpData.pass} scp ${f} ${scpData.user}@${scpData.host}:${scpData.base}/${scpData.app}_${isodate}`));
-            this.executeSerialize(cmds,0,()=>{
-                res.end("backup ended");
+            this.executeSerialize(cmds,0,'',(response)=>{
+                res.end("backup: " + response);
             });
             /*exec(cmd+" "+params.join(" "), (err, stdout1, stderr) => {
                 if (err)
@@ -88,15 +88,17 @@ class AtxUpdater {
         });
         return servidor;
     }
-    executeSerialize(cmds, index, callback){
+    executeSerialize(cmds, index, response, callback){
         let me = this;
-        if (index == cmds.length){ callback(); return;}
-        exec(cmds[index], (err, stdout1, stderr) => {            
+        if (index == cmds.length){ callback(response); return;}
+        exec(cmds[index], (err, stdout, stderr) => {            
             if (err)
                 console.log(`scp err: ${err}`);
-            console.log(`scp stdout: ${stdout1}`);
+            response += 'stdout :'+stdout +'\n';
+            response += 'stderr :'+stderr +'\n';
+            console.log(`scp stdout: ${stdout}`);
             console.log(`scp stdout: ${stderr}`);
-            me.executeSerialize(cmds, index+1, callback);
+            me.executeSerialize(cmds, index+1, response, callback);
         });
     }
 }
