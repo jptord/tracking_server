@@ -88,13 +88,14 @@ class AtxUpdater {
         return servidor;
     }
     executeSerialize(cmds, index, callback){
+        let me = this;
         if (index == cmds.length){ callback(); return;}
         exec(cmds[index], (err, stdout1, stderr) => {            
             if (err)
                 console.log(`scp err: ${err}`);
             console.log(`scp stdout: ${stdout1}`);
             console.log(`scp stdout: ${stderr}`);
-            executeSerialize(cmds, index+1, callback);
+            me.executeSerialize(cmds, index+1, callback);
         });
     }
 }
