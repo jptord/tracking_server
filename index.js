@@ -18,7 +18,7 @@ let kernoDevices = new KernoDevices();
 let kernoMap = new KernoMap();
 let atxupdater = new AtxUpdater({
     app:{
-       name:'tracking-c apture'
+       name:'tracking-capture'
     },
     scpData : {
         user:'root',
