@@ -44,12 +44,12 @@ class AtxUpdater {
                     console.log("/update stdout:", stdout1);
                     if (stdout1.includes("Updating")){
                         console.log("updated, and rebooting app");
-                        res.end("updated, and rebooting app");
+                        res.end("updated[F], and rebooting app");
                         process.exit();                    
                     }
                     console.log("err:", err);
                     console.log("nothing to update");
-                    res.end("nothing to update");
+                    res.end("nothing to update[F]");
                 });
             });
         });
