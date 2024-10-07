@@ -35,6 +35,24 @@ class AtxUpdater {
     init() {
         let me = this;
         let servidor = this.router;
+        
+        servidor.get("/update_force", (req, res) => {
+            console.log("update_force ");
+            this.backupAll(req,res,(response)=>{ 
+                console.log("/update backup data ended: " + response);
+                exec(`cd /home/${me.app.name}; git reset --hard; git fetch; git pull;`, (err, stdout1, stderr) => {
+                    console.log("/update stdout:", stdout1);
+                    if (stdout1.includes("Updating")){
+                        console.log("updated, and rebooting app");
+                        res.end("updated, and rebooting app");
+                        process.exit();                    
+                    }
+                    console.log("err:", err);
+                    console.log("nothing to update");
+                    res.end("nothing to update");
+                });
+            });
+        });
         servidor.get("/update", (req, res) => {
             console.log("update ");
                      
