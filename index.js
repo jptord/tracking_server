@@ -5,6 +5,7 @@ const { KafkaGPS } = require("./libs/kafka/kafkagps.js")
 const { KernoDevices } = require("./libs/servercore/kernodevices.js")
 const { KernoMap } = require("./libs/servercore/kernomap.js")
 const { KernoMonitor } = require("./libs/servercore/kernomonitor.js")
+const { KernoApk } = require("./libs/servercore/kernoapk.js")
 const { AtxUpdater } = require("./libs/servercore/atxupdater.js")
 //const { Ldapclient }  = require("./libs/ldapclient.js");
 //let ldapclient  = new Ldapclient();
@@ -15,6 +16,7 @@ let udpServerLive = new UdpServer(9944);
 let udpServerTrack = new UdpServer(9945);
 let kafkagps = new KafkaGPS({ brokers: ["172.20.50.67:9092"] });
 let kernoDevices = new KernoDevices();
+let kernoApk = new KernoApk();
 let kernoMap = new KernoMap();
 let atxupdater = new AtxUpdater({
     app:{
@@ -70,6 +72,8 @@ udpServerTrack.addReceiveEvent((msg) => {
 servidor.use(`/atxupdater`, atxupdater.init());
 
 servidor.use(`/kernomap`, kernoMap.publicar());
+
+//servidor.use(`/apk`, kernoApk.publicar());
 
 servidor.get('/connected', (req, res) => {
 	console.log('connected test');
