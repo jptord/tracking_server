@@ -111,7 +111,7 @@ class AtxUpdater {
             });
         });
         servidor.post("/restore", (req, res) => {
-            process.exit();
+            process.exit(); 
         });
         return servidor;
     }
