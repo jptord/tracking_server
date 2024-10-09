@@ -87,14 +87,15 @@ class Device{
 					let lines = rowString.toString().split('\n');
 					lines.forEach( line => {
 						let [t,lat,lon,b,int,acc,stp] = line.split('\t');
-						me.addTrack(new Track({
-							t:t,
-							lat:lat,
-							lon:lon,
-							bat:b,
-							acc:acc,
-							stp:stp,
-						}));
+                        if (t!="")
+                            me.addTrack(new Track({
+                                t:t,
+                                lat:lat,
+                                lon:lon,
+                                bat:b,
+                                acc:acc,
+                                stp:stp,
+                            }));
 					});
 					
 					me.trackUpdated = true;
