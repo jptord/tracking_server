@@ -75,6 +75,7 @@ servidor.use(`/kernomap`, kernoMap.publicar());
 
 //servidor.use(`/apk`, kernoApk.publicar());
 
+
 servidor.get('/connected', (req, res) => {
 	console.log('connected test');
 	res.end(JSON.stringify({ result:"ok" }));
@@ -149,9 +150,12 @@ servidor.post('/device/:id/startapp', (req, res) => {
 	res.end(`{"result":"ok"}`);
 });
 
+let last_version = '1.0.12';
 servidor.post('/device/:id/update/state/silence', (req, res) => {
 	//console.log("/device/:id/update/state/silence",req.params.id);
 	kernoDevices.processStates( req,res, (device) => {
+        if (device.config['LAST_VERSION']!=last_version)
+            device.setSetup("LAST_VERSION","1.0.12");
 		kernoMonitor.updateDevice(device);
 		res.end(JSON.stringify(device.getAllSetup()));
 	});
