@@ -11,3 +11,14 @@
         error menu contextual (3 puntos)													OK	
         enviar configuración de stops														OK
         enviar configuración de telefono supervisor											OK
+
+# 1.1.0
+    Add App sync GET/POST on server                 OK
+    Save App on zip file                            OK
+    APK Update 1.1.1                                OK
+        Add Background Changed                      OK
+        Add App Sync                                OK
+        Add AppHistory Sync                         OK
+        Item Route Alpha for Schedule               OK
+        Update Frequency api                        OK
+

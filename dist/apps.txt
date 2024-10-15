@@ -1,0 +1,127 @@
+1729019364054	ena	---	com.google.android.networkstack.tethering	Tethering
+1729019364058	ena	---	com.google.android.ext.services	Android Services Library
+1729019364059	ena	---	com.android.phone.overlay.common.vendor	com.android.phone.overlay.common.vendor
+1729019364063	ena	---	com.android.providers.telephony	Alm. mensajes y teléfono
+1729019364067	ena	---	com.android.dynsystem	Dynamic System Updates
+1729019364075	ena	---	com.sprd.engineermode	EngineerMode
+1729019364076	ena	---	com.google.android.cellbroadcastservice	Cell Broadcast Service
+1729019364080	ena	---	com.android.providers.calendar	Almacenamiento de calendario
+1729019364081	ena	---	com.android.providers.media	com.android.providers.media
+1729019364081	ena	---	com.android.networkstack.tethering.overlay	TetheringConfigOverlayGsi
+1729019364082	ena	---	com.android.networkstack.tethering_zte.overlay	com.android.networkstack.tethering_zte.overlay
+1729019364082	ena	---	com.android.wallpapercropper	com.android.wallpapercropper
+1729019364083	ena	---	com.google.android.federatedcompute	com.google.android.federatedcompute
+1729019364088	ena	---	com.google.mainline.go.primary	Main components
+1729019364094	ena	---	com.google.android.go.networkstack	Administrador de redes
+1729019364095	ena	---	com.android.networkstack.tethering.inprocess.overlay	TetheringConfigOverlayGo
+1729019364101	dis	---	cn.zte.recorder	Grabadora de sonido
+1729019364102	ena	---	com.android.cellbroadcast.overlay	com.android.cellbroadcast.overlay
+1729019364106	ena	---	com.android.externalstorage	Almacenamiento externo
+1729019364111	ena	---	com.android.companiondevicemanager	Administrador de dispositivo complementario
+1729019364112	ena	---	com.android.mms.service	MmsService
+1729019364117	ena	---	com.sprd.camta	CamTA
+1729019364122	ena	---	com.sprd.omacp	OtaOmaHandler
+1729019364126	ena	---	com.android.providers.downloads	Administrador de carga
+1729019364127	dis	---	com.android.overlay.wallpaperconfig	com.android.overlay.wallpaperconfig
+1729019364127	ena	---	com.android.aftersaleservice	After-sale Service
+1729019364135	ena	---	com.zte.powersavemode	Batería
+1729019364139	ena	---	com.zte.zdm.omacp	OMA CP
+1729019364145	ena	---	com.google.android.providers.media.module	Multimedia
+1729019364149	ena	---	com.google.mainline.go.telemetry	Support components
+1729019364155	ena	---	com.android.providers.downloads.ui	Descargas
+1729019364168	ena	---	com.android.vending	Google Play Store
+1729019364172	ena	---	com.android.pacprocessor	PacProcessor
+1729019364172	ena	---	com.android.networkstack.inprocess_zte.overlay	NetworkStackInProcessResOverlay
+1729019364177	ena	---	com.sprd.validationtools	ValidationTools
+1729019364177	ena	---	com.android.networkstack.overlay	NetworkStackOverlayGsi
+1729019364177	ena	---	com.google.android.connectivity.resources_zte.overlay	com.google.android.connectivity.resources_zte.overlay
+1729019364182	ena	---	com.android.certinstaller	Instalador de certificado
+1729019364182	ena	---	com.android.carrierconfig	com.android.carrierconfig
+1729019364189	ena	---	com.google.android.marvin.talkback	Suite de Accesibilidad Android
+1729019364194	ena	---	com.zte.emode	Emode
+1729019364194	ena	---	android	Sistema Android
+1729019364202	ena	---	com.android.camera2	Cámara
+1729019364202	ena	---	com.google.android.sdksandbox	com.google.android.sdksandbox
+1729019364207	ena	---	com.android.egg	Android S Easter Egg
+1729019364212	ena	---	com.android.mtp	Host MTP
+1729019364213	ena	---	com.android.ons	com.android.ons
+1729019364219	ena	---	com.android.stk	SIM
+1729019364220	ena	---	com.zte.emodeservice	EMode Service
+1729019364220	ena	---	com.android.backupconfirm	com.android.backupconfirm
+1729019364225	ena	---	com.android.statementservice	Intent Filter Verification Service
+1729019364225	ena	---	com.unisoc.networksliceserver	NetworkSliceAgent
+1729019364231	ena	---	com.sprd.cameracalibration	CameraCalibration
+1729019364241	ena	---	com.google.android.permissioncontroller	Controlador de permisos
+1729019364242	ena	---	com.android.wifi.resources_zte.overlay	com.android.wifi.resources_zte.overlay
+1729019364247	ena	---	com.android.providers.settings	Almacenamiento de configuración
+1729019364248	ena	---	com.android.sharedstoragebackup	com.android.sharedstoragebackup
+1729019364249	ena	---	com.google.android.overlay.modules.ext.services	com.google.android.overlay.modules.ext.services
+1729019364249	ena	---	com.unisoc.silent.reboot	ROR
+1729019364253	ena	---	com.android.inputdevices	Dispositivos de entrada
+1729019364261	ena	---	com.google.android.apps.wellbeing	Bienestar digital
+1729019364270	ena	---	com.android.bips	Servicio de impresión predeterminado
+1729019364284	ena	---	framework.res.localeoverlay_product	framework.res.localeoverlay_product
+1729019364286	ena	---	com.android.unisoc.telephony.server	com.android.unisoc.telephony.server.RadioInteractorApp
+1729019364287	ena	---	com.kernotec.tracking	Asistencia de Personal Trebol
+1729019364295	ena	---	com.android.server.telecom	Llamadas telefónicas
+1729019364302	ena	---	com.zte.faceverify	Reconocimiento facial
+1729019364312	ena	---	com.android.keychain	Llavero
+1729019364319	ena	---	com.android.wifi.uniresources	System Uni Wi-Fi Resources
+1729019364338	ena	---	com.sprd.uasetting	UASetting
+1729019364345	ena	---	com.android.gallery3d	Edición de fotos
+1729019364351	ena	---	com.google.android.packageinstaller	Instalador de paquetes
+1729019364351	ena	---	com.spreadtrum.ims	com.spreadtrum.ims.ImsApp
+1729019364365	ena	---	com.google.android.gms	Servicios de Google Play
+1729019364371	ena	---	com.google.android.gsf	Marco de los servicios de Google
+1729019364377	ena	---	com.google.android.tts	Reconocimiento y síntesis de voz de Google
+1729019364382	ena	---	com.google.android.gmsintegration	Google Sample Home Screen
+1729019364387	ena	---	com.android.calllogbackup	Call Log Backup/Restore
+1729019364391	ena	---	com.zte.zdmdaemon	ZdmDaemon
+1729019364395	dis	---	com.sprd.powersavemodelauncher	PowerSaveModeLauncher
+1729019364399	ena	---	com.android.cameraextensions	CameraExtensionsProxy
+1729019364400	ena	---	com.android.localtransport	com.android.localtransport
+1729019364404	ena	---	com.android.carrierdefaultapp	CarrierDefaultApp
+1729019364404	ena	---	com.zte.thermalbridge	com.zte.thermalbridge
+1729019364405	ena	---	com.sprd.linkturbo	com.sprd.linkturbo.LinkTurboManagerApp
+1729019364409	ena	---	com.android.proxyhandler	ProxyHandler
+1729019364409	ena	---	com.google.android.overlay.modules.permissioncontroller.forframework	com.google.android.overlay.modules.permissioncontroller.forframework
+1729019364425	ena	---	com.sprd.logmanager	YLog
+1729019364430	ena	---	com.android.managedprovisioning	Configuración de trabajo
+1729019364438	ena	---	com.android.soundpicker	Sonidos
+1729019364439	ena	---	com.sprd.srmi	com.sprd.srmi.SrmiApp
+1729019364440	ena	---	com.android.networkstack.tethering.inprocess_zte.overlay	com.android.networkstack.tethering.inprocess_zte.overlay
+1729019364440	ena	---	androidzte	System Resources Package
+1729019364441	ena	---	com.android.subsys	com.android.subsys.SubsysServiceApplication
+1729019364445	ena	---	com.zte.zdmdaemon.install	ZdmDaemonUpdate
+1729019364449	ena	---	com.zte.heartyservice.strategy	StrategyProvider
+1729019364456	dis	---	com.quicinc.fmradio	Radio FM
+1729019364460	dis	---	com.google.android.gms.supervision	Controles parentales de Family Link
+1729019364465	dis	---	com.android.storagemanager	Administrador de almacenamiento
+1729019364478	ena	---	com.android.settings	Ajustes
+1729019364484	ena	---	com.spreadtrum.sgps	SGPS
+1729019364485	ena	---	com.google.android.overlay.modules.captiveportallogin.forframework	com.google.android.overlay.modules.captiveportallogin.forframework
+1729019364485	ena	---	stk.res.overlay.GEN_LA	stk.res.overlay.GEN_LA
+1729019364489	ena	---	com.zte.flagreset	FlagReset
+1729019364490	dis	---	com.zte.burntest.camera	com.emode.cameratest
+1729019364490	ena	---	com.unisoc	unisoc system
+1729019364491	ena	---	com.google.android.overlay.modules.modulemetadata.forframework	com.google.android.overlay.modules.modulemetadata.forframework
+1729019364491	ena	---	com.google.android.go.networkstack.overlay	NetworkStackOverlayGo
+1729019364492	ena	---	com.android.vpndialogs	VpnDialogs
+1729019364499	ena	---	zte.com.cn.alarmclock	Reloj
+1729019364499	ena	---	com.unisoc.phone	com.unisoc.phone.UniTelephonyApp
+1729019364507	ena	---	com.android.phone	Servicios telefónicos
+1729019364511	ena	---	com.android.shell	Shell
+1729019364515	ena	---	com.zte.appsimcardfilter	AppSIMcardFilter
+1729019364516	ena	---	com.android.wallpaperbackup	com.android.wallpaperbackup
+1729019364520	ena	---	com.android.providers.blockednumber	Almacenamiento de números bloqueados
+1729019364524	ena	---	com.android.providers.userdictionary	Diccionario del usuario
+1729019364525	ena	---	com.android.emergency	com.android.emergency
+1729019364528	ena	---	com.android.location.fused	Ubicación combinada
+1729019364539	ena	---	com.android.systemui	IU del sistema
+1729019364540	ena	---	com.google.android.ondevicepersonalization.services	com.android.ondevicepersonalization.services.OnDevicePersonalizationApplication
+1729019364540	ena	---	android.overlay.oem	android.overlay.oem
+1729019364546	ena	---	com.android.traceur	Registro del sistema
+1729019364552	ena	---	com.zte.ztegmssetupwizard	Navegación
+1729019364553	ena	---	zpub.res	zpub.res
+1729019364559	ena	---	com.android.bluetooth	Bluetooth
+1729019364564	dis	---	com.android.providers.contacts	Almacenamiento para contactos

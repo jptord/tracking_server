@@ -76,6 +76,7 @@ class KernoDevices{
 			console.log("Required session for " + device.id);
 		}
 		if ((device.elapsed > 10000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){						
+            device.setSetup("REQ_APPS","1");
 			device.setSetup("REQ_TRACK","1");
 			device.setSetup('REQ_UPDATE','1');	
 			console.log("Required Track for " + device.id);
