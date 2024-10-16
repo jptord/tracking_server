@@ -7,6 +7,7 @@ const { KernoMap } = require("./libs/servercore/kernomap.js")
 const { KernoMonitor } = require("./libs/servercore/kernomonitor.js")
 const { KernoApk } = require("./libs/servercore/kernoapk.js")
 const { AtxUpdater } = require("./libs/servercore/atxupdater.js")
+const fs = require('node:fs');
 //const { Ldapclient }  = require("./libs/ldapclient.js");
 //let ldapclient  = new Ldapclient();
 
@@ -88,7 +89,19 @@ servidor.get('/info', (req, res) => {
 	console.log('info');
 	console.log(udpServerLive.getInfo());
 	console.log(udpServerTrack.getInfo());
-	res.end(JSON.stringify({ liveServer: udpServerLive.getInfo(), trackServer: udpServerTrack.getInfo() }));
+    res.end(JSON.stringify({ liveServer: udpServerLive.getInfo(), trackServer: udpServerTrack.getInfo()}));
+});
+
+servidor.get('/readme', (req, res) => {
+    fs.readFile('./README.md', 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        
+        res.end( data );
+      });
+	
 });
 
 servidor.get('/devices', (req, res) => {
