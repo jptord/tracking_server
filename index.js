@@ -168,7 +168,7 @@ servidor.post('/device/:id/update/state/silence', (req, res) => {
 	//console.log("/device/:id/update/state/silence",req.params.id);
 	kernoDevices.processStates( req,res, (device) => {
         if (device.config['LAST_VERSION']!=last_version){
-            device.setSetup("LAST_VERSION","1.0.12");
+            device.setSetup("LAST_VERSION",last_version);
             //device.setSetup("EMERGENCY_NUMBER","800");
         }
 		kernoMonitor.updateDevice(device);
