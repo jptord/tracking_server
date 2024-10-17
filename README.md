@@ -23,7 +23,7 @@
         Update Frequency api                        OK
 
 # 1.1.1
-    Added readme get /readme
+    Added readme get /readme 
     APK Update 1.0.13
         cambio de boton de emergencia a asistencia tecnica									ok
         pantalla emergencia con boton volver												ok
