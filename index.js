@@ -163,7 +163,7 @@ servidor.post('/device/:id/startapp', (req, res) => {
 	res.end(`{"result":"ok"}`);
 });
 
-let last_version = '1.0.13';
+let last_version = '1.0.14';
 servidor.post('/device/:id/update/state/silence', (req, res) => {
 	//console.log("/device/:id/update/state/silence",req.params.id);
 	kernoDevices.processStates( req,res, (device) => {

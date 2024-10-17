@@ -34,3 +34,10 @@
         agregar voz grabado al terminar 													ok faltan tablas app y front
         quitar ruta de queja																ok
         sugerencia con ruta 																ok
+
+        requency api                        OK
+
+# 1.1.4
+    Added readme get /readme 
+    APK Update 1.0.14
+        Fix permissions sms & voice                                 ok
