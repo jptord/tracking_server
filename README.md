@@ -37,7 +37,7 @@
 
         requency api                        OK
 
-# 1.1.4
+# 1.1.2
     Added readme get /readme 
     APK Update 1.0.14
         Fix permissions sms & voice                                 ok
