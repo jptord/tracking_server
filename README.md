@@ -41,3 +41,11 @@
     Added readme get /readme 
     APK Update 1.0.14
         Fix permissions sms & voice                                 ok
+
+# 1.1.3
+    Fix session error
+    Setup parameters for kernoDevices
+    set version parameters for kernoDevices
+    APK Update 1.0.15
+        fix error session
+        Update/url parameter

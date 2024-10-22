@@ -8,6 +8,7 @@ const { KernoMonitor } = require("./libs/servercore/kernomonitor.js")
 const { KernoApk } = require("./libs/servercore/kernoapk.js")
 const { AtxUpdater } = require("./libs/servercore/atxupdater.js")
 const fs = require('node:fs');
+const { version } = require("node:os");
 //const { Ldapclient }  = require("./libs/ldapclient.js");
 //let ldapclient  = new Ldapclient();
 
@@ -109,6 +110,44 @@ servidor.get('/devices', (req, res) => {
 	res.end(JSON.stringify({ "devices": kernoDevices.getDevices() }));
 });
 
+servidor.get('/devices/setup', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
+});
+servidor.post('/devices/setup', (req, res) => {
+	Object.keys(req.body).forEach(k => {
+        kernoDevices.setSetup(k,req.body[k]);
+	});
+    res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
+});
+servidor.get('/devices/setup/version', (req, res) => { 
+    res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
+});
+servidor.post('/devices/setup/version', (req, res) => {
+    let LAST_VERSION = req.body.LAST_VERSION;
+    let UPDATE_URL = req.body.UPDATE_URL;
+    kernoDevices.setSetup('LAST_VERSION',LAST_VERSION);
+    kernoDevices.setSetup('UPDATE_URL',UPDATE_URL);
+    res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
+});
+
+servidor.get('/devices/setup/clear', (req, res) => {
+    kernoDevices.setupClear();
+    res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
+});
+
+
+
+servidor.get('/devices/clear', (req, res) => {
+	console.log("route /device/:id/track");
+	let result = kernoDevices.clearDevices();	
+	res.end(`{"result":"${result}"}`);
+});
+
 servidor.get('/device/:id/tracks', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
     res.setHeader('Content-Type', 'application/json');
@@ -167,10 +206,6 @@ let last_version = '1.0.14';
 servidor.post('/device/:id/update/state/silence', (req, res) => {
 	//console.log("/device/:id/update/state/silence",req.params.id);
 	kernoDevices.processStates( req,res, (device) => {
-        if (device.config['LAST_VERSION']!=last_version){
-            device.setSetup("LAST_VERSION",last_version);
-            device.setSetup("EMERGENCY_NUMBER","800107707");
-        }
 		kernoMonitor.updateDevice(device);
 		res.end(JSON.stringify(device.getAllSetup()));
 	});

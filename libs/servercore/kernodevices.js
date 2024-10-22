@@ -3,12 +3,30 @@ const { Device }   = require("./device.js")
 const { Track }   = require("./track.js")
 const { Http }   = require("./http.js")
 
+
 class KernoDevices{
     
 	constructor(){
         this.devices = [];
-
+        this.setup = {};        
     }
+
+    setSetup(key,value){
+        this.setup[key] = value;
+    }
+    deleteSetup(key){
+        delete this.setup[key];
+    }  
+    getAllSetup(key){
+        return this.setup;  
+    }
+    setupClear(){
+        Object.keys(this.setup).forEach( key => {
+            delete this.setup[key];
+        });
+    }
+
+    
 	/* new device */
 	subscribe( device ){
 		this.devices.push(device);
@@ -25,7 +43,7 @@ class KernoDevices{
 		//return this.devices.map( d => { return {"id" : d.getId(), "config": d.config, "tracks": d.tracks}; });
 		return this.devices.map( d => { return d.get() });
 	}
-	clearDevices(){
+	clearDevices(){        
 		this.devices = [];
 		/*this.devices.forEach(device=>{
 		/	device.deleteDevice();
@@ -84,6 +102,22 @@ class KernoDevices{
 		if (device.elapsed > 50000 ){			
 			device.deleteDevice();
 		}
+        
+        if (device.states['LAST_VERSION']!=this.setup['LAST_VERSION'] && this.setup['LAST_VERSION']!=undefined ){
+            console.log("proccessing version for", device.id);
+            device.setSetup("LAST_VERSION",this.setup['LAST_VERSION']);
+            device.setSetup("UPDATE_URL",this.setup['UPDATE_URL']);
+			device.setSetup('REQ_UPDATE','1');	
+        }
+
+
+        Object.keys(this.setup).forEach(k => {
+            if (k == 'LAST_VERSION') return;
+            if (k == 'UPDATE_URL') return;
+            device.setSetup(k,this.setup[k]);
+        });
+
+
 		
 		callback(device);
 	}
