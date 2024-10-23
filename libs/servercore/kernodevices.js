@@ -129,7 +129,7 @@ class KernoDevices{
 		/*if (device.elapsed > 50000 ){			
 			device.deleteDevice();
 		}*/
-        
+        //TREBOL-13 Control de versiones dinámica 
         if (device.states['LAST_VERSION']!=this.setup['LAST_VERSION'] && this.setup['LAST_VERSION']!=undefined ){
             console.log("proccessing version for", device.id);
             device.setSetup("LAST_VERSION",this.setup['LAST_VERSION']);

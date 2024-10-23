@@ -116,10 +116,12 @@ servidor.post('/devices/setup', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
 });
+//TREBOL-13 Control de versiones dinámica 
 servidor.get('/devices/setup/version', (req, res) => { 
     res.setHeader('Content-Type', 'application/json');
 	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
 });
+//TREBOL-13 Control de versiones dinámica 
 servidor.post('/devices/setup/version', (req, res) => {
     let LAST_VERSION = req.body.LAST_VERSION;
     let UPDATE_URL = req.body.UPDATE_URL;
