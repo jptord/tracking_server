@@ -3,14 +3,21 @@ const { Device }   = require("./device.js")
 const { Track }   = require("./track.js")
 const { Http }   = require("./http.js")
 
-
 class KernoDevices{
     
 	constructor(){
         this.devices = [];
-        this.setup = {};        
+        this.setup = {};
+		this.events = [];
+		this.updateTimer(this);      
     }
-
+	updateTimer(self){
+		self.update();
+		setTimeout(()=>{this.updateTimer(self)},5000);
+	}
+	addEvent(event){
+		this.events.push(event);
+	}
     setSetup(key,value){
         this.setup[key] = value;
     }
@@ -25,25 +32,30 @@ class KernoDevices{
             delete this.setup[key];
         });
     }
-
     
 	/* new device */
 	subscribe( device ){
+		this.events.forEach(e=>e.onNewDevice(device));
 		this.devices.push(device);
 	}
 
 	/* out device */
 	unsubscribe(device){
-		var index = devices.indexOf(device);		
-		if (index > -1)
-			devices.splice(index, 1);
+		var index = this.devices.indexOf(device);		
+		if (index > -1){
+			this.devices.splice(index, 1);
+			this.events.forEach(e=>e.onRemoveDevice(device));
+		}
 	}
 	getDevices(){
 		let result = [];
 		//return this.devices.map( d => { return {"id" : d.getId(), "config": d.config, "tracks": d.tracks}; });
 		return this.devices.map( d => { return d.get() });
 	}
-	clearDevices(){        
+	clearDevices(){
+		this.devices.forEach(device=>{
+			this.events.forEach(e=>e.onRemoveDevice(device));
+		});
 		this.devices = [];
 		/*this.devices.forEach(device=>{
 		/	device.deleteDevice();
@@ -75,6 +87,7 @@ class KernoDevices{
 		return device;
 	}
 	removeDevice(device){
+		this.events.forEach(e=>e.onRemoveDevice(device));
 		this.devices.splice(this.devices.indexOf(device),1);
 	}
 	communication(){
@@ -82,7 +95,15 @@ class KernoDevices{
 			device.communication(request,reponse);
 		});*/
 	}
-	
+	update(){
+		let self = this;
+		let currentTime = Date.now();
+		this.devices.forEach(device=>{
+			if (currentTime-device.lasttime > 10000 ){			
+				self.unsubscribe(device);
+			}
+		});		
+	}
 	processStates(req,res, callback){
 		let device = this.getDevice(req.params.id);
 		device.updateTime();
@@ -99,9 +120,9 @@ class KernoDevices{
 			device.setSetup('REQ_UPDATE','1');	
 			console.log("Required Track for " + device.id);
 		}
-		if (device.elapsed > 50000 ){			
+		/*if (device.elapsed > 50000 ){			
 			device.deleteDevice();
-		}
+		}*/
         
         if (device.states['LAST_VERSION']!=this.setup['LAST_VERSION'] && this.setup['LAST_VERSION']!=undefined ){
             console.log("proccessing version for", device.id);
@@ -110,15 +131,11 @@ class KernoDevices{
 			device.setSetup('REQ_UPDATE','1');	
         }
 
-
         Object.keys(this.setup).forEach(k => {
             if (k == 'LAST_VERSION') return;
             if (k == 'UPDATE_URL') return;
             device.setSetup(k,this.setup[k]);
         });
-
-
-		
 		callback(device);
 	}
 	processConfig(req,res, callback){

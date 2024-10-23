@@ -1,127 +1,309 @@
-1729019364054	ena	---	com.google.android.networkstack.tethering	Tethering
-1729019364058	ena	---	com.google.android.ext.services	Android Services Library
-1729019364059	ena	---	com.android.phone.overlay.common.vendor	com.android.phone.overlay.common.vendor
-1729019364063	ena	---	com.android.providers.telephony	Alm. mensajes y teléfono
-1729019364067	ena	---	com.android.dynsystem	Dynamic System Updates
-1729019364075	ena	---	com.sprd.engineermode	EngineerMode
-1729019364076	ena	---	com.google.android.cellbroadcastservice	Cell Broadcast Service
-1729019364080	ena	---	com.android.providers.calendar	Almacenamiento de calendario
-1729019364081	ena	---	com.android.providers.media	com.android.providers.media
-1729019364081	ena	---	com.android.networkstack.tethering.overlay	TetheringConfigOverlayGsi
-1729019364082	ena	---	com.android.networkstack.tethering_zte.overlay	com.android.networkstack.tethering_zte.overlay
-1729019364082	ena	---	com.android.wallpapercropper	com.android.wallpapercropper
-1729019364083	ena	---	com.google.android.federatedcompute	com.google.android.federatedcompute
-1729019364088	ena	---	com.google.mainline.go.primary	Main components
-1729019364094	ena	---	com.google.android.go.networkstack	Administrador de redes
-1729019364095	ena	---	com.android.networkstack.tethering.inprocess.overlay	TetheringConfigOverlayGo
-1729019364101	dis	---	cn.zte.recorder	Grabadora de sonido
-1729019364102	ena	---	com.android.cellbroadcast.overlay	com.android.cellbroadcast.overlay
-1729019364106	ena	---	com.android.externalstorage	Almacenamiento externo
-1729019364111	ena	---	com.android.companiondevicemanager	Administrador de dispositivo complementario
-1729019364112	ena	---	com.android.mms.service	MmsService
-1729019364117	ena	---	com.sprd.camta	CamTA
-1729019364122	ena	---	com.sprd.omacp	OtaOmaHandler
-1729019364126	ena	---	com.android.providers.downloads	Administrador de carga
-1729019364127	dis	---	com.android.overlay.wallpaperconfig	com.android.overlay.wallpaperconfig
-1729019364127	ena	---	com.android.aftersaleservice	After-sale Service
-1729019364135	ena	---	com.zte.powersavemode	Batería
-1729019364139	ena	---	com.zte.zdm.omacp	OMA CP
-1729019364145	ena	---	com.google.android.providers.media.module	Multimedia
-1729019364149	ena	---	com.google.mainline.go.telemetry	Support components
-1729019364155	ena	---	com.android.providers.downloads.ui	Descargas
-1729019364168	ena	---	com.android.vending	Google Play Store
-1729019364172	ena	---	com.android.pacprocessor	PacProcessor
-1729019364172	ena	---	com.android.networkstack.inprocess_zte.overlay	NetworkStackInProcessResOverlay
-1729019364177	ena	---	com.sprd.validationtools	ValidationTools
-1729019364177	ena	---	com.android.networkstack.overlay	NetworkStackOverlayGsi
-1729019364177	ena	---	com.google.android.connectivity.resources_zte.overlay	com.google.android.connectivity.resources_zte.overlay
-1729019364182	ena	---	com.android.certinstaller	Instalador de certificado
-1729019364182	ena	---	com.android.carrierconfig	com.android.carrierconfig
-1729019364189	ena	---	com.google.android.marvin.talkback	Suite de Accesibilidad Android
-1729019364194	ena	---	com.zte.emode	Emode
-1729019364194	ena	---	android	Sistema Android
-1729019364202	ena	---	com.android.camera2	Cámara
-1729019364202	ena	---	com.google.android.sdksandbox	com.google.android.sdksandbox
-1729019364207	ena	---	com.android.egg	Android S Easter Egg
-1729019364212	ena	---	com.android.mtp	Host MTP
-1729019364213	ena	---	com.android.ons	com.android.ons
-1729019364219	ena	---	com.android.stk	SIM
-1729019364220	ena	---	com.zte.emodeservice	EMode Service
-1729019364220	ena	---	com.android.backupconfirm	com.android.backupconfirm
-1729019364225	ena	---	com.android.statementservice	Intent Filter Verification Service
-1729019364225	ena	---	com.unisoc.networksliceserver	NetworkSliceAgent
-1729019364231	ena	---	com.sprd.cameracalibration	CameraCalibration
-1729019364241	ena	---	com.google.android.permissioncontroller	Controlador de permisos
-1729019364242	ena	---	com.android.wifi.resources_zte.overlay	com.android.wifi.resources_zte.overlay
-1729019364247	ena	---	com.android.providers.settings	Almacenamiento de configuración
-1729019364248	ena	---	com.android.sharedstoragebackup	com.android.sharedstoragebackup
-1729019364249	ena	---	com.google.android.overlay.modules.ext.services	com.google.android.overlay.modules.ext.services
-1729019364249	ena	---	com.unisoc.silent.reboot	ROR
-1729019364253	ena	---	com.android.inputdevices	Dispositivos de entrada
-1729019364261	ena	---	com.google.android.apps.wellbeing	Bienestar digital
-1729019364270	ena	---	com.android.bips	Servicio de impresión predeterminado
-1729019364284	ena	---	framework.res.localeoverlay_product	framework.res.localeoverlay_product
-1729019364286	ena	---	com.android.unisoc.telephony.server	com.android.unisoc.telephony.server.RadioInteractorApp
-1729019364287	ena	---	com.kernotec.tracking	Asistencia de Personal Trebol
-1729019364295	ena	---	com.android.server.telecom	Llamadas telefónicas
-1729019364302	ena	---	com.zte.faceverify	Reconocimiento facial
-1729019364312	ena	---	com.android.keychain	Llavero
-1729019364319	ena	---	com.android.wifi.uniresources	System Uni Wi-Fi Resources
-1729019364338	ena	---	com.sprd.uasetting	UASetting
-1729019364345	ena	---	com.android.gallery3d	Edición de fotos
-1729019364351	ena	---	com.google.android.packageinstaller	Instalador de paquetes
-1729019364351	ena	---	com.spreadtrum.ims	com.spreadtrum.ims.ImsApp
-1729019364365	ena	---	com.google.android.gms	Servicios de Google Play
-1729019364371	ena	---	com.google.android.gsf	Marco de los servicios de Google
-1729019364377	ena	---	com.google.android.tts	Reconocimiento y síntesis de voz de Google
-1729019364382	ena	---	com.google.android.gmsintegration	Google Sample Home Screen
-1729019364387	ena	---	com.android.calllogbackup	Call Log Backup/Restore
-1729019364391	ena	---	com.zte.zdmdaemon	ZdmDaemon
-1729019364395	dis	---	com.sprd.powersavemodelauncher	PowerSaveModeLauncher
-1729019364399	ena	---	com.android.cameraextensions	CameraExtensionsProxy
-1729019364400	ena	---	com.android.localtransport	com.android.localtransport
-1729019364404	ena	---	com.android.carrierdefaultapp	CarrierDefaultApp
-1729019364404	ena	---	com.zte.thermalbridge	com.zte.thermalbridge
-1729019364405	ena	---	com.sprd.linkturbo	com.sprd.linkturbo.LinkTurboManagerApp
-1729019364409	ena	---	com.android.proxyhandler	ProxyHandler
-1729019364409	ena	---	com.google.android.overlay.modules.permissioncontroller.forframework	com.google.android.overlay.modules.permissioncontroller.forframework
-1729019364425	ena	---	com.sprd.logmanager	YLog
-1729019364430	ena	---	com.android.managedprovisioning	Configuración de trabajo
-1729019364438	ena	---	com.android.soundpicker	Sonidos
-1729019364439	ena	---	com.sprd.srmi	com.sprd.srmi.SrmiApp
-1729019364440	ena	---	com.android.networkstack.tethering.inprocess_zte.overlay	com.android.networkstack.tethering.inprocess_zte.overlay
-1729019364440	ena	---	androidzte	System Resources Package
-1729019364441	ena	---	com.android.subsys	com.android.subsys.SubsysServiceApplication
-1729019364445	ena	---	com.zte.zdmdaemon.install	ZdmDaemonUpdate
-1729019364449	ena	---	com.zte.heartyservice.strategy	StrategyProvider
-1729019364456	dis	---	com.quicinc.fmradio	Radio FM
-1729019364460	dis	---	com.google.android.gms.supervision	Controles parentales de Family Link
-1729019364465	dis	---	com.android.storagemanager	Administrador de almacenamiento
-1729019364478	ena	---	com.android.settings	Ajustes
-1729019364484	ena	---	com.spreadtrum.sgps	SGPS
-1729019364485	ena	---	com.google.android.overlay.modules.captiveportallogin.forframework	com.google.android.overlay.modules.captiveportallogin.forframework
-1729019364485	ena	---	stk.res.overlay.GEN_LA	stk.res.overlay.GEN_LA
-1729019364489	ena	---	com.zte.flagreset	FlagReset
-1729019364490	dis	---	com.zte.burntest.camera	com.emode.cameratest
-1729019364490	ena	---	com.unisoc	unisoc system
-1729019364491	ena	---	com.google.android.overlay.modules.modulemetadata.forframework	com.google.android.overlay.modules.modulemetadata.forframework
-1729019364491	ena	---	com.google.android.go.networkstack.overlay	NetworkStackOverlayGo
-1729019364492	ena	---	com.android.vpndialogs	VpnDialogs
-1729019364499	ena	---	zte.com.cn.alarmclock	Reloj
-1729019364499	ena	---	com.unisoc.phone	com.unisoc.phone.UniTelephonyApp
-1729019364507	ena	---	com.android.phone	Servicios telefónicos
-1729019364511	ena	---	com.android.shell	Shell
-1729019364515	ena	---	com.zte.appsimcardfilter	AppSIMcardFilter
-1729019364516	ena	---	com.android.wallpaperbackup	com.android.wallpaperbackup
-1729019364520	ena	---	com.android.providers.blockednumber	Almacenamiento de números bloqueados
-1729019364524	ena	---	com.android.providers.userdictionary	Diccionario del usuario
-1729019364525	ena	---	com.android.emergency	com.android.emergency
-1729019364528	ena	---	com.android.location.fused	Ubicación combinada
-1729019364539	ena	---	com.android.systemui	IU del sistema
-1729019364540	ena	---	com.google.android.ondevicepersonalization.services	com.android.ondevicepersonalization.services.OnDevicePersonalizationApplication
-1729019364540	ena	---	android.overlay.oem	android.overlay.oem
-1729019364546	ena	---	com.android.traceur	Registro del sistema
-1729019364552	ena	---	com.zte.ztegmssetupwizard	Navegación
-1729019364553	ena	---	zpub.res	zpub.res
-1729019364559	ena	---	com.android.bluetooth	Bluetooth
-1729019364564	dis	---	com.android.providers.contacts	Almacenamiento para contactos
+1729659012190	ena	---	com.google.android.carriersetup	Carrier Setup
+1729659012190	ena	---	com.android.cts.priv.ctsshim	com.android.cts.priv.ctsshim
+1729659012190	ena	---	com.google.android.youtube	YouTube
+1729659012190	dis	---	com.vzw.apnlib	apnlib
+1729659012190	ena	---	com.android.internal.display.cutout.emulation.corner	Corner cutout
+1729659012190	ena	---	com.google.android.ext.services	Android Services Library
+1729659012191	ena	---	com.android.internal.display.cutout.emulation.double	Double cutout
+1729659012191	ena	---	com.uact.dgsit.applapazbus	App La Paz BUS
+1729659012191	ena	---	com.android.providers.telephony	Phone and Messaging Storage
+1729659012191	ena	---	com.henrikherzig.simplewol	Simple WOL
+1729659012191	ena	---	com.android.dynsystem	Dynamic System Updates
+1729659012191	dis	---	com.android.sdm.plugins.connmo	ConnMO
+1729659012191	ena	---	com.google.android.googlequicksearchbox	Google
+1729659012191	ena	---	com.android.providers.calendar	Calendar Storage
+1729659012191	ena	---	org.telegram.messenger	Telegram
+1729659012191	ena	---	com.android.providers.media	Media Storage
+1729659012191	ena	---	com.google.android.apps.docs.editors.docs	Docs
+1729659012191	ena	---	com.kernotec.servicecontrol	servicecontrol
+1729659012191	ena	---	com.qti.service.colorservice	com.qti.service.colorservice
+1729659012191	ena	---	com.android.theme.icon.square	Square
+1729659012191	ena	---	com.google.android.onetimeinitializer	Google One Time Init
+1729659012191	ena	---	com.google.android.ext.shared	Android Shared Library
+1729659012191	ena	---	com.android.internal.systemui.navbar.gestural_wide_back	Gestural Navigation Bar
+1729659012191	ena	---	com.jrinnovation.proguitartuner	Pro Guitar Tuner
+1729659012192	dis	---	com.qualcomm.ltebc_vzw	VZW_Multicast_MW
+1729659012192	ena	---	com.qualcomm.shutdownlistner	com.qualcomm.shutdownlistner
+1729659012192	ena	---	com.batterypro.batteryrepairlife2020	Battery Health
+1729659012192	ena	---	com.phlox.simpleserver	Simple HTTP Server
+1729659012192	ena	---	com.quicinc.cne.CNEService	com.quicinc.cne.CNEService.CNEServiceApp
+1729659012193	ena	---	com.android.theme.color.cinnamon	Cinnamon
+1729659012193	dis	---	com.htc.omadm.trigger	OemDmTrigger
+1729659012193	ena	---	com.trebol.fundacion	EcoVoz
+1729659012193	ena	---	com.android.theme.icon_pack.rounded.systemui	Rounded
+1729659012193	ena	---	com.haoplay.jk.metalslug	Metal Slug: Awakening
+1729659012193	ena	---	com.soundcorset.client.android	Soundcorset tuner & metronome
+1729659012193	ena	---	com.roblox.client	Roblox
+1729659012193	ena	---	com.android.documentsui	Files
+1729659012193	ena	---	com.android.externalstorage	External Storage
+1729659012193	dis	---	com.google.android.apps.enterprise.dmagent	Device Policy
+1729659012193	ena	---	com.android.htmlviewer	HTML Viewer
+1729659012193	ena	---	com.whatsapp	WhatsApp
+1729659012193	ena	---	com.alphainventor.filemanager	File Manager +
+1729659012193	ena	---	com.android.companiondevicemanager	Companion Device Manager
+1729659012194	dis	---	com.verizon.obdm_permissions	com.verizon.obdm_permissions
+1729659012194	ena	---	com.android.mms.service	MmsService
+1729659012194	ena	---	com.android.providers.downloads	Download Manager
+1729659012194	ena	---	com.google.android.apps.authenticator2	Authenticator
+1729659012194	ena	---	com.google.android.apps.messaging	Messages
+1729659012194	ena	---	com.android.networkstack.inprocess	NetworkStack
+1729659012194	ena	---	com.google.android.soundpicker	Sounds
+1729659012194	ena	---	com.android.theme.icon_pack.rounded.android	Rounded
+1729659012194	ena	---	com.discord	Discord
+1729659012194	ena	---	android.autoinstalls.config.google.nexus	Device configuration
+1729659012194	ena	---	com.qualcomm.qti.telephonyservice	com.qualcomm.qti.telephonyservice.QtiTelephonyApplication
+1729659012194	ena	---	com.ezlifesol.easypost	Easy Post
+1729659012195	ena	---	com.android.theme.icon_pack.circular.themepicker	Circular
+1729659012195	ena	---	org.korosoft.simplenotepad.android	Notepad
+1729659012195	ena	---	com.medhaapps.wififtpserver.pro	WiFi Pro FTP Server
+1729659012195	ena	---	com.google.android.configupdater	ConfigUpdater
+1729659012196	ena	---	pe.diegoveloper.pseudocode	Pseudocode
+1729659012196	ena	---	com.anthonyfilemon.udpmote	UDPMote
+1729659012196	ena	---	com.google.android.vr.inputmethod	Daydream Keyboard
+1729659012196	ena	---	com.android.gpstest	GPSTest
+1729659012196	ena	---	com.google.android.overlay.googlewebview	com.google.android.overlay.googlewebview
+1729659012196	ena	---	com.google.android.apps.safetyhub	Personal Safety
+1729659012196	ena	---	notepad.note.notas.notes.notizen	BlackNote
+1729659012196	ena	---	com.mapswithme.maps.pro	MAPS.ME
+1729659012196	ena	---	com.google.ar.core	Google Play Services for AR
+1729659012197	ena	---	com.android.providers.downloads.ui	Downloads
+1729659012197	ena	---	com.android.vending	Google Play Store
+1729659012197	ena	---	com.android.pacprocessor	PacProcessor
+1729659012197	ena	---	com.android.simappdialog	Sim App Dialog
+1729659012197	ena	---	com.kernotec.appmapforge	AppMapForge
+1729659012197	ena	---	com.android.internal.display.cutout.emulation.tall	Tall cutout
+1729659012197	ena	---	com.drawexpress.lite	DrawExpress Lite
+1729659012197	ena	---	com.android.certinstaller	Certificate Installer
+1729659012197	ena	---	com.kernotec.gpsservice	GPSService
+1729659012197	ena	---	com.android.theme.color.black	Black
+1729659012198	ena	---	com.google.android.marvin.talkback	Android Accessibility Suite
+1729659012198	ena	---	com.android.theme.color.green	Green
+1729659012199	ena	---	com.android.theme.color.ocean	Ocean
+1729659012199	ena	---	com.afl.samsungremote	Samsung Remote
+1729659012199	ena	---	com.android.theme.color.space	Space
+1729659012199	ena	---	com.android.internal.systemui.navbar.threebutton	3 Button Navigation Bar
+1729659012199	ena	---	com.google.android.apps.work.oobconfig	Device setup
+1729659012199	ena	---	us.zoom.videomeetings	Zoom
+1729659012199	ena	---	com.qti.qualcomm.datastatusnotification	com.qti.qualcomm.datastatusnotification
+1729659012200	ena	---	android	Android System
+1729659012200	ena	---	com.android.hotwordenrollment.xgoogle	X Google enrollment
+1729659012200	ena	---	com.google.android.pixel.setupwizard	Pixel Setup
+1729659012200	ena	---	org.mapsforge.samples.android	Mapsforge Samples
+1729659012200	ena	---	com.android.theme.icon_pack.rounded.launcher	Rounded
+1729659012200	dis	---	com.google.android.apps.inputmethod.hindi	Google Indic Keyboard
+1729659012200	ena	---	com.jca.udpsendreceive	UDP-TCP-REST Network Utility
+1729659012200	ena	---	co.uk.mrwebb.wakeonlan	Wake On Lan
+1729659012200	ena	---	com.android.egg	Android Q Easter Egg
+1729659012201	ena	---	com.android.mtp	MTP Host
+1729659012201	ena	---	com.android.nfc	Nfc Service
+1729659012201	ena	---	com.android.ons	com.android.ons
+1729659012201	ena	---	com.android.stk	SIM Toolkit
+1729659012201	ena	---	com.android.backupconfirm	com.android.backupconfirm
+1729659012201	ena	---	com.blizzard.messenger	Battle.net
+1729659012201	ena	---	com.google.android.deskclock	Clock
+1729659012201	ena	---	com.android.internal.systemui.navbar.twobutton	2 Button Navigation Bar
+1729659012201	ena	---	com.qualcomm.qti.radioconfiginterface	com.qualcomm.qti.radioconfiginterface
+1729659012201	ena	---	org.codeaurora.ims	org.codeaurora.ims
+1729659012202	ena	---	com.android.statementservice	Intent Filter Verification Service
+1729659012202	ena	---	com.android.hotspot2	OsuLogin
+1729659012202	ena	---	com.google.android.as	Device Personalization Services
+1729659012202	ena	---	com.google.android.gm	Gmail
+1729659012202	ena	---	com.google.android.carrier	Carrier Settings
+1729659012202	ena	---	com.google.android.apps.tachyon	Meet
+1729659012202	dis	---	com.android.sdm.plugins.sprintdm	SprintDM
+1729659012202	ena	---	com.google.android.vr.home	Daydream
+1729659012202	ena	---	com.android.internal.systemui.navbar.gestural_extra_wide_back	Gestural Navigation Bar
+1729659012203	ena	---	com.google.android.permissioncontroller	Permission controller
+1729659012203	ena	---	com.google.zxing.client.android	Barcode Scanner
+1729659012203	ena	---	com.qualcomm.qti.auth.secureextauthservice	SecureExtAuthService
+1729659012203	ena	---	com.google.android.setupwizard	Android Setup
+1729659012203	ena	---	com.android.documentsui.theme.pixel	com.android.documentsui.theme.pixel
+1729659012203	ena	---	com.qualcomm.qcrilmsgtunnel	com.qualcomm.qcrilmsgtunnel
+1729659012203	ena	---	com.android.providers.settings	Settings Storage
+1729659012203	ena	---	com.bancounion.unimovilplus	UNImóvil Plus
+1729659012204	ena	---	com.android.sharedstoragebackup	com.android.sharedstoragebackup
+1729659012204	dis	---	com.verizon.services	AppDirectedSMSService
+1729659012204	dis	---	com.google.android.music	Google Play Music
+1729659012204	ena	---	com.android.printspooler	Print Spooler
+1729659012204	ena	---	com.android.hotwordenrollment.okgoogle	OK Google enrollment
+1729659012204	dis	---	com.android.sdm.plugins.diagmon	com.android.sdm.plugins.diagmon
+1729659012204	ena	---	com.android.theme.icon_pack.filled.settings	Filled
+1729659012204	ena	---	com.android.dreams.basic	Basic Daydreams
+1729659012205	ena	---	com.android.se	SecureElementApplication
+1729659012205	ena	---	com.android.inputdevices	Input Devices
+1729659012205	ena	---	com.airtm.android	Airtm
+1729659012205	ena	---	com.google.android.apps.wellbeing	Digital Wellbeing
+1729659012205	ena	---	com.google.android.dialer	Phone
+1729659012205	ena	---	com.ktwapps.soundmeter	Sound Meter
+1729659012205	ena	---	me.bluemail.mail	BlueMail
+1729659012207	ena	---	com.android.bips	Default Print Service
+1729659012207	ena	---	com.bisa.ebisaplus	Banco BISA S.A.
+1729659012207	ena	---	com.azefsw.audioconnect	AudioRelay
+1729659012207	ena	---	com.android.theme.icon_pack.circular.settings	Circular
+1729659012207	ena	---	com.rarlab.rar	RAR
+1729659012207	ena	---	com.google.android.apps.cloudprint	Cloud Print
+1729659012207	ena	---	com.android.musicfx	MusicFX
+1729659012207	ena	---	com.google.android.apps.docs	Drive
+1729659012208	ena	---	com.google.android.apps.maps	Maps
+1729659012208	ena	---	com.google.android.modulemetadata	Module Metadata
+1729659012208	ena	---	com.example.deeplink_cookbook	deeplink_cookbook
+1729659012208	ena	---	com.kernotec.tracking	Asistencia de Personal Trebol
+1729659012208	ena	---	com.simplefx.app	SimpleFX
+1729659012208	ena	---	com.google.android.markup	Markup
+1729659012208	ena	---	com.android.cellbroadcastreceiver	Emergency alerts
+1729659012209	ena	---	killer.sudoku.free.brain.puzzle	Killer Sudoku
+1729659012209	ena	---	com.example.aridosapp	aridosapp
+1729659012209	ena	---	com.google.android.webview	Android System WebView
+1729659012209	ena	---	com.android.theme.icon.teardrop	Teardrop
+1729659012209	ena	---	com.google.android.apps.carrier.log	Carrier App Logging
+1729659012209	ena	---	com.google.android.contacts	Contacts
+1729659012209	ena	---	com.android.server.telecom	Call Management
+1729659012210	ena	---	com.google.android.syncadapters.contacts	Google Contacts Sync
+1729659012210	ena	---	com.android.facelock	Trusted Face
+1729659012210	ena	---	com.nextcloud.talk2	Talk
+1729659012210	ena	---	com.android.keychain	Key Chain
+1729659012210	ena	---	com.google.android.overlay.googleconfig	com.google.android.overlay.googleconfig
+1729659012210	ena	---	com.google.android.calculator	Calculator
+1729659012210	ena	---	com.android.service.ims	com.android.service.ims.RcsServiceApp
+1729659012210	ena	---	com.android.chrome	Chrome
+1729659012211	ena	---	com.kick.mobile	Kick
+1729659012211	ena	---	com.qualcomm.qti.rcsbootstraputil	RCSService
+1729659012211	ena	---	com.ovelin.guitartuna	GuitarTuna
+1729659012211	ena	---	com.kernotec.apptreboltrackingv2	AppTrebolTrackingv2
+1729659012211	ena	---	com.google.android.apps.youtube.vr	YouTube VR
+1729659012211	ena	---	com.android.theme.icon_pack.filled.systemui	Filled
+1729659012211	ena	---	com.google.android.packageinstaller	Package installer
+1729659012212	ena	---	com.google.android.gms	Google Play services
+1729659012212	ena	---	com.google.android.gsf	Google Services Framework
+1729659012212	ena	---	com.google.android.ims	Carrier Services
+1729659012212	ena	---	com.google.android.tag	Tags
+1729659012212	ena	---	com.google.android.tts	Speech Recognition and Synthesis from Google
+1729659012212	ena	---	tv.twitch.android.app	Twitch
+1729659012212	ena	---	com.ustwo.lwp	Live data wallpapers
+1729659012213	ena	---	com.google.android.overlay.permissioncontroller	com.google.android.overlay.permissioncontroller
+1729659012213	ena	---	com.android.calllogbackup	Call Log Backup/Restore
+1729659012213	ena	---	com.google.android.partnersetup	Google Partner Setup
+1729659012213	ena	---	com.android.safetyregulatoryinfo	Safety & regulatory manual
+1729659012213	ena	---	com.google.android.apps.wallpaper.nexus	Google Wallpaper Images
+1729659012213	ena	---	com.android.localtransport	com.android.localtransport
+1729659012213	ena	---	com.platzi.platzi	Platzi
+1729659012214	dis	---	com.google.android.videos	Google Play Movies & TV
+1729659012214	ena	---	org.ppsspp.ppsspp	PPSSPP
+1729659012214	ena	---	com.google.android.apps.nexuslauncher	Pixel Launcher
+1729659012214	ena	---	com.android.carrierdefaultapp	CarrierDefaultApp
+1729659012214	ena	---	com.pedidosya	PedidosYa
+1729659012214	ena	---	com.android.theme.font.notoserifsource	Noto Serif / Source Sans Pro
+1729659012214	ena	---	com.android.theme.icon_pack.filled.android	Filled
+1729659012215	ena	---	com.android.proxyhandler	ProxyHandler
+1729659012215	ena	---	com.breel.geswallpapers	Live earth wallpapers
+1729659012215	ena	---	com.google.SSRestartDetector	com.google.SSRestartDetector
+1729659012215	ena	---	com.android.theme.icon_pack.circular.systemui	Circular
+1729659012215	ena	---	org.videolan.vlc	VLC
+1729659012215	dis	---	com.customermobile.preload.vzw	Retail Demo Mode
+1729659012217	ena	---	com.rabinapps.api_bot	API Bot
+1729659012217	ena	---	com.google.android.feedback	Market Feedback Agent
+1729659012218	ena	---	com.google.android.printservice.recommendation	Print Service Recommendation Service
+1729659012218	ena	---	com.google.android.apps.photos	Photos
+1729659012218	ena	---	com.google.android.calendar	Calendar
+1729659012218	ena	---	com.android.managedprovisioning	Work Setup
+1729659012218	ena	---	com.anydesk.anydeskandroid	AnyDesk
+1729659012218	ena	---	com.gamebasic.decibel	Sound Meter
+1729659012219	ena	---	name.antonsmirnov.android.arduinodroid2	ArduinoDroid
+1729659012219	ena	---	com.xiaomi.router	Mi WiFi
+1729659012219	dis	---	com.android.sdm.plugins.dcmo	com.android.sdm.plugins.dcmo
+1729659012219	ena	---	com.zerotier.one	ZeroTier One
+1729659012219	ena	---	com.android.providers.partnerbookmarks	com.android.providers.partnerbookmarks
+1729659012220	ena	---	com.example.app3	app3
+1729659012220	ena	---	com.valvesoftware.android.steam.community	Steam
+1729659012220	ena	---	com.android.service.ims.presence	Presence
+1729659012220	ena	---	com.android.wallpaper.livepicker	Live Wallpaper Picker
+1729659012220	ena	---	com.airbnb.android	Airbnb
+1729659012220	dis	---	com.google.android.inputmethod.korean	Google Korean Input
+1729659012221	ena	---	com.android.theme.icon.squircle	Squircle
+1729659012221	ena	---	com.limelight	Moonlight
+1729659012221	ena	---	com.aicore.spectrolizer	Spectrolizer
+1729659012221	ena	---	com.pdanet	PdaNet+
+1729659012221	ena	---	com.kernotec.fingerauth	fingerauth
+1729659012221	ena	---	com.kernotec.fingeruser	fingeruser
+1729659012222	ena	---	com.android.bookmarkprovider	Bookmark Provider
+1729659012222	ena	---	com.google.android.overlay.pixelconfigcommon	com.google.android.overlay.pixelconfigcommon
+1729659012222	ena	---	com.android.settings	Settings
+1729659012222	ena	---	com.qualcomm.qti.ims	com.qualcomm.qti.ims
+1729659012222	dis	---	com.google.android.inputmethod.pinyin	Google Chinese Input
+1729659012223	ena	---	com.boost.samsung.remote	Remote for Samsung TV
+1729659012223	ena	---	com.google.android.wfcactivation	Carrier Setup
+1729659012223	ena	---	com.google.android.apps.pixelmigrate	Data Transfer Tool
+1729659012223	ena	---	com.android.theme.icon_pack.filled.launcher	Filled
+1729659012223	ena	---	de.florianisme.wakeonlan	Wake on Lan
+1729659012223	ena	---	com.android.networkstack.permissionconfig	com.android.server.NetworkPermissionConfig
+1729659012223	ena	---	com.tinder	Tinder
+1729659012224	ena	---	com.google.android.settings.intelligence	Settings Services
+1729659012224	ena	---	com.google.android.projection.gearhead	Android Auto
+1729659012224	dis	---	com.verizon.obdm	D-MAT
+1729659012224	ena	---	com.binance.dev	Binance
+1729659012224	ena	---	com.google.android.apps.turbo	Device Health Services
+1729659012224	ena	---	com.msandroid.mobile	MAGIS
+1729659012225	ena	---	com.google.android.tetheringentitlement	Tethering Entitlement
+1729659012225	dis	---	com.android.omadm.service	Carrier Provisioning Service
+1729659012225	ena	---	com.google.android.apps.chromecast.app	Home
+1729659012225	ena	---	com.android.cts.ctsshim	com.android.cts.ctsshim
+1729659012225	ena	---	com.xcs.folderlock	FileSafe
+1729659012226	dis	---	com.google.android.hiddenmenu	Hidden Menu
+1729659012227	ena	---	com.antrax.ebisa	Banco BISA
+1729659012227	ena	---	com.coinbase.android	Coinbase
+1729659012227	ena	---	com.android.theme.icon_pack.circular.launcher	Circular
+1729659012227	ena	---	com.ssaurel.nfcreader	NFC Reader
+1729659012227	ena	---	com.android.vpndialogs	VpnDialogs
+1729659012228	ena	---	com.google.android.apps.wallpaper	Styles & wallpapers
+1729659012228	ena	---	com.google.android.keep	Keep Notes
+1729659012228	ena	---	com.android.phone	Phone Services
+1729659012228	ena	---	com.google.vr.vrcore	Google VR Services
+1729659012228	ena	---	com.android.shell	Shell
+1729659012228	ena	---	com.android.theme.icon_pack.filled.themepicker	Filled
+1729659012229	ena	---	com.android.wallpaperbackup	com.android.wallpaperbackup
+1729659012229	ena	---	com.android.providers.blockednumber	Blocked Numbers Storage
+1729659012229	ena	---	com.android.providers.userdictionary	User Dictionary
+1729659012229	ena	---	com.google.vr.apps.ornament	Playground
+1729659012229	ena	---	com.android.emergency	Emergency information
+1729659012229	ena	---	tv.parsec.client	Parsec
+1729659012230	ena	---	com.azure.authenticator	Authenticator
+1729659012230	ena	---	com.android.internal.systemui.navbar.gestural	Gestural Navigation Bar
+1729659012230	dis	---	com.google.android.inputmethod.japanese	Google Japanese Input
+1729659012230	ena	---	com.android.location.fused	Fused Location
+1729659012230	ena	---	com.android.theme.color.orchid	Orchid
+1729659012230	ena	---	com.bitget.exchange	Bitget
+1729659012231	ena	---	com.android.systemui	System UI
+1729659012231	ena	---	mobileSSH.feng.gao	Mobile SSH
+1729659012231	ena	---	com.google.android.hardwareinfo	com.google.android.hardwareinfo
+1729659012231	ena	---	com.android.theme.color.purple	Purple
+1729659012231	ena	---	com.android.bluetoothmidiservice	Bluetooth MIDI Service
+1729659012231	ena	---	com.kernotec.launcher	launcher
+1729659012232	ena	---	com.google.android.timezone.data	com.google.android.timezone.data
+1729659012232	ena	---	com.termoneplus	Terminal Emulator
+1729659012232	ena	---	com.ebay.mobile	eBay
+1729659012232	ena	---	com.qualcomm.fastdormancy	com.qualcomm.fastdormancy
+1729659012232	ena	---	com.android.traceur	System Tracing
+1729659012233	ena	---	com.google.android.apps.helprtc	Google Support Services
+1729659012233	dis	---	qualcomm.com.vzw_msdc_api	vzw_msdc_api
+1729659012233	ena	---	android.auto_generated_rro_product__	android.auto_generated_rro_product__
+1729659012233	ena	---	com.google.android.apps.gcs	Google Connectivity Services
+1729659012233	ena	---	com.android.bluetooth	Bluetooth
+1729659012233	ena	---	com.qualcomm.timeservice	com.qualcomm.timeservice
+1729659012234	ena	---	com.qualcomm.atfwd	com.qualcomm.atfwd
+1729659012234	ena	---	com.qualcomm.embms	com.qualcomm.embms
+1729659012234	ena	---	com.android.providers.contacts	Contacts Storage
+1729659012234	ena	---	com.android.captiveportallogin	CaptivePortalLogin
+1729659012236	ena	---	com.android.theme.icon.roundedrect	Rounded Rectangle
+1729659012236	ena	---	bo.com.lapazlimpia.lplsistemadecargalateral	Trebol - SIGAC
+1729659012236	ena	---	com.google.android.GoogleCamera	Camera
+1729659012236	ena	---	com.android.internal.systemui.navbar.gestural_narrow_back	Gestural Navigation Bar
+1729659012237	ena	---	com.google.earth	Google Earth
+1729659012237	ena	---	com.media.bestrecorder.audiorecorder	Voice Recorder
+1729659012237	ena	---	com.android.theme.icon_pack.rounded.settings	Rounded
+1729659012237	ena	---	com.android.connectivity.metrics	com.android.connectivity.metrics.App
+1729659012237	dis	---	com.verizon.llkagent	com.verizon.llkagent
+1729659012238	dis	---	com.android.vzwomatrigger	Vzw OMA Trigger
+1729659012239	ena	---	com.google.android.inputmethod.latin	Gboard
+1729659012240	ena	---	com.google.android.storagemanager	Smart Storage
+1729659012240	ena	---	android.auto_generated_rro_vendor__	android.auto_generated_rro_vendor__
+1729659012240	ena	---	com.android.theme.icon_pack.circular.android	Circular

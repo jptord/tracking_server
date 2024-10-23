@@ -1,6 +1,0 @@
-1729018213454	dis	---	com.android.vending	Google Play Store
-1729018213737	dis	---	com.android.settings	Ajustes
-1729018213760	dis	---	zte.com.cn.alarmclock	Reloj
-1729018249430	ena	---	com.android.vending	Google Play Store
-1729018249459	ena	---	com.android.settings	Ajustes
-1729018249465	ena	---	zte.com.cn.alarmclock	Reloj

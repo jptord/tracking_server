@@ -140,8 +140,6 @@ servidor.get('/devices/setup/clear', (req, res) => {
 	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
 });
 
-
-
 servidor.get('/devices/clear', (req, res) => {
 	console.log("route /device/:id/track");
 	let result = kernoDevices.clearDevices();	
