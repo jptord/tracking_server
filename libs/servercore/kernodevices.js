@@ -36,7 +36,7 @@ class KernoDevices{
     
 	/* new device */
 	subscribe( device ){
-        //TREBOL-10 registrar eventos de conexión
+        // TREBOL-10 registrar eventos de conexión
 		this.events.forEach(e=>e.onNewDevice(device));
 		this.devices.push(device);
 	}
@@ -46,7 +46,7 @@ class KernoDevices{
 		var index = this.devices.indexOf(device);		
 		if (index > -1){
 			this.devices.splice(index, 1);
-            //TREBOL-10 registrar eventos de conexión
+            // TREBOL-10 registrar eventos de conexión
 			this.events.forEach(e=>e.onRemoveDevice(device));
 		}
 	}
@@ -57,7 +57,7 @@ class KernoDevices{
 	}
 	clearDevices(){
 		this.devices.forEach(device=>{
-            //TREBOL-10 registrar eventos de conexión
+            // TREBOL-10 registrar eventos de conexión
 			this.events.forEach(e=>e.onRemoveDevice(device));
 		});
 		this.devices = [];
