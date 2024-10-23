@@ -94,7 +94,7 @@ class KernoMonitor{
                     client.emit('device.new',device.get())		
 				
 			});
-			//Añadir conexión de monitores, por suscripción a dispositivos
+			 //Añadir conexión de monitores, por suscripción a dispositivos
 			socket.on('device.subscribe', (idArray) => {
 				console.log('device.id:',idArray);
 				if (Array.isArray(idArray)){
@@ -105,14 +105,14 @@ class KernoMonitor{
 					})
 				}
 			});
-            //Añadir conexión de monitores, por suscripción a dispositivos
+             //Añadir conexión de monitores, por suscripción a dispositivos
 			socket.on('device.unsubscribe', (idDevice) => {
 			
 				let device = this.kernoDevices.getDevice(idDevice);
 				if (device == null) return ;
 				client.removeDevice(device);
 			});
-            //Añadir conexión de monitores, por suscripción
+             //Añadir conexión de monitores, por suscripción
 			socket.on('device.unsubscribe.all', () => {
 				client.removeAll();
 			});
@@ -134,6 +134,7 @@ class KernoMonitor{
 		});		
 	}
 	updateDevice(device){
+            //filtrar las conexiónes por suscripción emitDevice
 			if (device.stateUpdated)
 				/*this.clients.forEach(client =>
 					client.emitDevice(device,'device.state',{id:device.getId(),states:device.getStates()})
