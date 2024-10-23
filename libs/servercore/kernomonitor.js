@@ -63,7 +63,7 @@ class KernoMonitor{
 					client.emit('device.new',device.get())					
 				);			
 			},
-            //TREBOL-11 registrar eventos de equipos desconectados
+            //TREBOL-11   registrar eventos de equipos desconectados
 			onRemoveDevice:(device)=>{
 				console.log("setDevices.onRemoveDevice",device.getId());
 				this.clients.forEach(client =>
