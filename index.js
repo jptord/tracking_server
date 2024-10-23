@@ -261,4 +261,3 @@ servidor.get('/data', (req, res) => {
 	if (DEBUG_LEVEL >= 5) console.log(req.query.msg);
 	res.end();
 });
-*/
