@@ -10,11 +10,12 @@ class KernoDevices{
         this.setup = {};
         //TREBOL-10 registrar eventos de conexión
 		this.events = [];
+        //TREBOL-11 controlar equipos desconectados con un bucle
 		this.updateTimer(this);      
     }
 	updateTimer(self){
 		self.update();
-		setTimeout(()=>{this.updateTimer(self)},5000);
+		setTimeout(()=>{this.updateTimer(self)},5000); //controlar desconexiones cada 5 segundos
 	}
 	addEvent(event){
 		this.events.push(event);
