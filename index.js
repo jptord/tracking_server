@@ -9,8 +9,6 @@ const { KernoApk } = require("./libs/servercore/kernoapk.js")
 const { AtxUpdater } = require("./libs/servercore/atxupdater.js")
 const fs = require('node:fs');
 const { version } = require("node:os");
-//const { Ldapclient }  = require("./libs/ldapclient.js");
-//let ldapclient  = new Ldapclient();
 
 let servidor = new Servidor("8989", __dirname + '/public');
 let metajson = new Metajson('datos.json');
@@ -70,13 +68,9 @@ udpServerTrack.addReceiveEvent((msg) => {
   kafkagps.send('gps-track',msg);
 });
 
-//servidor.iniciar();
 servidor.use(`/atxupdater`, atxupdater.init());
 
 servidor.use(`/kernomap`, kernoMap.publicar());
-
-//servidor.use(`/apk`, kernoApk.publicar());
-
 
 servidor.get('/connected', (req, res) => {
 	console.log('connected test');
@@ -225,8 +219,6 @@ servidor.post('/device/:id/setup/state', (req, res) => {
 		device.setSetup(k, req.body[k]);
 	});	
 	kernoMonitor.updateDevice(device);
-	//console.log(device.states);
-	//console.log("req.body", req.body);
 	res.end(`{"result":"ok"}`);
 });
 
@@ -267,21 +259,6 @@ servidor.get('/data', (req, res) => {
 		kernoMonitor.updateDevice(d);
 	});
 	if (DEBUG_LEVEL >= 5) console.log(req.query.msg);
-	//kafkagps.send('gps-live', req.query.msg); !importante
 	res.end();
 });
-/*
-servidor.post('/json',(req,res) => { 
-  console.log("req.body",req.body);
-  metajson.set(req.body);
-  metajson.guardar();
-  res.end('ok');
-});
-
-servidor.get('/json',(req,res) => { 
-  let json = metajson.get();
-  res.setHeader('Content-Type', 'application/json');
-  res.send(json);  
-});
-
 */
