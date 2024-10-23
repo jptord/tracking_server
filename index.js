@@ -103,11 +103,12 @@ servidor.get('/devices', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 	res.end(JSON.stringify({ "devices": kernoDevices.getDevices() }));
 });
-
+//TREBOL-12 configuración global de dispositivos
 servidor.get('/devices/setup', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
 });
+//TREBOL-12 configuración global de dispositivos
 servidor.post('/devices/setup', (req, res) => {
 	Object.keys(req.body).forEach(k => {
         kernoDevices.setSetup(k,req.body[k]);

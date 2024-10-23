@@ -112,6 +112,7 @@ class KernoDevices{
 	processStates(req,res, callback){
 		let device = this.getDevice(req.params.id);
 		device.updateTime();
+        //TREBOL-12 configuración global de dispositivos
 		Object.keys(req.body).forEach(k => {
 			device.setState(k, req.body[k]);
 		});	
