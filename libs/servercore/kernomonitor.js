@@ -87,11 +87,12 @@ class KernoMonitor{
 				socket.emit('tracks',{id:id, tracks:this.kernoDevices.find(d => d.id == id).getTracks()} );
 			});*/
 			socket.on('device', (id) => {
-				/*console.log('device.id:',id);
+				console.log('device.id:',id);
 				let device = this.kernoDevices.getDevice(id);
 				if (device != null)
-					socket.emit('device', device.get() );
-				*/
+					//socket.emit('device', device.get() );
+                    client.emit('device.new',device.get())		
+				
 			});
 			
 			socket.on('device.subscribe', (idArray) => {
@@ -132,8 +133,11 @@ class KernoMonitor{
 	}
 	updateDevice(device){
 			if (device.stateUpdated)
-				this.clients.forEach(client =>
+				/*this.clients.forEach(client =>
 					client.emitDevice(device,'device.state',{id:device.getId(),states:device.getStates()})
+				);*/
+                this.clients.forEach(client =>
+					client.emit('device.state',{id:device.getId(),states:device.getStates()})
 				);
 			if (device.trackUpdated)
 				this.clients.forEach(client =>
@@ -144,8 +148,11 @@ class KernoMonitor{
 					client.emitDevice(device,'device.setup',{id:device.getId(),setup:device.getSetups()})
 				);
 			if (device.configUpdated)
-				this.clients.forEach(client =>
+				/*this.clients.forEach(client =>
 					client.emitDevice(device,'device.config',{id:device.getId(),config:device.getConfigs()})
+				);*/
+                this.clients.forEach(client =>
+					client.emit('device.config',{id:device.getId(),config:device.getConfigs()})
 				);
 			if (device.lastUpdated)
 				this.clients.forEach(client =>
