@@ -160,7 +160,8 @@ class KernoMonitor{
 				);
 			if (device.lastUpdated)
 				this.clients.forEach(client =>
-					client.emitDevice(device,'device.last',{id:device.getId(),last:device.getLast()})					
+					//client.emitDevice(device,'device.last',{id:device.getId(),last:device.getLast()})					
+                    client.emit(device,'device.last',{id:device.getId(),last:device.getLast()})					
 				);						
 		/*	if (device.isPaused)
 				this.clients.forEach(client =>
