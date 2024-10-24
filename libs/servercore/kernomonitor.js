@@ -137,13 +137,16 @@ class KernoMonitor{
 	updateDevice(device){
             //filtrar las conexiónes por suscripción emitDevice
 			if (device.stateUpdated)
-				/*this.clients.forEach(client =>
-					client.emitDevice(device,'device.state',{id:device.getId(),states:device.getStates()})
-				);*/
+                /**
+                 * TREBOL-14 Filtros por device en cada actualización de estados
+                 */
                 this.clients.forEach(client =>
 					client.emit('device.state',{id:device.getId(),states:device.getStates()})
 				);
 			if (device.trackUpdated)
+                /**
+                 * TREBOL-14 Filtros por device en cada actualización de trayectos
+                 */
 				this.clients.forEach(client =>
 					client.emitDevice(device,'device.tracks',{id:device.getId(),tracks:device.getTracks()})
 				);
@@ -152,9 +155,6 @@ class KernoMonitor{
 					client.emitDevice(device,'device.setup',{id:device.getId(),setup:device.getSetups()})
 				);
 			if (device.configUpdated)
-				/*this.clients.forEach(client =>
-					client.emitDevice(device,'device.config',{id:device.getId(),config:device.getConfigs()})
-				);*/
                 this.clients.forEach(client =>
 					client.emit('device.config',{id:device.getId(),config:device.getConfigs()})
 				);
