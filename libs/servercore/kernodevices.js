@@ -104,7 +104,7 @@ class KernoDevices{
 		let self = this;
 		let currentTime = Date.now();
 		this.devices.forEach(device=>{
-			if (currentTime-device.lasttime > 10000 ){			
+			if (currentTime-device.lasttime > 50000 ){			
 				self.unsubscribe(device);
 			}
 		});		

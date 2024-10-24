@@ -1,1 +1,1 @@
-# 1.0.15 fix update.apk 2
+# 1.0.15 fix update.apk 3
