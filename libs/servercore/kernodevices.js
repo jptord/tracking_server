@@ -104,6 +104,7 @@ class KernoDevices{
 		let self = this;
 		let currentTime = Date.now();
 		this.devices.forEach(device=>{
+            //TREBOL-45 configuración
 			if (currentTime-device.lasttime > 300000 ){			
 				self.unsubscribe(device);
 			}

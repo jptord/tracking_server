@@ -29,6 +29,15 @@ class Device{
 		this.route			= {};
 		this.personal		= {};		
 		this.isDeleted		= false;
+        //TREBOL-45Agregar tiempo de retención de datos de servidor
+        this.connected		= true;
+    }
+    //TREBOL-45 Agregar tiempo de retención de datos de servidor
+    createRecords(trackas){
+        this.records.push({
+            date:Date.now(),
+            track:track,
+        });
     }
 	getSetups(){ 
 		this.setupUpdated=false;
