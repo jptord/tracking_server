@@ -204,9 +204,12 @@ class Device{
 		if (this.states[key] != value) this.stateUpdated = true;
 		if (key == 'IS_PAUSE') {
             this.isPaused = value=="1";
-            this.states['IS_PAUSE'] = this.last.stp;
         }
 		this.states[key] = value;
+        
+		if (key == 'IS_PAUSE') {
+            this.states['IS_PAUSE'] = this.last.stp;
+        }
 	}
 	getState(key){
 		return this.states[key];
