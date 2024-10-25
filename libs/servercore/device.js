@@ -206,7 +206,7 @@ class Device{
             this.isPaused = value=="1";
         }
 		this.states[key] = value;
-        
+        /* TREBOL-37 Verificación de pausas en base al último trayecto  */
 		if (key == 'IS_PAUSE') {
             this.states['IS_PAUSE'] = this.last.stp;
         }
