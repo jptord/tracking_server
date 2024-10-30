@@ -13,7 +13,7 @@ const { version } = require("node:os");
 let servidor = new Servidor("8989", __dirname + '/public');
 let metajson = new Metajson('datos.json');
 let udpServerLive = new UdpServer(9944);
-let udpServerTrack = new UdpServer(9945);
+let udpServerTrack = new UdpServer(8888);
 let kafkagps = new KafkaGPS({ brokers: ["172.20.50.67:9092"] });
 let kernoDevices = new KernoDevices();
 let kernoApk = new KernoApk();
@@ -65,7 +65,12 @@ udpServerLive.addReceiveEvent((msg) => {
 });
 
 udpServerTrack.addReceiveEvent((msg) => {
-  kafkagps.send('gps-track',msg);
+  //kafkagps.send('gps-track',msg);
+  //console.log('udpServerTrack.addReceiveEvent: ' + msg);  
+	kernoDevices.process(msg, (d, t) => {
+		kernoMonitor.updateDevice(d);
+	});    
+	if (DEBUG_LEVEL >= 5) console.log(msg);
 });
 
 servidor.use(`/atxupdater`, atxupdater.init());
@@ -199,7 +204,7 @@ servidor.post('/device/:id/startapp', (req, res) => {
 
 let last_version = '1.0.14';
 servidor.post('/device/:id/update/state/silence', (req, res) => {
-	//console.log("/device/:id/update/state/silence",req.params.id);
+	console.log("/device/:id/update/state/silence",req.params);
 	kernoDevices.processStates( req,res, (device) => {
 		kernoMonitor.updateDevice(device);
 		res.end(JSON.stringify(device.getAllSetup()));
@@ -209,6 +214,13 @@ servidor.post('/device/:id/update/state/silence', (req, res) => {
 servidor.post('/device/:id/update/config', (req, res) => {
 	console.log("/device/:id/update/config ",req.params.id);
 	kernoDevices.processConfig( req,res, (device) => {		
+		kernoMonitor.updateDevice(device);
+		res.end(`{"result":"ok"}`);
+	});
+});
+servidor.post('/device/:id/update/state', (req, res) => {
+	console.log("/device/:id/update/state ",req.params.id);
+	kernoDevices.processStatesFull( req, res, (device) => {		
 		kernoMonitor.updateDevice(device);
 		res.end(`{"result":"ok"}`);
 	});

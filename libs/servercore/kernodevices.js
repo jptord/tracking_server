@@ -104,7 +104,7 @@ class KernoDevices{
 		let self = this;
 		let currentTime = Date.now();
 		this.devices.forEach(device=>{
-            //TREBOL-45 configuración
+            //TREBOL-45Agregar tiempo de retención de datos de servidor
 			if (currentTime-device.lasttime > 300000 ){			
 				self.unsubscribe(device);
 			}
@@ -120,6 +120,14 @@ class KernoDevices{
 		if ( device.getState("ID_SESSION") == "0" || device.getState("ID_SESSION") == "1"|| device.getState("ID_SESSION") == "" ){
 			device.setSetup("REQ_UPDATE","1");
 			console.log("Required session for " + device.id);
+		}
+		if ( !device.haveStates() ){
+			device.setSetup("REQ_UPDATE","1");
+			console.log("Required states for " + device.id);
+		}
+		if ( !device.haveConfig() ){
+			device.setSetup("REQ_UPDATE","1");
+			console.log("Required config for " + device.id);
 		}
 		if ((device.elapsed > 10000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){						
             device.setSetup("REQ_APPS","1");
@@ -149,6 +157,13 @@ class KernoDevices{
 		let device = this.getDevice(req.params.id);
 		Object.keys(req.body).forEach(k => {
 			device.setConfig(k, req.body[k]);
+		});
+		callback(device);
+	}
+	processStatesFull(req,res, callback){
+		let device = this.getDevice(req.params.id);
+		Object.keys(req.body).forEach(k => {
+			device.setState(k, req.body[k]);
 		});
 		callback(device);
 	}

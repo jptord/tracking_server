@@ -11,7 +11,7 @@ class Device{
 		this.elapsed		= 0;
 		this.lasttime		= Date.now();
 		this.notifications 	= [];
-		this.tracks 		= [];
+		this.tracks 		= []; //MANTENER
 		this.lasttracks     = [];
 		this.last			= {};
 		this.states 		= {};
@@ -38,6 +38,14 @@ class Device{
             date:Date.now(),
             track:track,
         });
+    }
+    haveStates(){
+        if (Object.keys(this.states).length > 0) return true;
+        return false;
+    }
+    haveConfig(){        
+        if (Object.keys(this.config).length > 0) return true;
+        return false;
     }
 	getSetups(){ 
 		this.setupUpdated=false;

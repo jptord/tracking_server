@@ -40,12 +40,12 @@ class UdpServer{
 			});		
 			
 		server.on('message', (msg, rinfo) => {
-			console.log(`UdpServer.createServer.message : ${msg} from ${rinfo.address}:${rinfo.port}`);
+			//console.log(`UdpServer.createServer.message : ${msg} from ${rinfo.address}:${rinfo.port}`);
 			this.events.forEach( e => {
 				e(`${msg}`);
 			});
 		});
-
+        console.log("server udp on " + me.port);
 		server.bind(this.port);
 	}
 	getInfo(){
