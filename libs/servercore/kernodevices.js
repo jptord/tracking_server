@@ -87,7 +87,7 @@ class KernoDevices{
 		if (Object.keys(device.config).length == 0){
 			console.log("KernoDevices.getDevice.config ", device.id, device.config);
 			device.setSetup('REQ_UPDATE','1');	
-			device.setSetup('REQ_TRACK','1');	
+			//device.setSetup('REQ_TRACK','1');	
 		}
 		return device;
 	}
@@ -126,11 +126,12 @@ class KernoDevices{
 			console.log("Required states for " + device.id);
 		}
 		if ( !device.haveConfig() ){
+            device.setSetup("REQ_APPS","1");
 			device.setSetup("REQ_UPDATE","1");
 			console.log("Required config for " + device.id);
 		}
-		if ((device.elapsed > 10000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){						
-            device.setSetup("REQ_APPS","1");
+		if ((device.elapsed > 25000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){						
+            
 			device.setSetup("REQ_TRACK","1");
 			device.setSetup('REQ_UPDATE','1');	
 			console.log("Required Track for " + device.id);
@@ -168,7 +169,12 @@ class KernoDevices{
 		callback(device);
 	}
 	process(message, callback){
-		let data = JSON.parse(message);
+        let data
+        try{
+		    data = JSON.parse(message);
+        }catch(e){
+            return;
+        }
 		//let device = this.devices.find( d => d.id == data.device );
 		let device = this.getDevice(data.device);
 		if (device==null) {

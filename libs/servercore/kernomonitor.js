@@ -8,6 +8,9 @@ class KernoClient{
 	constructor(socket){
 		this.socket = socket;
 		this.devices = [];
+        this.suggestions = [];
+        this.claims = [];
+        this.emergencys = [];
 	}
 	addDevice(device){
 		console.log('KernoClient.addDevice:',device.id);

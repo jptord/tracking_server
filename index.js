@@ -104,6 +104,12 @@ servidor.get('/readme', (req, res) => {
 	
 });
 
+
+servidor.get('/segguestion', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "segguestion": kernoDevices.getDevices() }));
+});
+
 servidor.get('/devices', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 	res.end(JSON.stringify({ "devices": kernoDevices.getDevices() }));
@@ -142,11 +148,6 @@ servidor.get('/devices/setup/clear', (req, res) => {
 	res.end(JSON.stringify({ "setup": kernoDevices.getAllSetup() }));
 });
 
-servidor.get('/devices/clear', (req, res) => {
-	console.log("route /device/:id/track");
-	let result = kernoDevices.clearDevices();	
-	res.end(`{"result":"${result}"}`);
-});
 
 servidor.get('/device/:id/tracks', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
@@ -177,7 +178,7 @@ servidor.post('/device/:id/update/apps', (req, res) => {
 
 /* ONLY DEVELOP */
 servidor.get('/devices/clear', (req, res) => {
-	console.log("route /device/:id/track");
+	console.log("/devices/clear");
 	let result = kernoDevices.clearDevices();	
 	res.end(`{"result":"${result}"}`);
 });
@@ -204,7 +205,7 @@ servidor.post('/device/:id/startapp', (req, res) => {
 
 let last_version = '1.0.14';
 servidor.post('/device/:id/update/state/silence', (req, res) => {
-	console.log("/device/:id/update/state/silence",req.params);
+	console.log("/device/:id/update/state/silence",req.params,req.body);
 	kernoDevices.processStates( req,res, (device) => {
 		kernoMonitor.updateDevice(device);
 		res.end(JSON.stringify(device.getAllSetup()));
