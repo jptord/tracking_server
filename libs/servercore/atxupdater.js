@@ -40,7 +40,7 @@ class AtxUpdater {
             console.log("update_force ");
             this.backupAll(req,res,(response)=>{ 
                 console.log("/update backup data ended: " + response);
-                exec(`cd /home/${me.app.name}; git reset --hard; git fetch; git pull;`, (err, stdout1, stderr) => {
+                exec(`cd /home/${me.app.name}; git reset --hard; git fetch; git pull origin main;`, (err, stdout1, stderr) => {
                     console.log("/update stdout:", stdout1);
                     if (stdout1.includes("Updating")){
                         console.log("updated, and rebooting app");
