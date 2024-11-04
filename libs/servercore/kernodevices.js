@@ -128,6 +128,7 @@ class KernoDevices{
 		}
 		if ( !device.haveConfig() ){
             device.setSetup("REQ_APPS","1");
+			device.setSetup("REQ_TRACK","1");
 			device.setSetup("REQ_UPDATE","1");
 			console.log("Required config for " + device.id);
 		}
