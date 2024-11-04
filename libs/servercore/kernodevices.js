@@ -87,7 +87,8 @@ class KernoDevices{
 		if (Object.keys(device.config).length == 0){
 			console.log("KernoDevices.getDevice.config ", device.id, device.config);
 			device.setSetup('REQ_UPDATE','1');	
-			//device.setSetup('REQ_TRACK','1');	
+            if (device.states['ON_SESSION'].length == 0){
+			    device.setSetup('REQ_TRACK','1');	
 		}
 		return device;
 	}
