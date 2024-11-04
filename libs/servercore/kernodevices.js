@@ -105,7 +105,7 @@ class KernoDevices{
 		let currentTime = Date.now();
 		this.devices.forEach(device=>{
             //TREBOL-45Agregar tiempo de retención de datos de servidor
-			if (currentTime-device.lasttime > 300000 ){			
+			if (currentTime-device.lasttime > 14400000 ){			
 				self.unsubscribe(device);
 			}
 		});		

@@ -12,7 +12,7 @@ class Device{
 		this.lasttime		= Date.now();
 		this.notifications 	= [];
 		this.tracks 		= []; //MANTENER
-		this.tracksHistory     = [];
+		this.tracksHistory  = [];
 		this.last			= {};
 		this.states 		= {};
 		this.setup 			= {};
@@ -212,7 +212,7 @@ class Device{
     }
 	clearTrack(){
         //if (this.states['ON_ROUTE']=="0")
-            this.appendTrack();
+        this.appendTrack();
 		this.tracks = [];
 		this.trackUpdated = true;
 	}
