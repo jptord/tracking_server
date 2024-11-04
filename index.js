@@ -155,6 +155,12 @@ servidor.get('/device/:id/tracks', (req, res) => {
 	res.end(JSON.stringify({ "tracks": device.getTracks() }));
 });
 
+servidor.get('/device/:id/trackshistory', (req, res) => {
+	let device = kernoDevices.getDevice(req.params.id);
+    res.setHeader('Content-Type', 'application/json');
+	res.end(JSON.stringify({ "tracks": device.getTracksHistory() }));
+});
+
 servidor.get('/device/:id/apps', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
     res.setHeader('Content-Type', 'application/json');

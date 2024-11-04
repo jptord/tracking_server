@@ -12,7 +12,7 @@ class Device{
 		this.lasttime		= Date.now();
 		this.notifications 	= [];
 		this.tracks 		= []; //MANTENER
-		this.lasttracks     = [];
+		this.tracksHistory     = [];
 		this.last			= {};
 		this.states 		= {};
 		this.setup 			= {};
@@ -92,6 +92,9 @@ class Device{
 	getTracks(){
 		this.trackUpdated = false;
 		return this.tracks;
+	}
+	getTracksHistory(){
+		return this.tracksHistory;
 	}
     
 	setApps(b64, type="base64"){
@@ -204,7 +207,12 @@ class Device{
 		this.last = track;
 		this.lastUpdated = true;
 	}
+    appendTrack(){
+        this.tracksHistory.push(...this.tracks);        
+    }
 	clearTrack(){
+        //if (this.states['ON_ROUTE']=="0")
+            this.appendTrack();
 		this.tracks = [];
 		this.trackUpdated = true;
 	}
