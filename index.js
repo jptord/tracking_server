@@ -267,7 +267,9 @@ servidor.get('/device/:id/reset', (req, res) => {
 
 servidor.get('/device/:id/clear', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
-	device.deleteDevice();
+	//device.deleteDevice();
+    device.endSession(true);
+    //device.clearDevice();
 	if (device != undefined) kernoMonitor.updateDevice(device);	
 	if (device != null){
 		res.setHeader('Content-Type', 'application/json');
@@ -275,6 +277,52 @@ servidor.get('/device/:id/clear', (req, res) => {
 	}else
 		res.end();
 });
+
+servidor.get('/device/:id/endtrack', (req, res) => {
+	let device = kernoDevices.getDevice(req.params.id);
+	//device.deleteDevice();
+    device.endTrack(true);
+	if (device != undefined) kernoMonitor.updateDevice(device);	
+	if (device != null){
+		res.setHeader('Content-Type', 'application/json');
+		res.end(`{"result":"ok"}`);
+	}else
+		res.end();
+});
+
+servidor.get('/device/:id/endsession', (req, res) => {
+	let device = kernoDevices.getDevice(req.params.id);
+	//device.deleteDevice();
+    device.endSession(true);
+	if (device != undefined) kernoMonitor.updateDevice(device);	
+	if (device != null){
+		res.setHeader('Content-Type', 'application/json');
+		res.end(`{"result":"ok"}`);
+	}else
+		res.end();
+});
+
+servidor.post('/device/:id/suggestion', (req, res) => {
+    console.log("POST /device/:id/suggestion req:",req.body);
+	let device = kernoDevices.getDevice(req.params.id);
+	kernoMonitor.sendSuggestion(device,req.body);    
+    res.end();
+});
+
+servidor.post('/device/:id/claim', (req, res) => {
+    console.log("POST /device/:id/claim req:",req.body);
+	let device = kernoDevices.getDevice(req.params.id);
+	kernoMonitor.sendClaim(device,req.body);		
+    res.end();
+});
+
+servidor.post('/device/:id/emergency', (req, res) => {
+    console.log("POST /device/:id/emergency req:",req.body);
+	let device = kernoDevices.getDevice(req.params.id);
+	kernoMonitor.sendEmergency(device,req.body);		
+    res.end();
+});
+
 
 servidor.get('/data', (req, res) => {
 	kernoDevices.process(req.query.msg, (d, t) => {

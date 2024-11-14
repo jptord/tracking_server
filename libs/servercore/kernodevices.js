@@ -111,6 +111,7 @@ class KernoDevices{
 			}
 		});		
 	}
+    
 	processStates(req,res, callback){
 		let device = this.getDevice(req.params.id);
 		device.updateTime();
@@ -136,8 +137,7 @@ class KernoDevices{
         
         //TREBOL-38 no se reciben tracks
 		if ((device.elapsed > 25000 && device.getState("ON_ROUTE") == "1") || (device.getState("ON_ROUTE") == "1" && device.tracks.length == 0 )){						
-            
-			device.setSetup("REQ_TRACK","1");
+            device.setSetup("REQ_TRACK","1");
 			device.setSetup('REQ_UPDATE','1');	
 			console.log("Required Track for " + device.id);
 		}
@@ -173,6 +173,7 @@ class KernoDevices{
 		});
 		callback(device);
 	}
+    
 	process(message, callback){
         let data
         try{

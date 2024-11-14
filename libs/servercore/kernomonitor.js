@@ -12,6 +12,12 @@ class KernoClient{
         this.claims = [];
         this.emergencys = [];
 	}
+    addSuggestion(suggestion){
+        this.suggestions.push(suggestion);
+    }
+    addClaim(claim){
+        this.claims.push(claim);
+    }
 	addDevice(device){
 		console.log('KernoClient.addDevice:',device.id);
 		let deviceExist = this.devices.find(d=>d.id==device.id);
@@ -136,7 +142,22 @@ class KernoMonitor{
 		server.listen(this.port, () => {
 			console.log(`escuchando puerto ws *:${this.port}`);
 		});		
-	}
+	}    
+	sendSuggestion(device,suggestion){ 
+        this.clients.forEach(client =>
+            client.emit('server.suggestion.new',{deviceId:device.id, suggestion:suggestion})
+        );
+    }
+	sendEmergency(device,emergency){ 
+        this.clients.forEach(client =>
+            client.emit('server.emergency.new',{deviceId:device.id, emergency:emergency})
+        );
+    }
+	sendClaim(device,claim){ 
+        this.clients.forEach(client =>
+            client.emit('server.claim.new',{deviceId:device.id, claim:claim})
+        );
+    }
 	updateDevice(device){
             //filtrar las conexiónes por suscripción emitDevice
 			if (device.stateUpdated)
@@ -165,17 +186,38 @@ class KernoMonitor{
 				this.clients.forEach(client =>
 					//client.emitDevice(device,'device.last',{id:device.getId(),last:device.getLast()})					
                     client.emit('device.last',{id:device.getId(),last:device.getLast()})					
-				);						
+				);		
+            if (device.isCleared){
+                this.clients.forEach(client =>
+                    client.emitDevice(device,'device.cleared',{id:device.getId()})					
+                );
+                this.kernoDevices.removeDevice(device);
+            }	
+            if (device.endedTrack){
+                this.clients.forEach(client =>
+                    client.emitDevice(device,'device.track.end',{id:device.getId()})					
+                );
+                //this.kernoDevices.removeDevice(device);
+                device.endTrack(false);
+            }	
+            if (device.endedSession){
+                this.clients.forEach(client =>
+                    client.emitDevice(device,'device.session.end',{id:device.getId()})					
+                );
+                //this.kernoDevices.removeDevice(device);
+                device.endSession(false);
+            }				
 		/*	if (device.isPaused)
 				this.clients.forEach(client =>
 					client.emit('device.pause',{id:device.getId(),pause_ini:device.states["PAUSE_INI"],last:device.getLastPause()})
 				);*/
-			if (device.isDeleted){
+		/*	if (device.isDeleted){
 				this.clients.forEach(client =>
 					client.emitDevice(device,'device.removed',{id:device.getId()})					
 				);
 				this.kernoDevices.removeDevice(device);
-			}
+			}*/
+            
 			//client.emit('deviceUpdate',device.get());
 	}
 }

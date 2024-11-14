@@ -29,7 +29,10 @@ class Device{
 		this.route			= {};
 		this.personal		= {};		
 		this.isDeleted		= false;
-        //TREBOL-45Agregar tiempo de retención de datos de servidor
+		this.isCleared		= false;
+        this.endedTrack     = false;
+        this.endedSession     = false;
+        //TREBOL-45 Agregar tiempo de retención de datos de servidor
         this.connected		= true;
     }
     //TREBOL-45 Agregar tiempo de retención de datos de servidor
@@ -62,6 +65,15 @@ class Device{
 	deleteDevice(){
 		this.isDeleted = true;		
 	}
+	clearDevice(){
+		this.isCleared = true;
+	}
+    endTrack(value){
+        this.endedTrack = value;
+    }    
+    endSession(value){
+        this.endedSession = value;
+    }    
 	get(){		
 		return {"id" : this.getId(), "config": this.config, "elapsed":this.elapsed, "setup": this.setup, "states": this.states, "tracks": [],last: this.last };
 	}
