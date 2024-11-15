@@ -31,12 +31,38 @@ class Device{
 		this.isDeleted		= false;
 		this.isCleared		= false;
         this.endedTrack     = false;
-        this.endedSession     = false;
+        this.endedSession   = false;
+        this.startedSession = false;
         //TREBOL-45 Agregar tiempo de retención de datos de servidor
         this.connected		= true;
+        this.request       = [];
+    }
+    processPendientRequest(){        
+        //console.log("process pendients");
+		if ( this.setupUpdated ) return ;
+        this.request.forEach((request,i)=>{
+            //console.log("process pendient " + i);
+            if (request.active)
+                request.process(Date.now()-request.time);
+            request.active = false;            
+        });
+        this.request = [];
+    }
+    addRequest(request){
+        //console.log("request added");
+        setTimeout(()=>{
+            //console.log("setTimeout check");
+            if (request.active){
+                request.active = false;
+                request.processTimeout();
+                //console.log("setTimeout active ended");
+                this.request.splice(this.request.indexOf(request),1);
+            }
+        },request.timeout);
+        this.request.push(request);
     }
     //TREBOL-45 Agregar tiempo de retención de datos de servidor
-    createRecords(trackas){
+    createRecords(tracks){
         this.records.push({
             date:Date.now(),
             track:track,
@@ -73,6 +99,9 @@ class Device{
     }    
     endSession(value){
         this.endedSession = value;
+    }    
+    startSession(value){
+        this.startedSession = value;
     }    
 	get(){		
 		return {"id" : this.getId(), "config": this.config, "elapsed":this.elapsed, "setup": this.setup, "states": this.states, "tracks": [],last: this.last };

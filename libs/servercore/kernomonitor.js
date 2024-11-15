@@ -97,16 +97,15 @@ class KernoMonitor{
 				socket.emit('tracks',{id:id, tracks:this.kernoDevices.find(d => d.id == id).getTracks()} );
 			});*/
 			socket.on('device', (id) => {
-				console.log('device.id:',id);
+				console.log('socket config device.id:',id);
 				let device = this.kernoDevices.getDevice(id);
 				if (device != null)
-					//socket.emit('device', device.get() );
-                    client.emit('device.new',device.get())		
-				
+					socket.emit('device', device.get() );
+                    //client.emit('device.new',device.get())	
 			});
 			 //Añadir conexión de monitores, por suscripción a dispositivos
 			socket.on('device.subscribe', (idArray) => {
-				console.log('device.id:',idArray);
+				console.log('device.subscribe device.id:',idArray);
 				if (Array.isArray(idArray)){
 					idArray.forEach(idDevice=>{
 						let device = this.kernoDevices.getDevice(idDevice);
@@ -202,10 +201,20 @@ class KernoMonitor{
             }	
             if (device.endedSession){
                 this.clients.forEach(client =>
-                    client.emitDevice(device,'device.session.end',{id:device.getId()})					
+                    client.emit('device.session.end',{id:device.getId()})					
                 );
+                console.log("--end session sended");
                 //this.kernoDevices.removeDevice(device);
                 device.endSession(false);
+            }	
+            if (device.startedSession && device.haveStates() ){
+                this.clients.forEach(client =>{
+                    console.log('device.states:',device.states)	;
+                    client.emit('device.session.start',device.get())					
+                });
+                console.log("--start session sended");
+                //this.kernoDevices.removeDevice(device);
+                device.startSession(false);
             }				
 		/*	if (device.isPaused)
 				this.clients.forEach(client =>

@@ -11,7 +11,49 @@ class KernoDevices{
         //TREBOL-10 registrar eventos de conexión
 		this.events = [];
         //  TREBOL-11 controlar equipos desconectados con un bucle
-		this.updateTimer(this);      
+		this.updateTimer(this);
+        this.responses = [
+            {trigger: "REQ_USSD",states: 
+                [   "USSD_NUMBER",
+                    "USSD_CREDIT_TOTAL",
+                    "USSD_TIME",
+                    "USSD_CREDIT_ADD",
+                    "USSD_CREDIT_DATE",
+                    "USSD_CREDIT_MAIN",
+                    "USSD_CREDIT_DATA",
+                    "USSD_SESSION_CREDIT_TOTAL",
+                    "USSD_SESSION_TIME",
+                    "USSD_SESSION_CREDIT_ADD",
+                    "USSD_SESSION_CREDIT_DATE",
+                    "USSD_SESSION_CREDIT_MAIN",
+                    "USSD_SESSION_CREDIT_DATA",
+                ]},
+        ];
+        this.checkStates = [
+            {triggers: [
+                {state:"IS_SESSION", value:'0'}
+                ],
+                transform : (device)=>{
+                    if(device.connected){
+                        device.connected = false;
+                        device.endSession(true);
+                        console.log("--end session")
+                    }
+                },
+            },
+            {triggers: [
+                {state:"IS_SESSION", value:'1'}
+                ],
+                transform : (device)=>{
+                    if(!device.connected){
+                        device.connected = true;
+                        device.startSession(true);
+                        console.log("--start session");
+                    }
+                },
+            }
+        ];
+        this.responsesTimeout = 50000;
     }
 	updateTimer(self){
 		self.update();
@@ -68,6 +110,33 @@ class KernoDevices{
 		console.log("KernoDevices.clearDevices: ", "ok");
 		return "KernoDevices.clearDevices: " + "ok";
 	}
+    setSetupRequest(req,res,callback){
+        let me = this;
+        
+        res.setHeader('Content-Type', 'application/json');
+        let device = me.getDevice(req.params.id);
+        Object.keys(req.body).forEach(k => {
+            device.setSetup(k, req.body[k]);
+            let _response = me.responses.find(r=>r.trigger == k);
+            if(_response != null){
+                device.addRequest({
+                    timeout : me.responsesTimeout,
+                    time: Date.now(),
+                    process:(elapsed)=>{
+                        let data = {id:device.id,states:{},response:'ok',elapsed:elapsed};
+                        _response.states.forEach(r=> data.states[r] = device.getState(r) );
+                        res.end(JSON.stringify(data));
+                    },
+                    processTimeout:()=>{
+                        let data = {id:device.id,states:{},response:'timeout', elapsed: me.responsesTimeout};
+                        res.end(JSON.stringify(data));
+                    },
+                    active : true,
+                });
+            }
+        });	
+        callback(device);
+    }
 
 	sendNotification(deviceId, notification = {
 		title: "title",
@@ -111,10 +180,19 @@ class KernoDevices{
 			}
 		});		
 	}
-    
+    processCheckStates(device){
+        this.checkStates.forEach(checkState=>{
+            let conditions = checkState.triggers.map(t=>device.states[t.state] == t.value).includes(false);            
+          //  console.log(" condition " + conditions);
+            if (!conditions){
+                checkState.transform(device);    
+            }            
+        });
+    }
 	processStates(req,res, callback){
 		let device = this.getDevice(req.params.id);
 		device.updateTime();
+        
         //TREBOL-12 configuración global de dispositivos
 		Object.keys(req.body).forEach(k => {
 			device.setState(k, req.body[k]);
@@ -151,12 +229,15 @@ class KernoDevices{
             device.setSetup("UPDATE_URL",this.setup['UPDATE_URL']);
 			device.setSetup('REQ_UPDATE','1');	
         }
-
         Object.keys(this.setup).forEach(k => {
             if (k == 'LAST_VERSION') return;
             if (k == 'UPDATE_URL') return;
             device.setSetup(k,this.setup[k]);
         });
+
+        this.processCheckStates(device);
+
+        device.processPendientRequest();
 		callback(device);
 	}
 	processConfig(req,res, callback){

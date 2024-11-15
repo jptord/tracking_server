@@ -233,15 +233,11 @@ servidor.post('/device/:id/update/state', (req, res) => {
 	});
 });
 
-servidor.post('/device/:id/setup/state', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
+servidor.post('/device/:id/setup/state', (req, res) => {    
 	console.log("/device/:id/setup/state ",req.params.id);
-	let device = kernoDevices.getDevice(req.params.id);
-	Object.keys(req.body).forEach(k => {
-		device.setSetup(k, req.body[k]);
-	});	
-	kernoMonitor.updateDevice(device);
-	res.end(`{"result":"ok"}`);
+    kernoDevices.setSetupRequest(req,res,(device)=>{        
+        kernoMonitor.updateDevice(device);
+    })
 });
 
 // ???
@@ -269,6 +265,7 @@ servidor.get('/device/:id/clear', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
 	//device.deleteDevice();
     device.endSession(true);
+    kernoDevices.unsubscribe(device);
     //device.clearDevice();
 	if (device != undefined) kernoMonitor.updateDevice(device);	
 	if (device != null){
