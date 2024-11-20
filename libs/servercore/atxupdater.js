@@ -48,7 +48,7 @@ class AtxUpdater {
         servidor.get("/update_force", (req, res) => {
             Log(res,"/update_force");
             this.backupAll(req,res,(response)=>{ 
-                Log(res,"/update backup data ended: " + response);
+                //Log(res,"/update backup data ended: " + response);
                 exec(`cd /home/${me.app.name}; git reset --hard; git fetch; git pull origin main;`, (err, stdout1, stderr) => {                    
                     Log(res,`/update stdout:`);
                     if (stdout1.includes("Updating")){
@@ -62,9 +62,6 @@ class AtxUpdater {
                     Log(res,err);
                     Log(res,"nothing to update[F]");
                     res.end();
-                    //console.log("err:", err);
-                    //console.log("nothing to update");
-                    //res.end("nothing to update[F]");
                 });
             });
         });
@@ -252,7 +249,7 @@ class AtxUpdater {
             response += 'stdout : '+stdout +'\n';
             response += 'stderr: '+stderr +'\n';
             Log(res,`scp stdout: ${stdout}`);
-            Log(res,`scp stdout: ${stderr}`);
+            Log(res,`scp stderr: ${stderr}`);
             me.executeSerialize(cmds, index+1, response, callback,res);
         });
     }
