@@ -244,14 +244,14 @@ class AtxUpdater {
     executeSerialize(cmds, index, response, callback, res){
         let me = this;
         if (index == cmds.length){ callback(response); return;}
-        console.log(`executing : ${cmds[index]}`);
+        Log(res,`executing : ${cmds[index]}`);
         exec(cmds[index], (err, stdout, stderr) => {            
             if (err)
-                log(res,`scp err: ${err}`);
+                Log(res,`scp err: ${err}`);
             response += 'stdout : '+stdout +'\n';
             response += 'stderr: '+stderr +'\n';
-            log(res,`scp stdout: ${stdout}`);
-            log(res,`scp stdout: ${stderr}`);
+            Log(res,`scp stdout: ${stdout}`);
+            Log(res,`scp stdout: ${stderr}`);
             me.executeSerialize(cmds, index+1, response, callback,res);
         });
     }
