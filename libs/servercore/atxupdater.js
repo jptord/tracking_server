@@ -6,6 +6,15 @@ var toDateStr = function (str){
     return str.replaceAll(":","").replaceAll("-","");
 };
 
+
+var Log = function(res,m){
+    let t = new Date().toISOString();
+    let msg = `${t}\t${m}`;
+    console.log(msg);
+    if (res!=null)
+        res.write(msg);
+};
+
 class AtxUpdater {
     constructor(options = {
         app : {name:''},
@@ -37,22 +46,24 @@ class AtxUpdater {
         let servidor = this.router;
         
         servidor.get("/update_force", (req, res) => {
-            res.write("update_force\n");
-            console.log("update_force ");
+            Log(res,"/update_force");
             this.backupAll(req,res,(response)=>{ 
-                console.log("/update backup data ended: " + response);
-                exec(`cd /home/${me.app.name}; git reset --hard; git fetch; git pull origin main;`, (err, stdout1, stderr) => {
-                    console.log("/update stdout:", stdout1);
+                Log(res,"/update backup data ended: " + response);
+                exec(`cd /home/${me.app.name}; git reset --hard; git fetch; git pull origin main;`, (err, stdout1, stderr) => {                    
+                    Log(res,`/update stdout:`);
                     if (stdout1.includes("Updating")){
                         exec(`cd /home/${me.app.name}; npm i --force;`, (err, stdout1, stderr) => {
-                            console.log("updated, and rebooting app");
+                            Log(res,`updated, and rebooting app`);                            
                             res.end("updated[F], and rebooting app");
-                            process.exit();                    
+                            process.exit();
                         });
                     }
-                    console.log("err:", err);
-                    console.log("nothing to update");
-                    res.end("nothing to update[F]");
+                    Log(res,err);
+                    Log(res,"nothing to update[F]");
+                    res.end();
+                    //console.log("err:", err);
+                    //console.log("nothing to update");
+                    //res.end("nothing to update[F]");
                 });
             });
         });
