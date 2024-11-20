@@ -41,11 +41,15 @@ class AtxUpdater {
             this.backupAll(req,res,(response)=>{ 
                 console.log("/update backup data ended: " + response);
                 exec(`cd /home/${me.app.name}; git reset --hard; git fetch; git pull origin main;`, (err, stdout1, stderr) => {
+                    
                     console.log("/update stdout:", stdout1);
                     if (stdout1.includes("Updating")){
-                        console.log("updated, and rebooting app");
-                        res.end("updated[F], and rebooting app");
-                        process.exit();                    
+                        exec(`cd /home/${me.app.name}; npm i --force;`, (err, stdout1, stderr) => {
+                            console.log("updated, and rebooting app");
+                            res.end("updated[F], and rebooting app");
+                            process.exit();                    
+                        });
+                        
                     }
                     console.log("err:", err);
                     console.log("nothing to update");

@@ -133,6 +133,9 @@ class KernoDevices{
                     },
                     active : true,
                 });
+            }else{
+                let data={response:'ok'};
+                res.end(JSON.stringify(data));
             }
         });	
         callback(device);

@@ -4,4 +4,7 @@
 
 
 # 1.0.17 fix update.apk 5
+
 # 1.0.18 
+
+# 1.0.19 compressed

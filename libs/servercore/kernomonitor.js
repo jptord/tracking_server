@@ -116,7 +116,6 @@ class KernoMonitor{
 			});
              //Añadir conexión de monitores, por suscripción a dispositivos
 			socket.on('device.unsubscribe', (idDevice) => {
-			
 				let device = this.kernoDevices.getDevice(idDevice);
 				if (device == null) return ;
 				client.removeDevice(device);

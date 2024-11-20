@@ -12,6 +12,7 @@
     "apicore": "file:",
     "better-sqlite3": "^8.5.1",
     "body-parser": "^1.20.2",
+    "compression": "^1.7.5",
     "cors": "^2.8.5",
     "decompress": "^4.2.1",
     "dgram": "^1.0.1",

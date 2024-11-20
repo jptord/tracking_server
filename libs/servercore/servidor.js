@@ -2,6 +2,7 @@ const bodyParser    = require("body-parser");
 const express       = require("express");
 const cors          = require("cors");
 const path          = require("path");
+const compression = require('compression');
 const fs            = require("fs");
 const { exec }      = require('child_process');
 
@@ -19,6 +20,7 @@ class Servidor extends express{
             optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
           }
 
+          this.use(compression());
         this.use(cors(corsOptions));
         //this.use(bodyParser.json());
         //this.use(bodyParser.text({ limit: '25mb' }));
