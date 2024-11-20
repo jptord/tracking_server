@@ -168,14 +168,14 @@ servidor.get('/device/:id/apps', (req, res) => {
 });
 
 servidor.post('/device/:id/update/track', (req, res) => {
-	console.log("route /device/:id/track");
+	//console.log("route /device/:id/track");
 	let device = kernoDevices.getDevice(req.params.id);
 	device.setTracks( req.body['track'] ,'base64');
 	res.end(`{"result":"ok"}`);
 });
 
 servidor.post('/device/:id/update/apps', (req, res) => {
-	console.log("route /device/:id/update/apps");
+	//console.log("route /device/:id/update/apps");
 	let device = kernoDevices.getDevice(req.params.id);
 	device.setApps( req.body['apps'] ,'base64');
     device.setAppsHistory( req.body['history'] ,'base64');
@@ -184,7 +184,7 @@ servidor.post('/device/:id/update/apps', (req, res) => {
 
 /* ONLY DEVELOP */
 servidor.get('/devices/clear', (req, res) => {
-	console.log("/devices/clear");
+	//console.log("/devices/clear");
 	let result = kernoDevices.clearDevices();	
 	res.end(`{"result":"${result}"}`);
 });
@@ -199,19 +199,19 @@ servidor.get('/device/:id', (req, res) => {
 });
 
 servidor.post('/device/:id/startapp', (req, res) => {
-	console.log("/device/:id/startapp");
+	//console.log("/device/:id/startapp");
 	let device = kernoDevices.getDevice(req.params.id);
 	Object.keys(req.body).forEach(k => {
 		device.setConfig(k, req.body[k]);
 	});
-	console.log(device.config);
-	console.log("req.body", req.body);
+	//console.log(device.config);
+	//console.log("req.body", req.body);
 	res.end(`{"result":"ok"}`);
 });
 
 let last_version = '1.0.14';
 servidor.post('/device/:id/update/state/silence', (req, res) => {
-	console.log("/device/:id/update/state/silence",req.params,req.body);
+	//console.log("/device/:id/update/state/silence",req.params,req.body);
 	kernoDevices.processStates( req,res, (device) => {
 		kernoMonitor.updateDevice(device);
 		res.end(JSON.stringify(device.getAllSetup()));
@@ -219,14 +219,14 @@ servidor.post('/device/:id/update/state/silence', (req, res) => {
 });
 
 servidor.post('/device/:id/update/config', (req, res) => {
-	console.log("/device/:id/update/config ",req.params.id);
+	//console.log("/device/:id/update/config ",req.params.id);
 	kernoDevices.processConfig( req,res, (device) => {		
 		kernoMonitor.updateDevice(device);
 		res.end(`{"result":"ok"}`);
 	});
 });
 servidor.post('/device/:id/update/state', (req, res) => {
-	console.log("/device/:id/update/state ",req.params.id);
+	//console.log("/device/:id/update/state ",req.params.id);
 	kernoDevices.processStatesFull( req, res, (device) => {		
 		kernoMonitor.updateDevice(device);
 		res.end(`{"result":"ok"}`);
@@ -234,7 +234,7 @@ servidor.post('/device/:id/update/state', (req, res) => {
 });
 
 servidor.post('/device/:id/setup/state', (req, res) => {    
-	console.log("/device/:id/setup/state ",req.params.id);
+	//console.log("/device/:id/setup/state ",req.params.id);
     kernoDevices.setSetupRequest(req,res,(device)=>{        
         kernoMonitor.updateDevice(device);
     })
@@ -300,21 +300,21 @@ servidor.get('/device/:id/endsession', (req, res) => {
 });
 
 servidor.post('/device/:id/suggestion', (req, res) => {
-    console.log("POST /device/:id/suggestion req:",req.body);
+    //console.log("POST /device/:id/suggestion req:",req.body);
 	let device = kernoDevices.getDevice(req.params.id);
 	kernoMonitor.sendSuggestion(device,req.body);    
     res.end();
 });
 
 servidor.post('/device/:id/claim', (req, res) => {
-    console.log("POST /device/:id/claim req:",req.body);
+    //console.log("POST /device/:id/claim req:",req.body);
 	let device = kernoDevices.getDevice(req.params.id);
 	kernoMonitor.sendClaim(device,req.body);		
     res.end();
 });
 
 servidor.post('/device/:id/emergency', (req, res) => {
-    console.log("POST /device/:id/emergency req:",req.body);
+    //console.log("POST /device/:id/emergency req:",req.body);
 	let device = kernoDevices.getDevice(req.params.id);
 	kernoMonitor.sendEmergency(device,req.body);		
     res.end();

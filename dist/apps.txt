@@ -1,124 +1,321 @@
-1732113022586	ena	---	com.google.android.networkstack.tethering	Tethering
-1732113022591	ena	---	com.google.android.ext.services	Android Services Library
-1732113022591	ena	---	com.android.phone.overlay.common.vendor	com.android.phone.overlay.common.vendor
-1732113022595	ena	---	com.android.providers.telephony	Alm. mensajes y teléfono
-1732113022599	ena	---	com.android.dynsystem	Dynamic System Updates
-1732113022603	ena	---	com.sprd.engineermode	EngineerMode
-1732113022603	ena	---	com.google.android.cellbroadcastservice	Cell Broadcast Service
-1732113022607	ena	---	com.android.providers.calendar	Almacenamiento de calendario
-1732113022607	ena	---	com.android.providers.media	com.android.providers.media
-1732113022607	ena	---	com.android.networkstack.tethering.overlay	TetheringConfigOverlayGsi
-1732113022607	ena	---	com.android.networkstack.tethering_zte.overlay	com.android.networkstack.tethering_zte.overlay
-1732113022607	ena	---	com.android.wallpapercropper	com.android.wallpapercropper
-1732113022612	ena	---	com.google.android.go.networkstack	Administrador de redes
-1732113022612	ena	---	com.android.networkstack.tethering.inprocess.overlay	TetheringConfigOverlayGo
-1732113022619	dis	---	cn.zte.recorder	Grabadora de sonido
-1732113022619	ena	---	com.android.cellbroadcast.overlay	com.android.cellbroadcast.overlay
-1732113022623	ena	---	com.android.externalstorage	Almacenamiento externo
-1732113022627	ena	---	com.android.companiondevicemanager	Administrador de dispositivo complementario
-1732113022627	ena	---	com.android.mms.service	MmsService
-1732113022632	ena	---	com.sprd.camta	CamTA
-1732113022636	ena	---	com.sprd.omacp	OtaOmaHandler
-1732113022640	ena	---	com.android.providers.downloads	Administrador de carga
-1732113022640	dis	---	com.android.overlay.wallpaperconfig	com.android.overlay.wallpaperconfig
-1732113022640	ena	---	com.android.aftersaleservice	After-sale Service
-1732113022647	ena	---	com.zte.powersavemode	Batería
-1732113022651	ena	---	com.zte.zdm.omacp	OMA CP
-1732113022656	ena	---	com.google.android.providers.media.module	Multimedia
-1732113022662	ena	---	com.android.providers.downloads.ui	Descargas
-1732113022669	ena	---	com.android.vending	Google Play Store
-1732113022673	ena	---	com.android.pacprocessor	PacProcessor
-1732113022673	ena	---	com.android.networkstack.inprocess_zte.overlay	NetworkStackInProcessResOverlay
-1732113022673	ena	---	com.google.android.adservices.api	Android AdServices
-1732113022677	ena	---	com.sprd.validationtools	ValidationTools
-1732113022677	ena	---	com.android.networkstack.overlay	NetworkStackOverlayGsi
-1732113022677	ena	---	com.google.android.connectivity.resources_zte.overlay	com.google.android.connectivity.resources_zte.overlay
-1732113022681	ena	---	com.android.certinstaller	Instalador de certificado
-1732113022681	ena	---	com.android.carrierconfig	com.android.carrierconfig
-1732113022688	ena	---	com.google.android.marvin.talkback	Suite de Accesibilidad Android
-1732113022693	ena	---	com.zte.emode	Emode
-1732113022693	ena	---	android	Sistema Android
-1732113022698	ena	---	com.android.camera2	Cámara
-1732113022702	ena	---	com.android.egg	Android S Easter Egg
-1732113022706	ena	---	com.android.mtp	Host MTP
-1732113022706	ena	---	com.android.ons	com.android.ons
-1732113022711	ena	---	com.android.stk	SIM
-1732113022712	ena	---	com.zte.emodeservice	EMode Service
-1732113022712	ena	---	com.android.backupconfirm	com.android.backupconfirm
-1732113022716	ena	---	com.android.statementservice	Intent Filter Verification Service
-1732113022716	ena	---	com.unisoc.networksliceserver	NetworkSliceAgent
-1732113022720	ena	---	com.sprd.cameracalibration	CameraCalibration
-1732113022728	ena	---	com.google.android.permissioncontroller	Controlador de permisos
-1732113022728	ena	---	com.android.wifi.resources_zte.overlay	com.android.wifi.resources_zte.overlay
-1732113022732	ena	---	com.android.providers.settings	Almacenamiento de configuración
-1732113022732	ena	---	com.android.sharedstoragebackup	com.android.sharedstoragebackup
-1732113022732	ena	---	com.google.android.overlay.modules.ext.services	com.google.android.overlay.modules.ext.services
-1732113022733	ena	---	com.unisoc.silent.reboot	ROR
-1732113022737	ena	---	com.android.inputdevices	Dispositivos de entrada
-1732113022743	ena	---	com.google.android.apps.wellbeing	Bienestar digital
-1732113022747	ena	---	com.android.bips	Servicio de impresión predeterminado
-1732113022748	ena	---	framework.res.localeoverlay_product	framework.res.localeoverlay_product
-1732113022748	ena	---	com.android.unisoc.telephony.server	com.android.unisoc.telephony.server.RadioInteractorApp
-1732113022748	ena	---	com.kernotec.tracking	Asistencia de Personal Trebol
-1732113022752	ena	---	com.android.server.telecom	Llamadas telefónicas
-1732113022756	ena	---	com.zte.faceverify	Reconocimiento facial
-1732113022761	ena	---	com.android.keychain	Llavero
-1732113022765	ena	---	com.android.wifi.uniresources	System Uni Wi-Fi Resources
-1732113022769	ena	---	com.sprd.uasetting	UASetting
-1732113022775	ena	---	com.android.gallery3d	Edición de fotos
-1732113022780	ena	---	com.google.android.packageinstaller	Instalador de paquetes
-1732113022780	ena	---	com.spreadtrum.ims	com.spreadtrum.ims.ImsApp
-1732113022791	ena	---	com.google.android.gms	Servicios de Google Play
-1732113022796	ena	---	com.google.android.gsf	Marco de los servicios de Google
-1732113022802	ena	---	com.google.android.tts	Reconocimiento y síntesis de voz de Google
-1732113022806	ena	---	com.google.android.gmsintegration	Google Sample Home Screen
-1732113022810	ena	---	com.android.calllogbackup	Call Log Backup/Restore
-1732113022814	ena	---	com.zte.zdmdaemon	ZdmDaemon
-1732113022818	dis	---	com.sprd.powersavemodelauncher	PowerSaveModeLauncher
-1732113022822	ena	---	com.android.cameraextensions	CameraExtensionsProxy
-1732113022822	ena	---	com.android.localtransport	com.android.localtransport
-1732113022826	ena	---	com.android.carrierdefaultapp	CarrierDefaultApp
-1732113022826	ena	---	com.zte.thermalbridge	com.zte.thermalbridge
-1732113022826	ena	---	com.sprd.linkturbo	com.sprd.linkturbo.LinkTurboManagerApp
-1732113022830	ena	---	com.android.proxyhandler	ProxyHandler
-1732113022830	ena	---	com.google.android.overlay.modules.permissioncontroller.forframework	com.google.android.overlay.modules.permissioncontroller.forframework
-1732113022834	ena	---	com.sprd.logmanager	YLog
-1732113022839	ena	---	com.android.managedprovisioning	Configuración de trabajo
-1732113022844	ena	---	com.android.soundpicker	Sonidos
-1732113022844	ena	---	com.sprd.srmi	com.sprd.srmi.SrmiApp
-1732113022844	ena	---	com.android.networkstack.tethering.inprocess_zte.overlay	com.android.networkstack.tethering.inprocess_zte.overlay
-1732113022845	ena	---	androidzte	System Resources Package
-1732113022845	ena	---	com.android.subsys	com.android.subsys.SubsysServiceApplication
-1732113022849	ena	---	com.zte.zdmdaemon.install	ZdmDaemonUpdate
-1732113022853	ena	---	com.zte.heartyservice.strategy	StrategyProvider
-1732113022860	dis	---	com.quicinc.fmradio	Radio FM
-1732113022864	dis	---	com.google.android.gms.supervision	Controles parentales de Family Link
-1732113022869	dis	---	com.android.storagemanager	Administrador de almacenamiento
-1732113022878	ena	---	com.android.settings	Ajustes
-1732113022882	ena	---	com.spreadtrum.sgps	SGPS
-1732113022882	ena	---	com.google.android.overlay.modules.captiveportallogin.forframework	com.google.android.overlay.modules.captiveportallogin.forframework
-1732113022882	ena	---	stk.res.overlay.GEN_LA	stk.res.overlay.GEN_LA
-1732113022886	ena	---	com.zte.flagreset	FlagReset
-1732113022886	dis	---	com.zte.burntest.camera	com.emode.cameratest
-1732113022887	ena	---	com.unisoc	unisoc system
-1732113022887	ena	---	com.google.android.overlay.modules.modulemetadata.forframework	com.google.android.overlay.modules.modulemetadata.forframework
-1732113022887	ena	---	com.google.android.go.networkstack.overlay	NetworkStackOverlayGo
-1732113022887	ena	---	com.android.vpndialogs	VpnDialogs
-1732113022895	ena	---	zte.com.cn.alarmclock	Reloj
-1732113022895	ena	---	com.unisoc.phone	com.unisoc.phone.UniTelephonyApp
-1732113022902	ena	---	com.android.phone	Servicios telefónicos
-1732113022907	ena	---	com.android.shell	Shell
-1732113022911	ena	---	com.zte.appsimcardfilter	AppSIMcardFilter
-1732113022912	ena	---	com.android.wallpaperbackup	com.android.wallpaperbackup
-1732113022916	ena	---	com.android.providers.blockednumber	Almacenamiento de números bloqueados
-1732113022923	ena	---	com.android.providers.userdictionary	Diccionario del usuario
-1732113022924	ena	---	com.android.emergency	com.android.emergency
-1732113022928	ena	---	com.android.location.fused	Ubicación combinada
-1732113022937	ena	---	com.android.systemui	IU del sistema
-1732113022937	ena	---	com.google.android.ondevicepersonalization.services	com.google.android.ondevicepersonalization.services
-1732113022937	ena	---	android.overlay.oem	android.overlay.oem
-1732113022943	ena	---	com.android.traceur	Registro del sistema
-1732113022949	ena	---	com.zte.ztegmssetupwizard	Navegación
-1732113022949	ena	---	zpub.res	zpub.res
-1732113022956	ena	---	com.android.bluetooth	Bluetooth
-1732113022960	dis	---	com.android.providers.contacts	Almacenamiento para contactos
+1732132463864	ena	---	com.google.android.networkstack.tethering	Tethering
+1732132463864	ena	---	com.samsung.android.provider.filterprovider	Filter Provider
+1732132463864	ena	---	com.sec.android.app.DataCreate	Automation Test
+1732132463864	ena	---	com.samsung.android.smartswitchassistant	com.samsung.android.smartswitchassistant
+1732132463864	ena	---	com.sec.android.app.setupwizardlegalprovider	SetupWizardLegalProvider
+1732132463864	ena	---	com.sec.location.nsflp2	Samsung Location SDK
+1732132463864	ena	---	com.android.uwb.resources	System UWB Resources
+1732132463864	ena	---	com.sec.android.app.chromecustomizations	ChromeCustomizations
+1732132463864	ena	---	com.samsung.android.app.aodservice	AlwaysOnDisplay
+1732132463864	ena	---	com.samsung.android.app.cocktailbarservice	com.samsung.android.app.cocktailbarservice
+1732132463864	ena	---	com.google.android.ext.services	Android Services Library
+1732132463864	ena	---	com.samsung.android.knox.mpos	com.samsung.android.knox.mpos
+1732132463865	ena	---	com.android.providers.telephony	Alm. mensajes y teléfono
+1732132463865	ena	---	com.sec.android.app.ve.vebgm	Samsung Editing Assets
+1732132463865	ena	---	com.sec.android.app.parser	DRParser Mode
+1732132463865	ena	---	com.android.dynsystem	Dynamic System Updates
+1732132463865	ena	---	com.samsung.android.networkstack	NetworkStackOverlay
+1732132463865	ena	---	com.sec.android.app.bluetoothagent	Bluetooth Agent
+1732132463865	ena	---	com.samsung.android.calendar	Calendario
+1732132463865	ena	---	com.google.android.cellbroadcastservice	Cell Broadcast Service
+1732132463865	ena	---	com.android.providers.calendar	Almacenamiento de calendario
+1732132463865	ena	---	com.osp.app.signin	Samsung account
+1732132463865	ena	---	com.samsung.android.emergency	Mensaje de emergencia
+1732132463865	ena	---	com.samsung.android.aremoji	AR Emoji
+1732132463865	ena	---	com.sec.automation	TetheringAutomation
+1732132463865	ena	---	com.android.providers.media	com.android.providers.media
+1732132463866	ena	---	com.android.wallpapercropper	com.android.wallpapercropper
+1732132463866	ena	---	com.google.android.federatedcompute	com.google.android.federatedcompute
+1732132463866	ena	---	com.samsung.android.keycustomizationinfobackupservice	KeyCustomizationInfoBNR
+1732132463866	ena	---	com.samsung.android.wallpaper.res	com.samsung.android.wallpaper.res
+1732132463866	ena	---	com.samsung.android.smartmirroring	Smart View
+1732132463866	ena	---	com.skms.android.agent	SKMSAgentService
+1732132463866	ena	---	com.samsung.android.mapsagent	Recomendaciones de la aplicación
+1732132463866	ena	---	com.sec.android.app.safetyassurance	Compartir en emergencias
+1732132463866	ena	---	com.samsung.android.incallui	Llamar
+1732132463866	ena	---	com.samsung.android.knox.containercore	KnoxCore
+1732132463866	ena	---	com.samsung.android.service.tagservice	Etiquetas
+1732132463866	ena	---	com.samsung.android.kidsinstaller	Instalador de Samsung Kids
+1732132463866	ena	---	com.sec.factory.camera	FactoryCamera
+1732132463866	ena	---	com.sec.usbsettings	USBSettings
+1732132463867	ena	---	com.samsung.android.easysetup	Búsqueda de dispositivos cercanos
+1732132463867	ena	---	com.android.externalstorage	Almacenamiento externo
+1732132463867	ena	---	com.samsung.android.aware.service	Agente de Quick Share
+1732132463867	ena	---	com.sec.android.easyonehand	EasyOneHand
+1732132463867	ena	---	com.android.htmlviewer	Visualizador de HTML
+1732132463867	ena	---	com.samsung.android.vtcamerasettings	Efectos de videollamada
+1732132463867	ena	---	com.android.companiondevicemanager	Administrador de dispositivo complementario
+1732132463867	ena	---	com.android.mms.service	MmsService
+1732132463868	ena	---	com.samsung.android.rubin.app	Servicio de personalización
+1732132463868	ena	---	com.android.providers.downloads	Administrador de descargas
+1732132463868	ena	---	com.sec.android.easyMover.Agent	Agente de Smart Switch
+1732132463868	ena	---	com.google.android.networkstack.tethering.overlay	com.google.android.networkstack.tethering.overlay
+1732132463868	ena	---	com.samsung.android.mdx.quickboard	Salida multimedia
+1732132463868	ena	---	com.wsomacp	Mensaje de configuración
+1732132463868	ena	---	com.sec.android.iaft	iaft
+1732132463868	ena	---	com.samsung.faceservice	FaceService
+1732132463868	ena	---	com.samsung.android.visualars	Smart Touch Call
+1732132463869	ena	---	com.samsung.gpuwatchapp	GPUWatch
+1732132463869	ena	---	com.samsung.android.knox.kpecore	KPECore
+1732132463869	ena	---	com.samsung.android.app.parentalcare	Controles parentales
+1732132463869	ena	---	com.samsung.android.knox.pushmanager	KnoxPushManager
+1732132463869	ena	---	com.sec.android.app.factorykeystring	DeviceKeystring
+1732132463869	ena	---	com.samsung.android.knox.app.networkfilter	KnoxNetworkFilter
+1732132463869	ena	---	com.samsung.android.inputshare	Multicontrol
+1732132463870	ena	---	com.sec.android.app.wlantest	WlanTest
+1732132463870	ena	---	com.samsung.android.accessibility.talkback	TalkBack
+1732132463870	ena	---	com.google.android.providers.media.module	Selector de medios
+1732132463870	ena	---	com.sec.android.smartfpsadjuster	SmartFPSAdjuster
+1732132463870	ena	---	com.samsung.android.app.settings.bixby	SettingsBixby
+1732132463870	ena	---	com.sec.epdgtestapp	EpdgTestApp
+1732132463870	ena	---	com.samsung.android.game.gamehome	Gaming Hub
+1732132463870	ena	---	com.samsung.android.knox.zt.framework	KnoxZT Framework
+1732132463870	ena	---	com.sec.android.daemonapp	Clima
+1732132463870	ena	---	com.sec.sve	SecVideoEngineService
+1732132463870	ena	---	com.android.providers.downloads.ui	Descargas
+1732132463870	ena	---	com.android.vending	Google Play Store
+1732132463871	ena	---	com.android.pacprocessor	PacProcessor
+1732132463871	ena	---	com.samsung.android.knox.attestation	com.samsung.android.knox.attestation
+1732132463871	ena	---	com.samsung.android.secsoundpicker	SecSoundPicker
+1732132463871	ena	---	com.samsung.android.incall.contentprovider	CallContentProvider
+1732132463871	ena	---	com.google.android.adservices.api	Privacidad en los anuncios
+1732132463871	ena	---	com.samsung.android.sume.nn.service	SumeNNService
+1732132463871	ena	---	com.samsung.android.intellivoiceservice	Samsung Intelligence Voice Services
+1732132463871	ena	---	com.sec.android.app.soundalive	Calidad y efectos de sonido
+1732132463871	ena	---	com.samsung.android.kmxservice	KmxService
+1732132463871	ena	---	com.sec.android.provider.badge	BadgeProvider
+1732132463871	ena	---	com.android.certinstaller	Instalador de certificados
+1732132463871	ena	---	com.android.carrierconfig	com.android.carrierconfig
+1732132463871	ena	---	com.android.wifi.dialog	com.android.wifi.dialog
+1732132463872	ena	---	com.samsung.SMT	Motor de texto a voz de Samsung
+1732132463872	ena	---	com.samsung.cmh	CMHProvider
+1732132463872	ena	---	com.samsung.ssu	Desbloqueo de red
+1732132463872	ena	---	android	Sistema Android
+1732132463872	ena	---	com.samsung.android.wifi.increase.scan.interval.resources	com.samsung.android.wifi.increase.scan.interval.resources
+1732132463872	ena	---	com.samsung.android.wcmurlsnetworkstack	WcmUrlsNetworkStackOverlay
+1732132463872	ena	---	com.samsung.android.sm.devicesecurity	Protección de aplicaciones
+1732132463872	ena	---	com.samsung.android.peripheral.framework	Peripheral Framework
+1732132463872	ena	---	com.samsung.android.aircommandmanager	FACM
+1732132463872	ena	---	com.google.android.sdksandbox	com.google.android.sdksandbox
+1732132463872	ena	---	com.samsung.android.net.wifi.wifiguider	Consejos de Wi-Fi
+1732132463872	ena	---	com.samsung.android.wifi.softapwpathree.resources	com.samsung.android.wifi.softapwpathree.resources
+1732132463872	ena	---	com.samsung.android.service.stplatform	SmartThings Framework
+1732132463873	ena	---	com.samsung.android.smartface	SmartFaceService
+1732132463873	ena	---	com.android.egg	Android Easter Egg
+1732132463873	ena	---	com.android.mtp	Host MTP
+1732132463873	ena	---	com.android.nfc	NFC
+1732132463873	ena	---	com.android.ons	com.android.ons
+1732132463873	ena	---	com.android.stk	Herramientas de SIM
+1732132463873	ena	---	com.samsung.android.messaging	Mensajes
+1732132463873	ena	---	com.android.backupconfirm	com.android.backupconfirm
+1732132463873	ena	---	com.samsung.klmsagent	KLMS Agent
+1732132463873	ena	---	com.sec.android.app.SecSetupWizard	Asistente de configuración de Samsung
+1732132463873	ena	---	com.samsung.android.app.telephonyui	Ajustes de llamada
+1732132463874	ena	---	com.samsung.android.wifi.softap.resources	com.samsung.android.wifi.softap.resources
+1732132463874	ena	---	com.samsung.android.samsungpositioning	SamsungPositioning
+1732132463874	ena	---	com.samsung.android.bixby.agent	Bixby Voice
+1732132463874	ena	---	com.sec.android.app.hwmoduletest	HwModuleTest
+1732132463874	ena	---	com.android.settings.intelligence	Sugerencias de ajustes
+1732132463874	ena	---	com.sec.bcservice	com.sec.bcservice
+1732132463874	ena	---	com.sec.modem.settings	SilentLogging
+1732132463874	ena	---	com.samsung.android.privacydashboard	Uso de permisos
+1732132463874	ena	---	com.android.systemui.accessibility.accessibilitymenu	com.android.systemui.accessibility.accessibilitymenu
+1732132463874	ena	---	com.google.android.permissioncontroller	Controlador de permisos
+1732132463874	ena	---	com.sec.android.app.servicemodeapp	Service mode
+1732132463874	ena	---	com.sec.android.gallery3d	Galería
+1732132463874	ena	---	com.android.providers.settings	Almacenamiento de configuración
+1732132463875	ena	---	com.sec.android.app.volumemonitorprovider	VolumeMonitorProvider
+1732132463875	ena	---	com.samsung.accessibility	Accesibilidad
+1732132463875	ena	---	com.sec.imsservice	IMS Service
+1732132463875	ena	---	com.android.sharedstoragebackup	com.android.sharedstoragebackup
+1732132463875	ena	---	com.samsung.android.mobileservice	Compartir en grupos
+1732132463875	ena	---	com.samsung.android.mdx.kit	Conectividad de Quick Share
+1732132463875	ena	---	com.samsung.storyservice	Historias de Galería
+1732132463875	ena	---	com.google.android.overlay.modules.ext.services	com.google.android.overlay.modules.ext.services
+1732132463875	ena	---	com.samsung.android.rampart	Bloqueador automático
+1732132463875	ena	---	com.android.se	SecureElementApplication
+1732132463875	ena	---	com.android.inputdevices	Dispositivos de entrada
+1732132463876	ena	---	com.samsung.android.kgclient	Device Services
+1732132463876	ena	---	com.samsung.knox.securefolder	Carpeta segura
+1732132463876	ena	---	com.android.bips	Servicio de impresión predeterminado
+1732132463876	ena	---	com.android.stk2	Herramientas de SIM
+1732132463876	ena	---	com.samsung.android.game.gametools	Game Booster
+1732132463876	ena	---	com.samsung.android.service.peoplestripe	Personas
+1732132463876	ena	---	com.samsung.android.da.daagent	Dual Messenger
+1732132463876	ena	---	com.samsung.android.brightnessbackupservice	BrightnessBNR
+1732132463876	ena	---	com.samsung.android.app.reminder	Reminder
+1732132463876	ena	---	com.samsung.android.smartcallprovider	Smart Call
+1732132463876	ena	---	com.samsung.android.app.smartcapture	Captura de Samsung
+1732132463877	ena	---	com.google.android.modulemetadata	Main components
+1732132463877	ena	---	com.samsung.android.app.taskedge	Tareas
+1732132463877	ena	---	com.samsung.android.dynamiclock	Servicios de fondos de pantalla
+1732132463877	ena	---	com.samsung.advp.imssettings	IMS Settings
+1732132463877	ena	---	com.kernotec.tracking	Asistencia de Personal Trebol
+1732132463877	ena	---	com.samsung.android.location	slocation
+1732132463877	ena	---	com.sec.android.app.clockpackage	Reloj
+1732132463877	ena	---	com.sec.android.RilServiceModeApp	Service mode RIL
+1732132463877	ena	---	com.samsung.android.mdecservice	Llamadas y mensajes en otros dispositivos
+1732132463877	ena	---	com.samsung.android.app.telephonyui.esimclient	EsimClient
+1732132463878	ena	---	com.samsung.android.wifi.ai	WiFiAiService
+1732132463878	ena	---	com.google.android.networkstack	Administrador de redes
+1732132463878	ena	---	com.android.server.telecom	Llamadas telefónicas
+1732132463878	ena	---	com.samsung.crane	Teléfono
+1732132463878	ena	---	com.sec.imslogger	ImsLogger
+1732132463878	ena	---	com.android.keychain	Key Chain
+1732132463878	ena	---	com.samsung.android.ardrawing	Dibujos AR
+1732132463878	ena	---	com.samsung.android.ipsgeofence	Samsung Visit In
+1732132463878	ena	---	com.samsung.android.themecenter	Servicio de Galaxy Themes
+1732132463878	ena	---	com.samsung.android.server.wifi.mobilewips	MobileWips
+1732132463878	ena	---	com.google.android.packageinstaller	Instalador de paquetes
+1732132463879	ena	---	com.google.android.gms	Servicios de Google Play
+1732132463879	ena	---	com.google.android.gsf	Marco de los servicios de Google
+1732132463879	ena	---	com.google.android.tts	Reconocimiento y síntesis de voz de Google
+1732132463879	ena	---	com.android.wifi.resources	Recursos Wi‑Fi del sistema
+1732132463879	ena	---	com.samsung.android.container	ContainerService
+1732132463879	ena	---	com.android.calllogbackup	Call Log Backup/Restore
+1732132463879	ena	---	com.android.cameraextensions	CameraExtensionsProxy
+1732132463879	ena	---	com.sec.android.diagmonagent	DiagMonAgent
+1732132463879	ena	---	com.android.localtransport	com.android.localtransport
+1732132463879	ena	---	com.samsung.android.biometrics.app.setting	Datos biométricos
+1732132463880	ena	---	com.samsung.android.smartface.overlay	com.samsung.android.smartface.overlay
+1732132463880	ena	---	com.android.carrierdefaultapp	Comunicaciones de operadores
+1732132463880	ena	---	com.android.credentialmanager	Credential Manager
+1732132463880	ena	---	com.samsung.android.aremojieditor	Editor AR Emoji
+1732132463880	ena	---	com.sec.android.app.myfiles	Mis archivos
+1732132463880	ena	---	com.android.proxyhandler	ProxyHandler
+1732132463880	ena	---	com.android.intentresolver	IntentResolver
+1732132463880	ena	---	com.samsung.android.app.routines	Modos y rutinas
+1732132463880	ena	---	com.sec.android.mimage.photoretouching	Editor de imágenes
+1732132463880	ena	---	com.sec.android.app.launcher	Inicio de One UI
+1732132463881	ena	---	com.google.android.overlay.modules.permissioncontroller.forframework	com.google.android.overlay.modules.permissioncontroller.forframework
+1732132463881	ena	---	com.sec.android.app.apex	Samsung ApexService
+1732132463881	ena	---	com.samsung.sec.android.teegris.tui_service	TEEgrisTuiService
+1732132463881	ena	---	com.android.managedprovisioning	Configuración de trabajo
+1732132463881	ena	---	com.samsung.android.setting.multisound	Sonido de aplicación independiente
+1732132463881	dis	---	com.samsung.android.arzone	Zona AR
+1732132463881	ena	---	com.samsung.android.authfw	Authentication Framework
+1732132463881	ena	---	com.samsung.android.ConnectivityUxOverlay	ConnectivityUxOverlay
+1732132463881	ena	---	com.samsung.android.bixbyvision.framework	BixbyVision Framework
+1732132463882	ena	---	com.google.mainline.telemetry	Support components
+1732132463882	ena	---	com.samsung.safetyinformation	Información de seguridad
+1732132463882	ena	---	com.samsung.android.dialer	Teléfono
+1732132463882	ena	---	com.samsung.android.dqagent	DQA
+1732132463882	ena	---	com.samsung.android.game.gos	Game Optimizing Service
+1732132463882	ena	---	com.samsung.android.forest	Bienestar digital
+1732132463882	ena	---	com.samsung.android.sdk.ocr	OCRDataProvider
+1732132463882	ena	---	com.sec.android.app.vepreload	Studio
+1732132463882	ena	---	com.samsung.android.hdmapp	HdmApp
+1732132463883	ena	---	com.android.role.notes.enabled	Notes Role enabled
+1732132463883	ena	---	com.samsung.android.app.camera.sticker.facearavatar.preload	Crocro y amigos
+1732132463883	ena	---	com.android.wallpaper.livepicker	Seleccionador de fondo animado
+1732132463883	ena	---	com.samsung.android.beaconmanager	Búsqueda de dispositivos
+1732132463883	ena	---	com.sec.enterprise.mdm.services.simpin	Enterprise Sim Pin Service
+1732132463883	ena	---	com.android.apps.tag	Etiquetas
+1732132463883	ena	---	com.google.mainline.adservices	Main components
+1732132463883	ena	---	com.samsung.android.callassistant	Servicios de llamadas
+1732132463883	ena	---	com.samsung.android.ConnectivityOverlay	ConnectivityOverlay
+1732132463884	ena	---	com.samsung.android.stickercenter	Sticker Center
+1732132463884	ena	---	com.samsung.android.providers.media	Samsung Media Storage
+1732132463884	ena	---	com.sec.android.soagent	Actualización de software
+1732132463884	ena	---	com.samsung.android.providers.trash	SecTrashProvider
+1732132463884	ena	---	com.sec.android.CcInfo	CcInfo
+1732132463884	ena	---	com.sec.android.autodoodle.service	Dibujo automático
+1732132463884	ena	---	com.sec.android.app.quicktool	Herramientas
+1732132463884	ena	---	com.samsung.android.fmm	Localizar mi móvil
+1732132463884	ena	---	com.samsung.android.gru	Galaxy Resource Updater
+1732132463885	ena	---	com.samsung.android.mdm	MDMApp
+1732132463885	ena	---	com.samsung.android.mdx	Servicio Conexión a Windows
+1732132463885	ena	---	com.samsung.android.mtp	Aplicación MTP
+1732132463885	ena	---	com.samsung.android.scs	Samsung Core Services
+1732132463885	ena	---	com.samsung.android.uds	Modo Ultra ahorro de datos
+1732132463885	ena	---	com.sec.unifiedwfc	Llamada Wi-Fi
+1732132463885	ena	---	com.sec.phone	com.sec.phone
+1732132463886	ena	---	com.samsung.android.audiomirroring	AudioMirroring
+1732132463886	ena	---	com.samsung.android.appseparation	Separated Apps
+1732132463886	ena	---	com.samsung.android.bixby.wakeup	Activación por voz
+1732132463886	dis	---	com.google.android.gms.supervision	Controles parentales de Family Link
+1732132463886	ena	---	com.samsung.android.app.updatecenter	Actualización de aplicaciones
+1732132463886	ena	---	com.samsung.android.honeyboard	Teclado Samsung
+1732132463886	ena	---	com.samsung.android.samsungpass	Samsung Pass
+1732132463886	ena	---	com.android.storagemanager	Administrador de almacenamiento
+1732132463887	ena	---	com.samsung.android.scloud	Samsung Cloud
+1732132463887	ena	---	com.samsung.android.app.soundpicker	Seleccionar sonido
+1732132463887	ena	---	com.samsung.android.app.sharelive	Quick Share
+1732132463887	ena	---	com.sec.app.RilErrorNotifier	RilNotifier
+1732132463887	ena	---	com.samsung.android.spayfw	Samsung PaymentFramework
+1732132463887	ena	---	com.android.settings	Ajustes
+1732132463887	ena	---	com.samsung.android.widget.pictureframe	Galería
+1732132463888	ena	---	com.samsung.app.newtrim	Editor Lite
+1732132463888	ena	---	com.samsung.android.dbsc	Configuración de Servicio Galaxy
+1732132463888	ena	---	com.samsung.android.dsms	Dsms
+1732132463888	ena	---	com.samsung.android.lool	Cuidado del dispositivo
+1732132463888	ena	---	com.samsung.android.scpm	Asistente de Samsung Cloud
+1732132463888	ena	---	com.sec.android.sdhms	Samsung Device Health Manager Service
+1732132463888	dis	---	com.samsung.android.app.spage	Samsung Free
+1732132463888	ena	---	com.samsung.android.settingshelper	SettingsHelper
+1732132463889	ena	---	com.sec.android.mimage.avatarstickers	Adhesivos AR Emoji
+1732132463889	ena	---	com.samsung.android.knox.analytics.uploader	Knox Analytics Uploader
+1732132463889	ena	---	com.google.android.overlay.modules.captiveportallogin.forframework	com.google.android.overlay.modules.captiveportallogin.forframework
+1732132463889	ena	---	com.sec.android.emergencylauncher	Launcher
+1732132463889	ena	---	com.sec.hearingadjust	Adapt sound
+1732132463889	ena	---	com.sec.android.easyMover	Smart Switch
+1732132463889	ena	---	com.samsung.android.bluelightfilter	Protector de la vista
+1732132463890	ena	---	com.samsung.android.bbc.bbcagent	BBCAgent
+1732132463890	ena	---	com.samsung.android.visionintelligence	Bixby Vision
+1732132463890	ena	---	com.samsung.android.app.earphonetypec	Auricular USB-C de Samsung
+1732132463890	ena	---	com.samsung.android.singletake.service	Toma única
+1732132463890	ena	---	com.samsung.android.callbgprovider	CallBGProvider
+1732132463890	ena	---	com.knox.vpn.proxyhandler	KnoxVpnPacProcessor
+1732132463890	ena	---	com.samsung.oda.service	SamsungOdaService
+1732132463891	ena	---	com.samsung.android.app.watchmanagerstub	Wearable Manager Installer
+1732132463891	ena	---	com.samsung.android.svcagent	SVC Agent
+1732132463891	ena	---	com.google.android.overlay.modules.modulemetadata.forframework	com.google.android.overlay.modules.modulemetadata.forframework
+1732132463891	ena	---	com.sec.mhs.smarttethering	Hotspot automático
+1732132463891	ena	---	com.samsung.android.photoremasterservice	PhotoRemasterService
+1732132463891	ena	---	com.samsung.android.networkdiagnostic	NetworkDiagnostic
+1732132463892	ena	---	com.samsung.android.shortcutbackupservice	ShortcutBNR
+1732132463897	ena	---	com.samsung.android.mcfserver	Samsung Multi Connectivity
+1732132463897	ena	---	com.android.vpndialogs	VpnDialogs
+1732132463898	ena	---	com.samsung.android.networkstack.tethering.overlay	com.samsung.android.networkstack.tethering.overlay
+1732132463899	ena	---	com.sec.facatfunction	FacAtFunction
+1732132463902	ena	---	com.samsung.android.providers.contacts	Almacenamiento de contactos
+1732132463913	ena	---	com.android.phone	Servicios telefónicos
+1732132463916	ena	---	com.android.shell	Shell
+1732132463919	ena	---	com.samsung.cmfa.AuthTouch	CMFA AuthTouchService
+1732132463919	ena	---	com.android.wallpaperbackup	com.android.wallpaperbackup
+1732132463922	ena	---	com.android.providers.blockednumber	Almacenamiento de números bloqueados
+1732132463926	ena	---	com.samsung.android.app.omcagent	Aplicaciones recomendadas
+1732132463928	ena	---	com.android.providers.userdictionary	Diccionario del usuario
+1732132463932	ena	---	com.sec.enterprise.knox.cloudmdm.smdms	Knox Enrollment Service
+1732132463935	ena	---	com.wssyncmldm	Actualización de software
+1732132463938	ena	---	com.android.hotspot2.osulogin	OsuLogin
+1732132463938	ena	---	com.samsung.ims.smk	SimMobilityKit
+1732132463940	ena	---	com.android.location.fused	Ubicación combinada
+1732132463941	ena	---	com.samsung.android.app.appsedge	Apps
+1732132463943	ena	---	com.samsung.android.samsungpassautofill	Autorrellenar (Samsung Pass)
+1732132463944	ena	---	com.sec.epdg	com.sec.epdg
+1732132463950	ena	---	com.android.systemui	UI sistema
+1732132463953	ena	---	com.sec.android.app.personalization	Personalizar
+1732132463953	ena	---	com.google.android.ondevicepersonalization.services	com.android.ondevicepersonalization.services.OnDevicePersonalizationApplication
+1732132463953	ena	---	com.samsung.sait.sohservice	SoHService
+1732132463955	ena	---	com.sec.factory.cameralyzer	Cameralyzer
+1732132463956	ena	---	com.samsung.android.sdk.handwriting	HandwritingService
+1732132463956	ena	---	com.samsung.android.wifi.decrease.scan.interval.resources	com.samsung.android.wifi.decrease.scan.interval.resources
+1732132463957	ena	---	com.samsung.aasaservice	SecurityPolicy
+1732132463959	ena	---	com.samsung.android.smartsuggestions	Sugerencias inteligentes
+1732132463960	ena	---	com.android.traceur	Registro del sistema
+1732132463961	ena	---	com.samsung.android.allshare.service.mediashare	Nearby Service
+1732132463962	ena	---	com.samsung.android.providers.factory	FactoryTestProvider
+1732132463963	ena	---	com.samsung.android.cameraxservice	SCameraXService
+1732132463965	ena	---	com.samsung.android.cidmanager	Actualizar configuración
+1732132463967	ena	---	com.sec.android.app.camera	Cámara
+1732132463968	ena	---	com.android.bluetooth	Bluetooth
+1732132463969	ena	---	com.samsung.android.app.clipboardedge	Portapapeles edge
+1732132463970	ena	---	com.samsung.ipservice	IPService
+1732132463971	ena	---	com.sec.android.app.magnifier	Lupa
+1732132463972	ena	---	com.samsung.sec.android.application.csc	CSC
+1732132463974	ena	---	com.samsung.android.sdm.config	Actualizar configuración
+1732132463975	ena	---	com.samsung.android.app.dressroom	Fondo de pantalla y estilo
+1732132463976	ena	---	com.samsung.android.app.dofviewer	Retrato
+1732132463977	ena	---	com.samsung.android.mcfds	Continuity Service
+1732132463979	ena	---	com.samsung.android.video	Reproductor de video

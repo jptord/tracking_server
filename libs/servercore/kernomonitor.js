@@ -208,7 +208,7 @@ class KernoMonitor{
             }	
             if (device.startedSession && device.haveStates() ){
                 this.clients.forEach(client =>{
-                    console.log('device.states:',device.states)	;
+                    //console.log('device.states:',device.states)	;
                     client.emit('device.session.start',device.get())					
                 });
                 console.log("--start session sended");

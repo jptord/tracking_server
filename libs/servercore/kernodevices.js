@@ -53,7 +53,7 @@ class KernoDevices{
                 },
             }
         ];
-        this.responsesTimeout = 50000;
+        this.responsesTimeout = 120000;
     }
 	updateTimer(self){
 		self.update();

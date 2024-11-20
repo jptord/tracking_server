@@ -118,7 +118,7 @@ class Device{
 
 	updateTime(){
 		this.elapsed = Date.now()-this.lasttime;
-		this.lasttime = Date.now();
+		this.lasttime = Date.now(); 
 	}
 
 	getLast(){
@@ -169,7 +169,7 @@ class Device{
 			//fs.writeFile(`tracks/apps-history-${this.id}.txt`, b64, err => {}); ONLY FOR DEBUG
 			 
 			const decoded = Buffer.from(b64, "base64");			
-            console.log("device.setAppsHistory: ",`tracks/apps-history-${this.id}.zip`);
+            //console.log("device.setAppsHistory: ",`tracks/apps-history-${this.id}.zip`);
 			fs.writeFile(`tracks/apps-history-${this.id}.zip`, decoded, err => {});            
 			decompress(decoded, 'dist').then(files => {
 				let content = "";
@@ -195,7 +195,7 @@ class Device{
 			fs.writeFile(`tracks/track-${this.id}.txt`, b64, err => {});
 			
 			const decoded = Buffer.from(b64, "base64");			
-            console.log("device.setTracks: ",`tracks/track-${this.id}.zip`);
+            //console.log("device.setTracks: ",`tracks/track-${this.id}.zip`);
 			fs.writeFile(`tracks/track-${this.id}.zip`, decoded, err => {});            
 			decompress(decoded, 'dist').then(files => {
 				let content = "";
@@ -249,7 +249,10 @@ class Device{
 		this.lastUpdated = true;
 	}
     appendTrack(){
-        this.tracksHistory.push(...this.tracks);        
+        this.tracksHistory.push(...this.tracks);
+        let content = "";
+        this.tracks.forEach(t=> content += `${t.lat}\t${t.lat}\t${t.lon}\t${t.bat}\t${t.acc}\t${t.stp}\n` );
+        fs.writeFile(`tracks/track-history-${Date.now()}-${this.id}.txt`, content, err => {});
     }
 	clearTrack(){
         //if (this.states['ON_ROUTE']=="0")
