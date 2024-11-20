@@ -58,6 +58,7 @@ class AtxUpdater {
                             process.exit();
                         });
                     }
+                    Log(res,"Err:");
                     Log(res,err);
                     Log(res,"nothing to update[F]");
                     res.end();
