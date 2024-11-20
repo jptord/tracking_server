@@ -37,6 +37,7 @@ class KernoDevices{
                     if(device.connected){
                         device.connected = false;
                         device.endSession(true);
+                        device.clearTrack();
                         console.log("--end session")
                     }
                 },
@@ -48,6 +49,7 @@ class KernoDevices{
                     if(!device.connected){
                         device.connected = true;
                         device.startSession(true);
+                        //device.clearTrack();
                         console.log("--start session");
                     }
                 },

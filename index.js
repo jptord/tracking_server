@@ -252,7 +252,7 @@ servidor.get('/device/:id/update', (req, res) => {
 
 servidor.get('/device/:id/reset', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
-	device.clearTrack();
+	//device.clearTrack();
 	kernoMonitor.updateDevice(device);
 	if (device != null){
 		res.setHeader('Content-Type', 'application/json');

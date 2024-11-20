@@ -216,6 +216,8 @@ class Device{
                                 stp:stp,
                             }));
 					});
+                    if (me.states['ON_ROUTE']!=1)
+                        ME.clearTrack();
 					
 					me.trackUpdated = true;
 				})
@@ -241,7 +243,8 @@ class Device{
 		this.appsHistory.push(app);	
 	}
 	addTrack(track){		
-		this.tracks.push(track);	
+		this.tracks.push(track);
+        
 		//this.trackUpdated = true;
 	}
 	setLast(track){		
