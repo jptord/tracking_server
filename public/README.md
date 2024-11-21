@@ -9,3 +9,4 @@
 
 # 1.0.19 compressed
 # 1.1.0 added history file
+# 1.1.1 fix remove devices
