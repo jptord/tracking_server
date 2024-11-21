@@ -90,7 +90,7 @@ class KernoDevices{
 	unsubscribe(device){
 		var index = this.devices.indexOf(device);		
 		if (index > -1){
-			this.devices.splice(index, 1);
+			//this.devices.splice(index, 1);
             //   TREBOL-11  registrar eventos de conexión
 			this.events.forEach(e=>e.onRemoveDevice(device));
 		}
@@ -168,7 +168,7 @@ class KernoDevices{
 	}
 	removeDevice(device){
 		this.events.forEach(e=>e.onRemoveDevice(device));
-		this.devices.splice(this.devices.indexOf(device),1);
+		//this.devices.splice(this.devices.indexOf(device),1);
 	}
 	communication(){
 		/*this.devices.forEach((device,index) => {
@@ -200,6 +200,8 @@ class KernoDevices{
         
         //TREBOL-12 configuración global de dispositivos
 		Object.keys(req.body).forEach(k => {
+            if (k=="ID_USER" && req.body[k] == "") return;
+            if (k=="ID_ROUTE" && req.body[k] == "") return;
 			device.setState(k, req.body[k]);
 		});	
 		if ( device.getState("ID_SESSION") == "0" || device.getState("ID_SESSION") == "1"|| device.getState("ID_SESSION") == "" ){
