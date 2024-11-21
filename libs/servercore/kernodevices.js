@@ -117,10 +117,12 @@ class KernoDevices{
         
         res.setHeader('Content-Type', 'application/json');
         let device = me.getDevice(req.params.id);
+        let triggered = false;
         Object.keys(req.body).forEach(k => {
             device.setSetup(k, req.body[k]);
             let _response = me.responses.find(r=>r.trigger == k);
             if(_response != null){
+                triggered = true;
                 device.addRequest({
                     timeout : me.responsesTimeout,
                     time: Date.now(),
@@ -135,11 +137,13 @@ class KernoDevices{
                     },
                     active : true,
                 });
-            }else{
-                let data={response:'ok'};
-                res.end(JSON.stringify(data));
             }
         });	
+        if(!triggered){
+            console.log("setSetupRequest testing");
+            let data={response:'ok'};
+            res.end(JSON.stringify(data));
+        }
         callback(device);
     }
 
