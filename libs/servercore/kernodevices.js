@@ -158,8 +158,9 @@ class KernoDevices{
 	getDevice(deviceId){
 		let device = this.devices.find( d => d.id == deviceId );
 		if (device==null) {
-			device = new Device();
+			device = new Device();            
 			device.setId(deviceId);
+            device.recoverHistory();
 			this.subscribe(device);
 		}
 		if (Object.keys(device.config).length == 0){
@@ -267,10 +268,11 @@ class KernoDevices{
 	}
     
 	process(message, callback){
-        let data
+        let data;
         try{
 		    data = JSON.parse(message);
         }catch(e){
+            //console.log("process catched ", message );
             return;
         }
 		//let device = this.devices.find( d => d.id == data.device );
@@ -278,6 +280,7 @@ class KernoDevices{
 		if (device==null) {
 			device = new Device();
 			device.setId(data.device);
+            device.recoverHistory();
 			this.subscribe(device);
 		}
 		let track = new Track({
@@ -288,6 +291,7 @@ class KernoDevices{
 			acc:data.acc,
 			stp:data['s'],
 		});
+        //console.log("process track ", message );
 		device.addTrack(track);
 		device.setLast(track);
 		//device.updateTime();

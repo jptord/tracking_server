@@ -11,3 +11,4 @@
 # 1.1.0 added history file
 # 1.1.1 fix remove devices
 # 1.1.2 fix end write error 
+# 1.1.3 fix error on devices

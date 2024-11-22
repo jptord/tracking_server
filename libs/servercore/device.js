@@ -2,6 +2,9 @@
 const fs = require('node:fs');
 const decompress = require('decompress');
 const { Track }   = require("./track.js")
+
+let HISTORY_MAX_TIME    = 2120000;
+let TRACKS_MAX_TIME     = 960000;
 class Device{
     
 	constructor(){
@@ -18,6 +21,7 @@ class Device{
 		this.setup 			= {};
 		this.config 		= {};
         this.apps           = [];
+        this.lastAppend     = -1;
         this.appsHistory    = [];
 		this.needUpdate		= false;
 		this.configUpdated	= false;
@@ -35,7 +39,7 @@ class Device{
         this.startedSession = false;
         //TREBOL-45 Agregar tiempo de retención de datos de servidor
         this.connected		= true;
-        this.request       = [];
+        this.request       = [];        
     }
     processPendientRequest(){        
         //console.log("process pendients");
@@ -143,7 +147,7 @@ class Device{
 		if (type == 'base64'){
 			//fs.writeFile(`tracks/apps-${this.id}.txt`, b64, err => {}); ONLY FOR DEBUG
 			const decoded = Buffer.from(b64, "base64");			
-            console.log("device.setApps: ",`tracks/apps-${this.id}.zip`);
+            //console.log("device.setApps: ",`tracks/apps-${this.id}.zip`);
 			fs.writeFile(`tracks/apps-${this.id}.zip`, decoded, err => {});            
 			decompress(decoded, 'dist').then(files => {
 				let content = "";
@@ -216,8 +220,10 @@ class Device{
                                 stp:stp,
                             }));
 					});
-                    if (me.states['ON_ROUTE']!=1)
-                        ME.clearTrack();
+                    if (me.states['ON_ROUTE']!=1){
+                        console.log("setTracks me.states['ON_ROUTE']",me.states['ON_ROUTE'] );
+                        me.clearTrack();
+                    }
 					
 					me.trackUpdated = true;
 				})
@@ -242,25 +248,85 @@ class Device{
 	addAppHistory(app){		
 		this.appsHistory.push(app);	
 	}
+    parseTrack(track){
+        return {t:Number(track.t),lat:Number(track.lat),lon:Number(track.lon),bat:Number(track.bat),acc:Number(track.acc),stp:Number(track.stp)}
+    }
 	addTrack(track){		
-		this.tracks.push(track);
-        
+		this.tracks.push(this.parseTrack(track));
 		//this.trackUpdated = true;
 	}
 	setLast(track){		
 		this.last = track;
 		this.lastUpdated = true;
 	}
+    trimHistory(time){
+        let tempHistory = [];
+        let fromTime = Date.now() - time; //16hrs
+        for(let i=0; i < this.tracksHistory.length; i++){
+            if(this.tracksHistory[i].t>fromTime)
+                tempHistory.push(this.tracksHistory[i]);
+        }
+        //console.log("trimHistory trimed to:",tempHistory.length);
+        return tempHistory;        
+    }
+    swapHistory(){
+        var stats = fs.statSync(`tracks/track-history-${this.id}.txt`)
+        var fileSizeInBytes = stats.size;
+        var fileSizeInKBytes = stats.size/1024;
+        //var fileSizeInMegabytes = fileSizeInBytes / (1024*1024);
+        if (fileSizeInKBytes>6){ //if > 2k  swap history
+          //  console.log("swap history");
+            let dateString = new Date().toISOString().replaceAll(':','').replaceAll('-','');
+            fs.rename( `tracks/track-history-${this.id}.txt`, `tracks/track-history-${this.id}-${dateString}.txt`, ()=>{} )
+            fs.writeFile(`tracks/track-history-${this.id}.txt`, "", err => {});
+        }
+
+    }
     appendTrack(){
+        //console.log("appendTrack start");
+        //console.log("appendTrack this.tracks ", this.tracks.length);
         this.tracksHistory.push(...this.tracks);
+        let me = this;
         let content = "";
-        this.tracks.forEach(t=> content += `${t.lat}\t${t.lat}\t${t.lon}\t${t.bat}\t${t.acc}\t${t.stp}\n` );
-        fs.writeFile(`tracks/track-history-${Date.now()}-${this.id}.txt`, content, err => {});
+        this.tracks.forEach(t=> {
+            if (t.t<me.lastAppend) return;
+            content += `${t.t}\t${t.lat}\t${t.lon}\t${t.bat}\t1\t${t.acc}\t${t.stp}\n`;
+        });
+        fs.appendFile(`tracks/track-history-${this.id}.txt`, content, err => {});
+        this.tracksHistory = this.trimHistory(HISTORY_MAX_TIME);
+        this.swapHistory();
+        //console.log("appendTrack ended");
+        this.lastAppend = Date.now(); 
+    }
+    recoverHistory(){
+        //history + currentTracks        
+        let me = this;
+        //console.log("recoverHistory recovering tracks " );
+        let existFile = fs.existsSync(`tracks/track-history-${this.id}.txt`);
+        if (!existFile) {
+            fs.writeFile(`tracks/track-history-${this.id}.txt`, "", err => {});
+            //console.log("recoverHistory no exist history" );
+            return;
+        }
+        fs.readFile(`tracks/track-history-${this.id}.txt`,"utf8", (err, data) => {
+            let lines = data.trim().split('\n');
+            me.tracksHistory = [];
+            lines.forEach( line => {
+                let [t,lat,lon,b,int,acc,stp] = line.split('\t');
+                if (t!="")
+                    me.tracksHistory.push(new Track({t:t,lat:lat,lon:lon,bat:b,acc:acc,stp:stp,}));
+            });            
+            me.tracksHistory    = me.trimHistory(HISTORY_MAX_TIME);
+            me.tracks           = me.trimHistory(TRACKS_MAX_TIME);
+            //console.log("recoverHistory recovered " + me.tracks.length + "tracks");
+        })
+        this.lastAppend = Date.now(); 
     }
 	clearTrack(){
         //if (this.states['ON_ROUTE']=="0")
         this.appendTrack();
 		this.tracks = [];
+        this.tracks.push(...this.trimHistory(TRACKS_MAX_TIME)); 
 		this.trackUpdated = true;
 	}
 	setConfig(key, value){

@@ -253,6 +253,7 @@ servidor.get('/device/:id/update', (req, res) => {
 servidor.get('/device/:id/reset', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
 	//device.clearTrack();
+    device.clearTrack();
 	kernoMonitor.updateDevice(device);
 	if (device != null){
 		res.setHeader('Content-Type', 'application/json');
@@ -260,6 +261,17 @@ servidor.get('/device/:id/reset', (req, res) => {
 	}else
 		res.end();
 });
+
+servidor.get('/device/:id/clear2', (req, res) => {
+	let device = kernoDevices.getDevice(req.params.id);
+    device.clearTrack();
+	if (device != undefined) kernoMonitor.updateDevice(device);	
+	if (device != null){
+		res.setHeader('Content-Type', 'application/json');
+		res.end(`{"result":"ok"}`);
+	}else
+		res.end();
+}); 
 
 servidor.get('/device/:id/clear', (req, res) => {
 	let device = kernoDevices.getDevice(req.params.id);
