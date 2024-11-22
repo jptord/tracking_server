@@ -3,8 +3,8 @@ const fs = require('node:fs');
 const decompress = require('decompress');
 const { Track }   = require("./track.js")
 
-let HISTORY_MAX_TIME    = 2120000;
-let TRACKS_MAX_TIME     = 960000;
+let HISTORY_MAX_TIME    = 86400000;
+let TRACKS_MAX_TIME     = 57600000;
 class Device{
     
 	constructor(){
